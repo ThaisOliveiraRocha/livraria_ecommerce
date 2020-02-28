@@ -1,12 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
+import Livraria from "../../container/Livraria/Livraria";
 //import { Test } from './Home.styles';
 
-const Home = (props) => (
-  <div className="HomeWrapper">
-    Test content
-  </div>
-);
+const Home = props => <Livraria />;
 
 Home.propTypes = {
   // bla: PropTypes.string,

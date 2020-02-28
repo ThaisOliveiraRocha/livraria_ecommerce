@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Layout from '../../components/Layout'
+import Card from './components/Card/Card';
 //import { Test } from './Livraria.styles';
 
 const Livraria = (props) => (
-  <div className="LivrariaWrapper">
-    Test content
-  </div>
+  <Layout>
+    <Card />
+  </Layout>
 );
 
 Livraria.propTypes = {

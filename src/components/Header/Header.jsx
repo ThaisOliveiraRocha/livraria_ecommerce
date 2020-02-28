@@ -1,84 +1,26 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-//import { Test } from './Header.styles';
+import React from "react";
+import PropTypes from "prop-types";
+import {
+  Container,
+  Image,
+  Titulo,
+  CartContainer,
+  CartImage,
+  QuantidadeItens,
+  TituloCarrinho
+} from "./Header.styles";
 
-import 'bootstrap/dist/css/bootstrap.min.css'
-import {Link} from 'react-router-dom'
-
-import '../livraria.css'
-import book from './../images/book_novo.svg'
-import carrinho from '../images/carrinho_mercado.png'
-
-const livros = JSON.parse(localStorage.getItem('livros'))
-
-class Header extends PureComponent { 
-  constructor(props) {
-    super(props)
-
-    this.state = {
-        qtd_carrinho: 0
-    }
-
-    this.atualizarQtdCarrinho = this.atualizarQtdCarrinho.bind(this);
-    this.onClick = this.onClick.bind(this);
-  }
-
-  componentDidMount = () => {
-    let tam = 0
-
-      if(livros)
-        tam =livros.reduce((aux, livro) => {
-          aux = aux + livro.qtd
-          return aux
-        }, 0)
-
-      this.setState({
-        qtd_carrinho: tam
-      })
-  }
-
-  atualizarQtdCarrinho(n){
-    this.setState({
-        qtd_carrinho: n,
-    })
-  }
-
-  onClick() {
-    if(this.state.qtd_carrinho > 0)
-        window.location.href = '/carrinho'
-    else
-        window.location.href = '/livraria'
-  }
-  
-  render () {
-    if (this.state.hasError) {
-      return <h1>Something went wrong.</h1>;
-    }
-    return (
-      <div className="corpo_header">
-        <div className="row">
-          <div className="col-1">
-            <div className="">
-              <img src={book} className="imagemLogo" alt=""/>
-            </div>
-          </div>
-          <div className="col-6 coluna_txt">
-            <span className="texto">Livraria on-line</span>
-          </div>
-          <div className="col coluna_carrinho">
-            <div className="carrinho">
-              <img className="img_carrinho" src={carrinho} alt=""/>
-              <Link to="/carrinho" className="texto_carrinho" onClick={this.onClick}>
-                Meu Carrinho
-                <span className="badge badge-danger badge-pill">{this.state.qtd_carrinho}</span>    
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-}
+const Header = props => (
+  <Container>
+    <Image src={require("../../assets/images/book_novo.svg")} />
+    <Titulo>Livraria on-line</Titulo>
+    <CartContainer>
+      <CartImage src={require("../../assets/images/carrinho_mercado.png")} />
+      <TituloCarrinho>carrinho</TituloCarrinho>
+      <QuantidadeItens>1</QuantidadeItens>
+    </CartContainer>
+  </Container>
+);
 
 Header.propTypes = {
   // bla: PropTypes.string,
