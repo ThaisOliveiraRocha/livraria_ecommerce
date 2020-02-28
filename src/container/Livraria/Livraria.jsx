@@ -4,6 +4,8 @@ import Layout from '../../components/Layout'
 import Card from './components/Card/Card';
 //import { Test } from './Livraria.styles';
 
+const LIVROS_JSON = '../../../mock/livros.json';
+
 const Livraria = (props) => (
   <Layout>
     <Card />
@@ -15,7 +17,7 @@ Livraria.propTypes = {
 };
 
 Livraria.defaultProps = {
-  // bla: 'test',
+  
 };
 
 export default Livraria;

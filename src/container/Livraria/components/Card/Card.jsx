@@ -12,26 +12,32 @@ import {
   Texto
 } from "./Card.styles";
 
-const Card = props => (
-  <CardContainer>
-    <CardBody>
-      <TopCard>
-        <Titulo>Nome Livro</Titulo>
-        <ImageCard src={require("../../../../assets/images/book1.png")} />
-      </TopCard>
-      <InfoCard>
-        <Texto>Autor</Texto>
-        <Texto>Ano</Texto>
-        <Texto>Genero</Texto>
-        <Texto>Preço</Texto>
-        <Texto>Situacao</Texto>
-      </InfoCard>
-    </CardBody>
-    <CardButton>
-      <Button>Comprar</Button>
-    </CardButton>
-  </CardContainer>
-);
+const Card = ({ props }) => {
+  const onClick = event => {
+    window.location.href = "/details";
+  };
+
+  return (
+    <CardContainer>
+      <CardBody onClick={onClick}>
+        <TopCard>
+          <Titulo>titulo</Titulo>
+          <ImageCard src={require("../../../../assets/images/book1.png")} />
+        </TopCard>
+        <InfoCard>
+          <Texto>autor</Texto>
+          <Texto>ano</Texto>
+          <Texto>genero</Texto>
+          <Texto>preco</Texto>
+          <Texto>situacao</Texto>
+        </InfoCard>
+      </CardBody>
+      <CardButton>
+        <Button>Comprar</Button>
+      </CardButton>
+    </CardContainer>
+  );
+};
 
 Card.propTypes = {
   // bla: PropTypes.string,
