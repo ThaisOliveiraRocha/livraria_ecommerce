@@ -61,3 +61,9 @@ export const ButtonCancelar = styled.div`
     align-items: center;
     justify-content: center;
 `;
+
+export const Texto = styled.span`
+  font-size: 16px;
+  font-weight: 600;
+  color: black;
+`;

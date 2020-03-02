@@ -8,7 +8,8 @@ import {
   BodyCart, 
   ButtonContainer, 
   ButtonCancelar, 
-  ButtonFinalizar 
+  ButtonFinalizar,
+  Texto 
 } from "./ListaCarrinho.styles";
 
 class ListaCarrinho extends PureComponent {
@@ -48,6 +49,7 @@ class ListaCarrinho extends PureComponent {
         </TableCart>
 
         <ButtonContainer>
+          <Texto>Total da Compra: </Texto>
           <ButtonFinalizar type="button">Finalizar</ButtonFinalizar>
           <ButtonCancelar type="button">Cancelar</ButtonCancelar>
         </ButtonContainer>

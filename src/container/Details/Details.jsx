@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 //import { Test } from './Details.styles';
 
 import Layout from '../../components/Layout';
-import DetailsBook from './DetailsBook';
+import DetailsBook from './components/DetailsBook';
 
 class Details extends PureComponent { 
   constructor(props) {
