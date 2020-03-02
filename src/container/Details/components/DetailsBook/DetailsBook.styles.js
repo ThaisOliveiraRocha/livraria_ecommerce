@@ -105,6 +105,9 @@ export const TopoAvaliacao = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
+  .yellow{
+    color: #ffef0f;
+  }
 `;
 
 export const ItemCabecalho = styled.span`

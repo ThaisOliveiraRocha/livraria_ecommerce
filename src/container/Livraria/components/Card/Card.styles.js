@@ -13,6 +13,8 @@ export const CardBody = styled.div`
   display: flex;
   align-items: center;
   margin: 10px;
+
+  cursor: pointer;
 `;
 
 export const TopCard = styled.div`

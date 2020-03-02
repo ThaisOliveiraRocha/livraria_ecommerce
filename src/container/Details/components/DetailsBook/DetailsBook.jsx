@@ -12,14 +12,14 @@ import {
   AvaliacoesComponent,
   Avaliacao,
   TopoAvaliacao,
-  ItemCabecalho,
   BotoesCabecalho,
   ButtonLike,
-  TextoAvaliacaoComponent,
+  TextoAvaliacaoComponent
 } from "./DetailsBook.styles";
-import Button from '../../../../components/Button';
-import Titulo from '../../../../components/Title';
-import Text from '../../../../components/Text';
+import Button from "../../../../components/Button";
+import Titulo from "../../../../components/Title";
+import Text from "../../../../components/Text";
+import { FaStar } from 'react-icons/fa';
 
 const DetailsBook = props => (
   <Body>
@@ -36,7 +36,7 @@ const DetailsBook = props => (
             <Text>Situacao</Text>
             <Text>Preco</Text>
           </InfoComponent>
-            <Button>Adicionar ao Carrinho</Button>
+          <Button>Adicionar ao Carrinho</Button>
         </DetailsComponent>
       </FichaTecnica>
       <Sinopse>
@@ -49,7 +49,13 @@ const DetailsBook = props => (
       <Avaliacao>
         <TopoAvaliacao>
           <Text>Nome user</Text>
-          <Text>Estrelas</Text>
+          <Text>
+            <FaStar className="yellow"></FaStar>
+            <FaStar className="yellow"></FaStar>
+            <FaStar className="yellow"></FaStar>
+            <FaStar className="yellow"></FaStar>
+            <FaStar className="yellow"></FaStar>
+          </Text>
           <Text>data</Text>
           <BotoesCabecalho>
             <ButtonLike src={require("../../../../assets/images/like.svg")} />
@@ -60,7 +66,7 @@ const DetailsBook = props => (
           <Text>Texto avaliação</Text>
         </TextoAvaliacaoComponent>
       </Avaliacao>
-        <Button>Adicionar Comentário</Button>
+      <Button>Adicionar Comentário</Button>
     </AvaliacoesComponent>
   </Body>
 );
