@@ -29,19 +29,13 @@ export const CartContainer = styled.div`
   align-items: center;
 
   margin-right: 15px;
+  position: relative;
 `;
 
 export const CartImage = styled.img`
   width: 30px;
   height: auto;
   margin-right: 10px;
-`;
-
-export const TituloCarrinho = styled.span`
-  flex-grow: 1;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 300;
 `;
 
 export const QuantidadeItens = styled.span`
@@ -54,6 +48,9 @@ export const QuantidadeItens = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
+  position: absolute;
+  top: 5px;
+  left: 45px;
 
   margin-left: 10px;
 `;
