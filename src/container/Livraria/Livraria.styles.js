@@ -3,12 +3,17 @@ import styled from "styled-components";
 export const ModalBody = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
 
-  width: 20%;
-  height: 150px;
+  border: 1px solid rgba(11, 107, 230, 0.5);
+  box-shadow: 5px 5px 30px rgba(11, 107, 230, .3);
 
+  width: 20%;
+  height: 170px;
   overflow-y: scroll; 
+
+  padding: 10px;
 `;
 
 export const Table = styled.table`
