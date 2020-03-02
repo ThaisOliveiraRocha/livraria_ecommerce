@@ -8,11 +8,7 @@ import {
   ImageComponent,
   Image,
   InfoComponent,
-  ButtonCarrinho,
-  Titulo,
-  Button,
   Sinopse,
-  Texto,
   AvaliacoesComponent,
   Avaliacao,
   TopoAvaliacao,
@@ -20,8 +16,10 @@ import {
   BotoesCabecalho,
   ButtonLike,
   TextoAvaliacaoComponent,
-  NovoComentario
 } from "./DetailsBook.styles";
+import Button from '../../../../components/Button';
+import Titulo from '../../../../components/Title';
+import Text from '../../../../components/Text';
 
 const DetailsBook = props => (
   <Body>
@@ -32,41 +30,37 @@ const DetailsBook = props => (
         </ImageComponent>
         <DetailsComponent>
           <InfoComponent>
-            <Titulo>Titulo</Titulo>
-            <Titulo>Autor</Titulo>
-            <Titulo>Ano</Titulo>
-            <Titulo>Situacao</Titulo>
-            <Titulo>Preco</Titulo>
+            <Text>Titulo</Text>
+            <Text>Autor</Text>
+            <Text>Ano</Text>
+            <Text>Situacao</Text>
+            <Text>Preco</Text>
           </InfoComponent>
-          <ButtonCarrinho>
             <Button>Adicionar ao Carrinho</Button>
-          </ButtonCarrinho>
         </DetailsComponent>
       </FichaTecnica>
       <Sinopse>
         <Titulo>Sinopse</Titulo>
-        <Texto>texto sinopse</Texto>
+        <Text>texto sinopse</Text>
       </Sinopse>
     </Topo>
     <AvaliacoesComponent>
       <Titulo>Avaliações</Titulo>
       <Avaliacao>
         <TopoAvaliacao>
-          <ItemCabecalho>Nome user</ItemCabecalho>
-          <ItemCabecalho>Estrelas</ItemCabecalho>
-          <ItemCabecalho>data</ItemCabecalho>
+          <Text>Nome user</Text>
+          <Text>Estrelas</Text>
+          <Text>data</Text>
           <BotoesCabecalho>
             <ButtonLike src={require("../../../../assets/images/like.svg")} />
             <ButtonLike src={require("../../../../assets/images/finger.svg")} />
           </BotoesCabecalho>
         </TopoAvaliacao>
         <TextoAvaliacaoComponent>
-          <Texto>Texto avaliação</Texto>
+          <Text>Texto avaliação</Text>
         </TextoAvaliacaoComponent>
       </Avaliacao>
-      <NovoComentario>
         <Button>Adicionar Comentário</Button>
-      </NovoComentario>
     </AvaliacoesComponent>
   </Body>
 );

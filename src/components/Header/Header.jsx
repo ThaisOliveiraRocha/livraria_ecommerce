@@ -3,20 +3,25 @@ import PropTypes from "prop-types";
 import {
   Container,
   Image,
-  Titulo,
   CartContainer,
   CartImage,
-  QuantidadeItens,
-  TituloCarrinho
+  QuantidadeItens
 } from "./Header.styles";
+
+import Button from "../../components/Button";
+import Titulo from "../../components/Title";
 
 const Header = props => (
   <Container>
     <Image src={require("../../assets/images/book_novo.svg")} />
-    <Titulo>Livraria on-line</Titulo>
+    <Titulo font="28px" color="#ffffff" grow="1">
+      Livraria on-line
+    </Titulo>
     <CartContainer>
-      <CartImage src={require("../../assets/images/carrinho_mercado.png")} />
-      <TituloCarrinho>carrinho</TituloCarrinho>
+      <Button>
+        <CartImage src={require("../../assets/images/carrinho_mercado.png")} />
+        Carrinho
+      </Button>
       <QuantidadeItens>1</QuantidadeItens>
     </CartContainer>
   </Container>

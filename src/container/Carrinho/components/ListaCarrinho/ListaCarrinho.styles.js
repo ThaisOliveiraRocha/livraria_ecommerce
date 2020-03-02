@@ -28,42 +28,38 @@ export const Item = styled.td`
   border: 1px solid #dddddd;
 `;
 
+export const Input = styled.input`
+  font-size: 16px;
+  width: 50px;
+`;
+
 export const ButtonContainer = styled.div`
     width: 60%;
     display: flex;
     align-items: center;    
     justify-content: flex-end;
-    font-size: 16px;
-    font-weight: 600;
-    color: #ffffff;
-`;
-
-export const ButtonFinalizar = styled.div`
-    width: 100px;
-    height: 30px;
-    margin: 10px;
-
-    background-color: #00BA08;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-`;
-
-export const ButtonCancelar = styled.div`
-    width: 100px;
-    height: 30px;
-    margin: 10px 0 10px 10px;
-
-    background-color: #CA1900;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
 `;
 
 export const Texto = styled.span`
   font-size: 16px;
   font-weight: 600;
   color: black;
+`;
+
+export const TotalContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 60%;
+  margin: 10px 0;
+`;
+
+export const ImageTrash = styled.img`
+  width: 20px;
+  height: auto;
+  cursor: pointer;
+
+  &:active {
+    transform: scale(0.9, 0.9);
+  }
 `;

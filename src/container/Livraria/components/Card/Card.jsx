@@ -6,11 +6,11 @@ import {
   TopCard,
   ImageCard,
   InfoCard,
-  CardButton,
-  Button,
-  Titulo,
-  Texto
+  CardButton
 } from "./Card.styles";
+import Button from '../../../../components/Button';
+import Titulo from '../../../../components/Title';
+import Text from "../../../../components/Text";
 
 const Card = ({ props }) => {
   const onClick = event => {
@@ -21,15 +21,15 @@ const Card = ({ props }) => {
     <CardContainer>
       <CardBody onClick={onClick}>
         <TopCard>
-          <Titulo>titulo</Titulo>
+          <Titulo>Titulo</Titulo>
           <ImageCard src={require("../../../../assets/images/book1.png")} />
         </TopCard>
         <InfoCard>
-          <Texto>autor</Texto>
-          <Texto>ano</Texto>
-          <Texto>genero</Texto>
-          <Texto>preco</Texto>
-          <Texto>situacao</Texto>
+          <Text>autor</Text>
+          <Text>ano</Text>
+          <Text>genero</Text>
+          <Text>preco</Text>
+          <Text>situacao</Text>
         </InfoCard>
       </CardBody>
       <CardButton>

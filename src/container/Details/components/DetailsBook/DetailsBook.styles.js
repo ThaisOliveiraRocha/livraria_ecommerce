@@ -61,12 +61,6 @@ export const ButtonCarrinho = styled.div`
   background-color: #003d99;
 `;
 
-export const Button = styled.span`
-  font-size: 16px;
-  font-weight: 600;
-  color: white;
-`;
-
 export const Sinopse = styled.div`
   display: flex;
   align-items: center;
@@ -129,6 +123,10 @@ export const BotoesCabecalho = styled.span`
 export const ButtonLike = styled.img`
   width: 30px;
   height: 30px;
+  cursor: pointer;
+  &:active {
+    transform: scale(0.9, 0.9);
+  }
 `;
 
 export const TextoAvaliacaoComponent = styled.div`

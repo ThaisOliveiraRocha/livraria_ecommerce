@@ -43,17 +43,6 @@ export const CardButton = styled.div`
   margin: 10px;
 `;
 
-export const Button = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #003d99;
-  color: white;
-  font-weight: 600;
-  width: 100%;
-  height: 30px;
-`;
-
 export const Titulo = styled.span`
   display: flex;
   text-align: center;

@@ -1,16 +1,19 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
-import { 
-  TableCart, 
-  TituloTopo, 
-  Cabecalho, 
-  Item, 
-  BodyCart, 
-  ButtonContainer, 
-  ButtonCancelar, 
-  ButtonFinalizar,
-  Texto 
+import {
+  TableCart,
+  TituloTopo,
+  Cabecalho,
+  Item,
+  BodyCart,
+  ButtonContainer,
+  Input,
+  ImageTrash,
+  TotalContainer
 } from "./ListaCarrinho.styles";
+import Button from "../../../../components/Button";
+import Titulo from "../../../../components/Title";
+import Text from "../../../../components/Text";
 
 class ListaCarrinho extends PureComponent {
   constructor(props) {
@@ -29,29 +32,43 @@ class ListaCarrinho extends PureComponent {
       <BodyCart>
         <TableCart>
           <TituloTopo>
-            <Cabecalho>Título</Cabecalho>
-            <Cabecalho>Preço</Cabecalho>
-            <Cabecalho>Quantidade</Cabecalho>
-            <Cabecalho>Descartar</Cabecalho>
+            <Cabecalho>
+              <Titulo>Título</Titulo>
+            </Cabecalho>
+            <Cabecalho>
+              <Titulo>Preço</Titulo>
+            </Cabecalho>
+            <Cabecalho>
+              <Titulo>Quantidade</Titulo>
+            </Cabecalho>
+            <Cabecalho>
+              <Titulo>Descartar</Titulo>
+            </Cabecalho>
           </TituloTopo>
           <TituloTopo>
-            <Item>Nome</Item>
-            <Item>preco</Item>
-            <Item>qtd</Item>
-            <Item>btn</Item>
-          </TituloTopo>
-          <TituloTopo>
-            <Item>Nome</Item>
-            <Item>preco</Item>
-            <Item>qtd</Item>
-            <Item>btn</Item>
+            <Item>
+              <Text>Nome</Text>
+            </Item>
+            <Item>
+              <Text>Preço</Text>
+            </Item>
+            <Item>
+              <Input type="number" min="0" name="quantidade" />
+            </Item>
+            <Item>
+              <ImageTrash
+                src={require("../../../../assets/images/excluir.png")}
+              />
+            </Item>
           </TituloTopo>
         </TableCart>
-
+        <TotalContainer>
+          <Titulo>Total da compra:</Titulo>
+          <Text>R$ total</Text>
+        </TotalContainer>
         <ButtonContainer>
-          <Texto>Total da Compra: </Texto>
-          <ButtonFinalizar type="button">Finalizar</ButtonFinalizar>
-          <ButtonCancelar type="button">Cancelar</ButtonCancelar>
+          <Button background="green">Finalizar</Button>
+          <Button background="red">Cancelar</Button>
         </ButtonContainer>
       </BodyCart>
     );
