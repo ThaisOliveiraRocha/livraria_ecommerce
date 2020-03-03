@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ButtonComponent } from './Button.styles';
 
-const Button = ({children, background}) => (
-    <ButtonComponent background={background}>{children}</ButtonComponent>
+const Button = ({children, background, onClick}) => (
+    <ButtonComponent background={background} onClick={onClick}>{children}</ButtonComponent>
 );
 
 Button.propTypes = {

@@ -1,6 +1,6 @@
-import { clickReducer } from './clickReducer';
+import { livrariaReducer } from './livraria';
 import { combineReducers } from 'redux';
 
-export const Reducers = combineReducers({
-  clickState: clickReducer
+export const reducers = combineReducers({
+  livraria: livrariaReducer
 });

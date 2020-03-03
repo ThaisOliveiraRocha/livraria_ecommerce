@@ -20,7 +20,7 @@ Livraria.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  livros: state.clickState.livros,
+  livros: state.livraria.livros,
 });
 
 export default connect(mapStateToProps)(Livraria);

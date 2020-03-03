@@ -12,7 +12,6 @@ function App() {
         <Route path="/" exact={true} component={Home} />
         <Route path="/carrinho" component={Carrinho} />
         <Route path="/details" component={Details} />
-
       </Switch>
     </BrowserRouter>
   );

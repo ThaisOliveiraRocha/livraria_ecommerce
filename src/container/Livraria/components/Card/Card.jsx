@@ -12,7 +12,12 @@ import Button from '../../../../components/Button';
 import Titulo from '../../../../components/Title';
 import Text from "../../../../components/Text";
 
-const Card = ({ livro }) => {
+
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { addEditCarrinho } from '../../../../store/actions';
+
+const Card = ({ livro, addItemCarrinho}) => {
   const onClick = event => {
     window.location.href = "/details";
   };
@@ -33,7 +38,7 @@ const Card = ({ livro }) => {
         </InfoCard>
       </CardBody>
       <CardButton>
-        <Button>Comprar</Button>
+        <Button onClick={() => addItemCarrinho(livro)}>Comprar</Button>
       </CardButton>
     </CardContainer>
   );
@@ -47,4 +52,12 @@ Card.defaultProps = {
   // bla: 'test',
 };
 
-export default Card;
+const mapStateToProps = store => ({
+  carrinho: store.livraria.carrinho
+});
+
+const mapDispatchToProps = dispatch => ({
+  addItemCarrinho: (livro) => dispatch(addEditCarrinho(livro))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Card);
