@@ -6,6 +6,7 @@ export const ModalBody = styled.div`
   justify-content: center;
   flex-direction: column;
 
+  box-sizing: content-box;
   position: absolute;
   top: 65px;
   width: 300px;
@@ -15,7 +16,7 @@ export const ModalBody = styled.div`
   box-shadow: 5px 5px 30px rgba(11, 107, 230, 0.3);
   background-color: white;
 
-  height: 170px;
+  /* height: 170px; */
   overflow-y: scroll;
 
   padding: 10px;
@@ -35,10 +36,23 @@ export const Tr = styled.tr`
   /* display: flex;
   align-items: center;
   width: 100%; */
+  
 `;
 
 export const Td = styled.td`
   width: 70px;
+  font-weight: normal;
+`;
+
+
+export const Th = styled.th`
+  width: 70px;
+  font-weight: normal;
+`;
+
+export const TdFooter = styled.td`
+  display: flex;
+  flex-grow: 1;
   font-weight: normal;
 `;
 
@@ -69,6 +83,11 @@ export const ImageTrash = styled.img`
     transform: scale(0.9, 0.9);
   }
 `;
+
+export const TotalContainer = styled.div`
+  margin-bottom: 10px;
+`;
+
 
 export const ButtonGroup = styled.div`
   display: flex;

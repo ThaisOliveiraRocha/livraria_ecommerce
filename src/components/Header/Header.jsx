@@ -41,7 +41,7 @@ const Header = ({ carrinho }) => {
           <QuantidadeItens>{totalCart(carrinho)}</QuantidadeItens>
         )}
       </CartContainer>
-      {showModal && <CartModal />}
+      {showModal && <CartModal carrinho={carrinho}/>}
     </Container>
   );
 };
