@@ -1,31 +1,29 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
-import {
-  TituloTopo,
-  Item,
-  ImageTrash,
-} from "./ListaCarrinho.styles";
+import { TituloTopo, Item, ImageTrash } from "./ListaCarrinho.styles";
 
 import { connect } from "react-redux";
-import Button from "../../../../components/Button";
-import Titulo from "../../../../components/Title";
 import Text from "../../../../components/Text";
+import { removeLivro } from "../../../../store/actions";
 
-const ListaCarrinho = ({ item }) => (
-    <TituloTopo>
-      <Item>
-        <Text>{item.titulo}</Text>
-      </Item>
-      <Item>
-        <Text>{item.preco}</Text>
-      </Item>
-      <Item>
-        <Text>{item.qtd}</Text>
-      </Item>
-      <Item>
-        <ImageTrash src={require("../../../../assets/images/excluir.png")} />
-      </Item>
-    </TituloTopo>
+const ListaCarrinho = ({ item, deleteItem }) => (
+  <TituloTopo>
+    <Item>
+      <Text>{item.titulo}</Text>
+    </Item>
+    <Item>
+      <Text>{item.preco}</Text>
+    </Item>
+    <Item>
+      <Text>{item.qtd}</Text>
+    </Item>
+    <Item>
+      <ImageTrash
+        src={require("../../../../assets/images/excluir.png")}
+        onClick={() => deleteItem(item)}
+      />
+    </Item>
+  </TituloTopo>
 );
 
 ListaCarrinho.propTypes = {
@@ -40,4 +38,10 @@ ListaCarrinho.propTypes = {
 //   showCarrinho: (carrinho) => {dispatch(getCarrinho(carrinho)); history.push("/carrinho")}
 // });
 
-export default connect(null)(ListaCarrinho);
+const mapDispatchToProps = dispatch => ({
+  deleteItem: item => {
+    dispatch(removeLivro(item));
+  }
+});
+
+export default connect(null, mapDispatchToProps)(ListaCarrinho);
