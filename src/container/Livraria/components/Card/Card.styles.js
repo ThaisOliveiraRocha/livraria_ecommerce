@@ -25,8 +25,16 @@ export const TopCard = styled.div`
   margin: 10px;
 `;
 
+export const TopTitle = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+`;
+
 export const ImageCard = styled.img`
-  width: 130px;
+  width: auto;
+  height: 160px;
   display: flex;
   align-self: flex-start;
 `;

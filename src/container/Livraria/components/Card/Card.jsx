@@ -6,7 +6,8 @@ import {
   TopCard,
   ImageCard,
   InfoCard,
-  CardButton
+  CardButton,
+  TopTitle
 } from "./Card.styles";
 import { Link, withRouter } from "react-router-dom";
 import Button from "../../../../components/Button";
@@ -19,19 +20,36 @@ import { addEditCarrinho, getDetail } from "../../../../store/actions";
 const Card = ({ livro, addItemCarrinho, showDetails }) => {
   return (
     <CardContainer>
+      <TopTitle>
+        <Titulo>{livro.titulo}</Titulo>
+      </TopTitle>
       <CardBody onClick={() => showDetails(livro)}>
         <TopCard>
-          <Titulo>{livro.titulo}</Titulo>
           <ImageCard
             src={require(`../../../../assets/images/${livro.imagem}`)}
           />
         </TopCard>
         <InfoCard>
-          <Text>autor{livro.autor}</Text>
-          <Text>ano {livro.ano}</Text>
-          <Text>genero {livro.genero}</Text>
-          <Text>preco {livro.preco}</Text>
-          <Text>situacao {livro.situacao}</Text>
+          <div>
+            <Titulo>Autor </Titulo>
+            <Text>{livro.autor}</Text>
+          </div>
+          <div>
+            <Titulo>Ano </Titulo>
+            <Text>{livro.ano}</Text>
+          </div>
+          <div>
+            <Titulo>Gênero </Titulo>
+            <Text>{livro.genero}</Text>
+          </div>
+          <div>
+            <Titulo>Preço </Titulo>
+            <Text>R$ {livro.preco}</Text>
+          </div>
+          <div>
+            <Titulo>Situação </Titulo>
+            <Text>{livro.situacao}</Text>
+          </div>
         </InfoCard>
       </CardBody>
       <CardButton>
@@ -47,7 +65,10 @@ Card.propTypes = {
 
 const mapDispatchToProps = (dispatch, { history }) => ({
   addItemCarrinho: livro => dispatch(addEditCarrinho(livro)),
-  showDetails: (livro) => {dispatch(getDetail(livro)); history.push("/details")}
+  showDetails: livro => {
+    dispatch(getDetail(livro));
+    history.push("/details");
+  }
 });
 
 export default withRouter(connect(null, mapDispatchToProps)(Card));

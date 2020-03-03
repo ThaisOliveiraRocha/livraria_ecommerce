@@ -1,35 +1,76 @@
 import React, { PureComponent } from "react";
-import ListaCarrinho from "./components/ListaCarrinho/ListaCarrinho";
-import Layout from '../../components/Layout';
-// import {} from "./Carrinho.styles";
+import Layout from "../../components/Layout";
+import {
+  TableCart,
+  TituloTopo,
+  Cabecalho,
+  Item,
+  BodyCart,
+  ButtonContainer,
+  Input,
+  ImageTrash,
+  TotalContainer
+} from "./Carrinho.styles";
+import { connect } from "react-redux";
+import Button from "../../components/Button";
+import Titulo from "../../components/Title";
+import Text from "../../components/Text";
+import ListaCarrinho from "./components/ListaCarrinho";
 
-class Carrinho extends PureComponent {
-  constructor(props) {
-    super(props);
+const somaCarrinho = carrinho => {
+  let soma = 0;
+  carrinho.map((item, index) => {
+    soma += item.qtd * item.preco;
+  });
+  return soma;
+};
 
-    this.state = {
-      hasError: false
-    };
-  }
-
-  render() {
-    if (this.state.hasError) {
-      return <h1>Something went wrong.</h1>;
-    }
-    return (
-      <Layout>
-        <ListaCarrinho />
-      </Layout>
-    );
-  }
-}
+const Carrinho = ({ carrinho }) => {
+  return (
+    <Layout>
+      <BodyCart>
+        <TableCart>
+          <thead>
+            <TituloTopo>
+              <Cabecalho>
+                <Titulo>Título</Titulo>
+              </Cabecalho>
+              <Cabecalho>
+                <Titulo>Preço</Titulo>
+              </Cabecalho>
+              <Cabecalho>
+                <Titulo>Quantidade</Titulo>
+              </Cabecalho>
+              <Cabecalho>
+                <Titulo>Descartar</Titulo>
+              </Cabecalho>
+            </TituloTopo>
+          </thead>
+          <tbody>
+            {carrinho.map((item, index) => {
+              return <ListaCarrinho key={index} item={item} />;
+            })}
+          </tbody>
+        </TableCart>
+        <TotalContainer>
+          <Titulo>Total da compra:</Titulo>
+          <Text> R$ {somaCarrinho(carrinho)}</Text>
+        </TotalContainer>
+        <ButtonContainer>
+          <Button background="green">Finalizar</Button>
+          <Button background="red">Cancelar</Button>
+        </ButtonContainer>
+      </BodyCart>
+    </Layout>
+  );
+};
 
 Carrinho.propTypes = {
   // bla: PropTypes.string,
 };
 
-Carrinho.defaultProps = {
-  // bla: 'test',
-};
+const mapStateToProps = state => ({
+  carrinho: state.livraria.carrinho
+});
 
-export default Carrinho;
+export default connect(mapStateToProps, null)(Carrinho);

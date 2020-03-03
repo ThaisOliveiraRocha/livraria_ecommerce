@@ -80,6 +80,11 @@ export const livrariaReducer = (state = initialState, action) => {
         ...state,
         detalhes: action.payload.livro
       };
+    case livros.GET_CART_ITEMS:
+      return {
+        ...state,
+        carrinho: action.payload.livro
+      };
 
     default:
       return state;
