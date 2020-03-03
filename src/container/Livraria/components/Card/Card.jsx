@@ -14,7 +14,6 @@ import Text from "../../../../components/Text";
 
 
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { addEditCarrinho } from '../../../../store/actions';
 
 const Card = ({ livro, addItemCarrinho}) => {
