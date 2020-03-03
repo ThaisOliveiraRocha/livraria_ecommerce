@@ -21,7 +21,7 @@ const somaCarrinho = carrinho => {
   carrinho.map((item, index) => {
     soma += item.qtd * item.preco;
   });
-  return soma;
+  return soma.toFixed(2);
 };
 
 const CartModal = ({ carrinho, showCarrinho }) => {
