@@ -23,8 +23,9 @@ import Button from "../../../../components/Button";
 import Titulo from "../../../../components/Title";
 import Text from "../../../../components/Text";
 import { FaStar } from "react-icons/fa";
+import { addEditCarrinho } from "../../../../store/actions";
 
-const DetailsBook = ({ livro }) => (
+const DetailsBook = ({ livro, addItemCarrinho }) => (
   <Body>
     <Topo>
       <FichaTecnica>
@@ -51,11 +52,10 @@ const DetailsBook = ({ livro }) => (
             </LinhaInfo>
             <LinhaInfo>
               <Titulo>Preço</Titulo>
-              <Text>{livro.preco}</Text>
+              <Text>R$ {livro.preco}</Text>
             </LinhaInfo>
-
             <LinhaButton>
-              <Button>Adicionar ao Carrinho</Button>
+              <Button onClick={() => addItemCarrinho(livro)}>Adicionar ao Carrinho</Button>
             </LinhaButton>
           </InfoComponent>
         </DetailsComponent>
@@ -96,8 +96,8 @@ DetailsBook.propTypes = {
   // bla: PropTypes.string,
 };
 
-const mapStateToProps = store => ({
-  // detalhes: store.livraria.detalhes
+const mapDispatchToProps = (dispatch) => ({
+  addItemCarrinho: livro => dispatch(addEditCarrinho(livro)),
 });
 
-export default connect(mapStateToProps)(DetailsBook);
+export default connect(null, mapDispatchToProps)(DetailsBook);
