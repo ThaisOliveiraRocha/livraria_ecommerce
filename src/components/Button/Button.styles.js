@@ -14,7 +14,7 @@ export const ButtonComponent = styled.button`
   color: white;
   font-size: 14px;
   font-weight: 600;
-  width: 170px;
+  width: ${({ width }) => (width ? width : "170px")};
   padding: 15px;
 
   border: none;

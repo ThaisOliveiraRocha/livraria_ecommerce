@@ -23,10 +23,10 @@ const somaCarrinho = carrinho => {
   return soma.toFixed(2);
 };
 
-const Carrinho = ({ carrinho }) => {
+const Carrinho = ({ carrinho, history }) => {
   if (carrinho.length === 0) {
     {
-      window.location.href = "/";
+      history.push("/")
     }
   }
   return (

@@ -7,7 +7,7 @@ export const Container = styled.div`
   padding: 10px;
 
   align-items: center;
-  background-color: #003D99;
+  background-color: #003d99;
 `;
 
 export const Image = styled.img`
@@ -36,6 +36,12 @@ export const CartImage = styled.img`
   width: 30px;
   height: auto;
   margin-right: 10px;
+`;
+
+export const HomeComponent = styled.div`
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
 `;
 
 export const QuantidadeItens = styled.span`

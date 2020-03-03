@@ -5,7 +5,8 @@ import {
   Image,
   CartContainer,
   CartImage,
-  QuantidadeItens
+  QuantidadeItens,
+  HomeComponent
 } from "./Header.styles";
 
 import { connect } from "react-redux";
@@ -13,6 +14,7 @@ import { connect } from "react-redux";
 import Button from "../../components/Button";
 import Titulo from "../../components/Title";
 import CartModal from "../CartModal";
+import { withRouter } from "react-router-dom";
 
 const totalCart = carrinho => {
   const total = carrinho.reduce((aux, livro) => {
@@ -22,14 +24,16 @@ const totalCart = carrinho => {
   return total;
 };
 
-const Header = ({ carrinho }) => {
+const Header = ({ carrinho, history }) => {
   const [showModal, setModalStatus] = useState(false);
   return (
     <Container>
-      <Image src={require("../../assets/images/book_novo.svg")} />
-      <Titulo font="28px" color="#ffffff" grow="1">
-        Livraria on-line
-      </Titulo>
+      <HomeComponent onClick={() => history.push("/")}>
+        <Image src={require("../../assets/images/book_novo.svg")} />
+        <Titulo font="28px" color="#ffffff" grow="1">
+          Livraria on-line
+        </Titulo>
+      </HomeComponent>
       <CartContainer onClick={() => setModalStatus(!showModal)}>
         <Button>
           <CartImage
@@ -54,4 +58,4 @@ const mapStateToProps = state => ({
   carrinho: state.livraria.carrinho
 });
 
-export default connect(mapStateToProps)(Header);
+export default withRouter(connect(mapStateToProps)(Header));
