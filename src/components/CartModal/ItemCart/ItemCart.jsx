@@ -3,8 +3,9 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Tr, Td, ImageBook, ImageTrash } from "./ItemCart.styles";
 import Text from "../../../components/Text";
+import { removeLivro } from "../../../store/actions";
 
-const ItemCart = ({ item }) => (
+const ItemCart = ({ item, deleteItem }) => (
   <Tr>
     <Td>
       <ImageBook src={require(`../../../assets/images/${item.imagem}`)} />
@@ -19,7 +20,10 @@ const ItemCart = ({ item }) => (
       <Text>R${item.preco}</Text>
     </Td>
     <Td>
-      <ImageTrash src={require("../../../assets/images/excluir.png")} />
+      <ImageTrash
+        src={require("../../../assets/images/excluir.png")}
+        onClick={() => deleteItem(item)}
+      />
     </Td>
   </Tr>
 );
@@ -31,4 +35,10 @@ const mapStateToProps = state => ({
   // item: state.livraria.carrinho
 });
 
-export default connect(mapStateToProps)(ItemCart);
+const mapDispatchToProps = dispatch => ({
+  deleteItem: item => {
+    dispatch(removeLivro(item));
+  }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ItemCart);

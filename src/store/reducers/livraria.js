@@ -85,6 +85,13 @@ export const livrariaReducer = (state = initialState, action) => {
         ...state,
         carrinho: action.payload.livro
       };
+    case livros.REMOVE:
+      return {
+        ...state,
+        carrinho: state.carrinho.filter(
+          livro => livro.titulo !== action.payload.livro.titulo
+        )
+      };
 
     default:
       return state;

@@ -15,3 +15,8 @@ export const getCarrinho = livro => ({
   type: livros.GET_CART_ITEMS,
   payload: { livro }
 });
+
+export const removeLivro = livro => ({
+  type: livros.REMOVE,
+  payload: { livro }
+});

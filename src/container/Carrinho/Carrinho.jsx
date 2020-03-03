@@ -4,11 +4,8 @@ import {
   TableCart,
   TituloTopo,
   Cabecalho,
-  Item,
   BodyCart,
   ButtonContainer,
-  Input,
-  ImageTrash,
   TotalContainer
 } from "./Carrinho.styles";
 import { connect } from "react-redux";
@@ -20,7 +17,7 @@ import { Link } from "react-router-dom";
 
 const somaCarrinho = carrinho => {
   let soma = 0;
-  carrinho.map((item, index) => {
+  carrinho.map((item) => {
     soma += item.qtd * item.preco;
   });
   return soma.toFixed(2);
