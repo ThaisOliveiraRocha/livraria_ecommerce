@@ -4,3 +4,9 @@ export const addEditCarrinho = livro => ({
   type: livros.ADD_EDIT_BOOK,
   payload: { livro }
 });
+
+
+export const getDetail = livro => ({
+  type: livros.GET_DETAILS,
+  payload: { livro }
+});

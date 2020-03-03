@@ -1,37 +1,27 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import React, { PureComponent } from "react";
+import PropTypes from "prop-types";
 //import { Test } from './Details.styles';
+import { connect } from "react-redux";
+import Layout from "../../components/Layout";
+import DetailsBook from "./components/DetailsBook";
 
-import Layout from '../../components/Layout';
-import DetailsBook from './components/DetailsBook';
-
-class Details extends PureComponent { 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      hasError: false,
-    };
-  }
-
-  render () {
-    if (this.state.hasError) {
-      return <h1>Something went wrong.</h1>;
-    }
-    return (
-      <Layout>
-        <DetailsBook />
-      </Layout>
-    );
-  }
-}
+const Details = ({ detalhes }) => {
+  console.log(detalhes)
+  return (
+    <Layout>
+      <DetailsBook livro={detalhes}/>
+    </Layout>
+  );
+};
 
 Details.propTypes = {
   // bla: PropTypes.string,
 };
 
-Details.defaultProps = {
-  // bla: 'test',
-};
 
-export default Details;
+const mapStateToProps = state => ({
+  detalhes: state.livraria.detalhes,
+});
+
+export default connect(mapStateToProps)(Details);
+

@@ -53,7 +53,8 @@ const initialState = {
       preco: "25.00",
       qtd: 0
     }
-  ]
+  ],
+  detalhes: {}
 };
 
 export const livrariaReducer = (state = initialState, action) => {
@@ -74,6 +75,12 @@ export const livrariaReducer = (state = initialState, action) => {
           ...state.carrinho.slice(index + 1)
         ]
       };
+    case livros.GET_DETAILS:
+      return {
+        ...state,
+        detalhes: action.payload.livro
+      };
+
     default:
       return state;
   }

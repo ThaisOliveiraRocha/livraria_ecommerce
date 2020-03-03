@@ -8,25 +8,23 @@ import {
   InfoCard,
   CardButton
 } from "./Card.styles";
-import Button from '../../../../components/Button';
-import Titulo from '../../../../components/Title';
+import { Link, withRouter } from "react-router-dom";
+import Button from "../../../../components/Button";
+import Titulo from "../../../../components/Title";
 import Text from "../../../../components/Text";
 
+import { connect } from "react-redux";
+import { addEditCarrinho, getDetail } from "../../../../store/actions";
 
-import { connect } from 'react-redux';
-import { addEditCarrinho } from '../../../../store/actions';
-
-const Card = ({ livro, addItemCarrinho}) => {
-  const onClick = event => {
-    window.location.href = "/details";
-  };
-
+const Card = ({ livro, addItemCarrinho, showDetails }) => {
   return (
     <CardContainer>
-      <CardBody onClick={onClick}>
+      <CardBody onClick={() => showDetails(livro)}>
         <TopCard>
           <Titulo>{livro.titulo}</Titulo>
-          <ImageCard src={require(`../../../../assets/images/${livro.imagem}`)} />
+          <ImageCard
+            src={require(`../../../../assets/images/${livro.imagem}`)}
+          />
         </TopCard>
         <InfoCard>
           <Text>autor{livro.autor}</Text>
@@ -47,16 +45,9 @@ Card.propTypes = {
   // bla: PropTypes.string,
 };
 
-Card.defaultProps = {
-  // bla: 'test',
-};
-
-const mapStateToProps = store => ({
-  carrinho: store.livraria.carrinho
+const mapDispatchToProps = (dispatch, { history }) => ({
+  addItemCarrinho: livro => dispatch(addEditCarrinho(livro)),
+  showDetails: (livro) => {dispatch(getDetail(livro)); history.push("/details")}
 });
 
-const mapDispatchToProps = dispatch => ({
-  addItemCarrinho: (livro) => dispatch(addEditCarrinho(livro))
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Card);
+export default withRouter(connect(null, mapDispatchToProps)(Card));

@@ -20,15 +20,16 @@ export const FichaTecnica = styled.div`
   justify-content: stretch;
   width: 40%;
   padding: 20px;
-  
+
   border: 1px solid rgba(0, 0, 0, 0.125);
 `;
 
 export const DetailsComponent = styled.div`
   display: flex;
   flex-direction: column;
+  width: 50%;
 
-  margin-left: 10px;
+  margin-left: 20px;
 `;
 
 export const ImageComponent = styled.div`
@@ -43,6 +44,22 @@ export const Image = styled.img`
 export const InfoComponent = styled.div`
   display: flex;
   flex-direction: column;
+
+  height: 300px;
+  padding-top: 30px;
+  justify-content: space-between;
+`;
+
+export const LinhaInfo = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const LinhaButton = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const Titulo = styled.span`
@@ -68,7 +85,7 @@ export const Sinopse = styled.div`
   flex-direction: column;
   width: 40%;
   padding: 20px;
-  
+
   border: 1px solid rgba(0, 0, 0, 0.125);
 `;
 
@@ -85,7 +102,7 @@ export const AvaliacoesComponent = styled.div`
 
   margin: 0 90px;
   padding: 20px;
-  
+
   border: 1px solid rgba(0, 0, 0, 0.125);
 `;
 
@@ -97,7 +114,7 @@ export const Avaliacao = styled.div`
   width: 100%;
   padding: 20px;
   margin-bottom: 20px;
-  
+
   border: 1px solid rgba(0, 0, 0, 0.125);
 `;
 
@@ -105,7 +122,7 @@ export const TopoAvaliacao = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
-  .yellow{
+  .yellow {
     color: #ffef0f;
   }
 `;

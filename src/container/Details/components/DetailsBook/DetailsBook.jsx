@@ -8,6 +8,8 @@ import {
   ImageComponent,
   Image,
   InfoComponent,
+  LinhaInfo,
+  LinhaButton,
   Sinopse,
   AvaliacoesComponent,
   Avaliacao,
@@ -16,27 +18,46 @@ import {
   ButtonLike,
   TextoAvaliacaoComponent
 } from "./DetailsBook.styles";
+import { connect } from "react-redux";
 import Button from "../../../../components/Button";
 import Titulo from "../../../../components/Title";
 import Text from "../../../../components/Text";
-import { FaStar } from 'react-icons/fa';
+import { FaStar } from "react-icons/fa";
 
-const DetailsBook = props => (
+const DetailsBook = ({ livro }) => (
   <Body>
     <Topo>
       <FichaTecnica>
         <ImageComponent>
-          <Image src={require("../../../../assets/images/book1.png")} />
+          <Image src={require(`../../../../assets/images/${livro.imagem}`)} />
         </ImageComponent>
         <DetailsComponent>
           <InfoComponent>
-            <Text>Titulo</Text>
-            <Text>Autor</Text>
-            <Text>Ano</Text>
-            <Text>Situacao</Text>
-            <Text>Preco</Text>
+            <LinhaInfo>
+              <Titulo>Título</Titulo>
+              <Text>{livro.titulo}</Text>
+            </LinhaInfo>
+            <LinhaInfo>
+              <Titulo>Autor</Titulo>
+              <Text>{livro.autor}</Text>
+            </LinhaInfo>
+            <LinhaInfo>
+              <Titulo>Ano</Titulo>
+              <Text>{livro.ano}</Text>
+            </LinhaInfo>
+            <LinhaInfo>
+              <Titulo>Situação</Titulo>
+              <Text>{livro.situacao}</Text>
+            </LinhaInfo>
+            <LinhaInfo>
+              <Titulo>Preço</Titulo>
+              <Text>{livro.preco}</Text>
+            </LinhaInfo>
+
+            <LinhaButton>
+              <Button>Adicionar ao Carrinho</Button>
+            </LinhaButton>
           </InfoComponent>
-          <Button>Adicionar ao Carrinho</Button>
         </DetailsComponent>
       </FichaTecnica>
       <Sinopse>
@@ -75,8 +96,8 @@ DetailsBook.propTypes = {
   // bla: PropTypes.string,
 };
 
-DetailsBook.defaultProps = {
-  // bla: 'test',
-};
+const mapStateToProps = store => ({
+  // detalhes: store.livraria.detalhes
+});
 
-export default DetailsBook;
+export default connect(mapStateToProps)(DetailsBook);
