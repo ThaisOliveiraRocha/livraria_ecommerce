@@ -16,6 +16,7 @@ import Button from "../../components/Button";
 import Titulo from "../../components/Title";
 import Text from "../../components/Text";
 import ListaCarrinho from "./components/ListaCarrinho";
+import { Link } from "react-router-dom";
 
 const somaCarrinho = carrinho => {
   let soma = 0;
@@ -26,6 +27,11 @@ const somaCarrinho = carrinho => {
 };
 
 const Carrinho = ({ carrinho }) => {
+  if (carrinho.length === 0) {
+    {
+      window.location.href = "/";
+    }
+  }
   return (
     <Layout>
       <BodyCart>

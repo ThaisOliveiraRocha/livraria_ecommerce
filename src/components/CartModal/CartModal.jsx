@@ -25,7 +25,6 @@ const somaCarrinho = carrinho => {
 };
 
 const CartModal = ({ carrinho, showCarrinho }) => {
-  console.log(carrinho)
   if (carrinho.length === 0) {
     return (
       <ModalBody>
