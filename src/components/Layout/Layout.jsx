@@ -1,14 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Header from "../Header";
-import { Container } from "./Layout.styles";
+import { Container, ChildrenComponent } from "./Layout.styles";
 import { GlobalStyles } from "../../assets/styles/GlobalStyles";
 
 const Layout = ({ children }) => (
   <Container>
     <GlobalStyles />
     <Header />
-    {children}
+    <ChildrenComponent>
+      {children}
+    </ChildrenComponent>
   </Container>
 );
 

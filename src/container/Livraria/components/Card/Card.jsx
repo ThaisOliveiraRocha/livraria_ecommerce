@@ -12,7 +12,7 @@ import Button from '../../../../components/Button';
 import Titulo from '../../../../components/Title';
 import Text from "../../../../components/Text";
 
-const Card = ({ props }) => {
+const Card = ({ livro }) => {
   const onClick = event => {
     window.location.href = "/details";
   };
@@ -21,15 +21,15 @@ const Card = ({ props }) => {
     <CardContainer>
       <CardBody onClick={onClick}>
         <TopCard>
-          <Titulo>Titulo</Titulo>
-          <ImageCard src={require("../../../../assets/images/book1.png")} />
+          <Titulo>{livro.titulo}</Titulo>
+          <ImageCard src={require(`../../../../assets/images/${livro.imagem}`)} />
         </TopCard>
         <InfoCard>
-          <Text>autor</Text>
-          <Text>ano</Text>
-          <Text>genero</Text>
-          <Text>preco</Text>
-          <Text>situacao</Text>
+          <Text>autor{livro.autor}</Text>
+          <Text>ano {livro.ano}</Text>
+          <Text>genero {livro.genero}</Text>
+          <Text>preco {livro.preco}</Text>
+          <Text>situacao {livro.situacao}</Text>
         </InfoCard>
       </CardBody>
       <CardButton>

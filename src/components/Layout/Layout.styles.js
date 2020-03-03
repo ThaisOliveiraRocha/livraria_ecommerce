@@ -6,3 +6,10 @@ export const Container = styled(Grid)`
  background-color: #ffffff;
 `;
 
+
+export const ChildrenComponent = styled.div`
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ flex-wrap: wrap;
+`;

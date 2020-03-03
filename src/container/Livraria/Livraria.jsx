@@ -1,17 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
 import Layout from "../../components/Layout";
 import Card from "./components/Card/Card";
 // import {
 //   Test
 // } from "./Livraria.styles";
-import Button from "../../components/Button";
-import Titulo from "../../components/Title";
-import Text from "../../components/Text";
 
-const Livraria = props => (
+const Livraria = ({livros}) => (
   <Layout>
-    <Card />
+    {livros.map((livro, index) => {
+      return <Card key={index} livro={livro}/>
+    })}
   </Layout>
 );
 
@@ -19,6 +19,8 @@ Livraria.propTypes = {
   // bla: PropTypes.string,
 };
 
-Livraria.defaultProps = {};
+const mapStateToProps = state => ({
+  livros: state.clickState.livros,
+});
 
-export default Livraria;
+export default connect(mapStateToProps)(Livraria);
