@@ -34,7 +34,7 @@ const DetailsBook = ({ livro, addItemCarrinho }) => (
       <FichaTecnica>
         <LivroComponent>
           <ImageComponent>
-            <Image src={require(`../../../../assets/images/${livro.imagem}`)} />
+            <Image src={require(`../../../../assets/images/${livro.imagem}`)} alt=""/>
           </ImageComponent>
           <DetailsComponent>
             <InfoComponent>
