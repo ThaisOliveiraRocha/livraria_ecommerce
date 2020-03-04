@@ -16,7 +16,10 @@ import {
   TopoAvaliacao,
   BotoesCabecalho,
   ButtonLike,
-  TextoAvaliacaoComponent
+  TextoAvaliacaoComponent,
+  LivroComponent,
+  SinopseTitulo,
+  SinopseCorpo
 } from "./DetailsBook.styles";
 import { connect } from "react-redux";
 import Button from "../../../../components/Button";
@@ -29,40 +32,60 @@ const DetailsBook = ({ livro, addItemCarrinho }) => (
   <Body>
     <Topo>
       <FichaTecnica>
-        <ImageComponent>
-          <Image src={require(`../../../../assets/images/${livro.imagem}`)} />
-        </ImageComponent>
-        <DetailsComponent>
-          <InfoComponent>
-            <LinhaInfo>
-              <Titulo>Título</Titulo>
-              <Text>{livro.titulo}</Text>
-            </LinhaInfo>
-            <LinhaInfo>
-              <Titulo>Autor</Titulo>
-              <Text>{livro.autor}</Text>
-            </LinhaInfo>
-            <LinhaInfo>
-              <Titulo>Ano</Titulo>
-              <Text>{livro.ano}</Text>
-            </LinhaInfo>
-            <LinhaInfo>
-              <Titulo>Situação</Titulo>
-              <Text>{livro.situacao}</Text>
-            </LinhaInfo>
-            <LinhaInfo>
-              <Titulo>Preço</Titulo>
-              <Text>R$ {livro.preco}</Text>
-            </LinhaInfo>
-            <LinhaButton>
-              <Button onClick={() => addItemCarrinho(livro)}>Adicionar ao Carrinho</Button>
-            </LinhaButton>
-          </InfoComponent>
-        </DetailsComponent>
+        <LivroComponent>
+          <ImageComponent>
+            <Image src={require(`../../../../assets/images/${livro.imagem}`)} />
+          </ImageComponent>
+          <DetailsComponent>
+            <InfoComponent>
+              <LinhaInfo>
+                <Titulo>Título</Titulo>
+              </LinhaInfo>
+              <LinhaInfo>
+                <Titulo>Autor</Titulo>
+              </LinhaInfo>
+              <LinhaInfo>
+                <Titulo>Ano</Titulo>
+              </LinhaInfo>
+              <LinhaInfo>
+                <Titulo>Situação</Titulo>
+              </LinhaInfo>
+              <LinhaInfo>
+                <Titulo>Preço</Titulo>
+              </LinhaInfo>
+            </InfoComponent>
+            <InfoComponent>
+              <LinhaInfo>
+                <Text>{livro.titulo}</Text>
+              </LinhaInfo>
+              <LinhaInfo>
+                <Text>{livro.autor}</Text>
+              </LinhaInfo>
+              <LinhaInfo>
+                <Text>{livro.ano}</Text>
+              </LinhaInfo>
+              <LinhaInfo>
+                <Text>{livro.situacao}</Text>
+              </LinhaInfo>
+              <LinhaInfo>
+                <Text>{livro.preco}</Text>
+              </LinhaInfo>
+            </InfoComponent>
+          </DetailsComponent>
+        </LivroComponent>
+        <LinhaButton>
+          <Button onClick={() => addItemCarrinho(livro)}>
+            Adicionar ao Carrinho
+          </Button>
+        </LinhaButton>
       </FichaTecnica>
       <Sinopse>
-        <Titulo>Sinopse</Titulo>
-        <Text>texto sinopse</Text>
+        <SinopseTitulo>
+          <Titulo>Sinopse</Titulo>
+        </SinopseTitulo>
+        <SinopseCorpo>
+          <Text>texto sinopse</Text>
+        </SinopseCorpo>
       </Sinopse>
     </Topo>
     <AvaliacoesComponent>
@@ -96,8 +119,8 @@ DetailsBook.propTypes = {
   // bla: PropTypes.string,
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  addItemCarrinho: livro => dispatch(addEditCarrinho(livro)),
+const mapDispatchToProps = dispatch => ({
+  addItemCarrinho: livro => dispatch(addEditCarrinho(livro))
 });
 
 export default connect(null, mapDispatchToProps)(DetailsBook);
