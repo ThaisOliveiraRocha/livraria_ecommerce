@@ -3,7 +3,6 @@ import { Grid } from "@material-ui/core";
 
 export const Container = styled(Grid)`
   width: 100;
-  background-color: #ffffff;
 `;
 
 export const ChildrenComponent = styled.div`

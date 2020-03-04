@@ -10,6 +10,6 @@ export const GlobalStyles = createGlobalStyle`
 html {
     height: 100%;
     box-sizing: border-box;
-    background: #ffff;
+    background-color: rgb(236,236,234);
 }
 `;
