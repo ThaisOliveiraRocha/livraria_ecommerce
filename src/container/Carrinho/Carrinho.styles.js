@@ -5,7 +5,6 @@ export const BodyCart = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-
   width: 100%;
 `;
 
@@ -13,6 +12,8 @@ export const TableCart = styled.table`
   width: 60%;
   border-collapse: collapse;
   margin-top: 100px;
+
+  background-color: #fff;
 `;
 
 export const TituloTopo = styled.tr`
