@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { Tr, Td, ImageBook, ImageTrash } from "./ItemCart.styles";
 import Text from "../../../components/Text";
 import { showModal } from "../../../store/actions";
-import RemoveItemModal from "../../RemoveItemModal";
 
 const ItemCart = ({ item, deleteItem }) => {
   return (

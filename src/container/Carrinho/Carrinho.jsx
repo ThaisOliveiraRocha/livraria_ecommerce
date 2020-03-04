@@ -13,23 +13,26 @@ import Button from "../../components/Button";
 import Titulo from "../../components/Title";
 import Text from "../../components/Text";
 import ListaCarrinho from "./components/ListaCarrinho";
+import RemoveItemModal from "../../components/RemoveItemModal";
+
 
 const somaCarrinho = carrinho => {
   let soma = 0;
-  carrinho.map((item) => {
+  carrinho.map(item => {
     soma += item.qtd * item.preco;
   });
   return soma.toFixed(2);
 };
 
-const Carrinho = ({ carrinho, history }) => {
+const Carrinho = ({ carrinho, history, showModal }) => {
   if (carrinho.length === 0) {
     {
-      history.push("/")
+      history.push("/");
     }
   }
   return (
     <Layout>
+      {showModal && <RemoveItemModal onClose={() => {}} />}
       <BodyCart>
         <TableCart>
           <thead>
@@ -72,7 +75,8 @@ Carrinho.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  carrinho: state.livraria.carrinho
+  carrinho: state.livraria.carrinho,
+  showModal: state.livraria.removeModal
 });
 
 export default connect(mapStateToProps, null)(Carrinho);

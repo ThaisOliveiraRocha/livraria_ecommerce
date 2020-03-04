@@ -4,7 +4,7 @@ import { TituloTopo, Item, ImageTrash } from "./ListaCarrinho.styles";
 
 import { connect } from "react-redux";
 import Text from "../../../../components/Text";
-import { removeLivro } from "../../../../store/actions";
+import { showModal } from "../../../../store/actions";
 
 const ListaCarrinho = ({ item, deleteItem }) => (
   <TituloTopo>
@@ -20,7 +20,7 @@ const ListaCarrinho = ({ item, deleteItem }) => (
     <Item>
       <ImageTrash
         src={require("../../../../assets/images/excluir.png")}
-        onClick={() => deleteItem(item)}
+        onClick={() => deleteItem(item.titulo)}
       />
     </Item>
   </TituloTopo>
@@ -39,8 +39,8 @@ ListaCarrinho.propTypes = {
 // });
 
 const mapDispatchToProps = dispatch => ({
-  deleteItem: item => {
-    dispatch(removeLivro(item));
+  deleteItem: titulo => {
+    dispatch(showModal(titulo, true));
   }
 });
 
