@@ -6,21 +6,21 @@ import { connect } from "react-redux";
 import Text from "../../../../components/Text";
 import { showModal } from "../../../../store/actions";
 
-const ListaCarrinho = ({ item, deleteItem }) => (
+const ListaCarrinho = ({ item, showModal }) => (
   <TituloTopo>
     <Item>
       <Text>{item.titulo}</Text>
     </Item>
     <Item>
-      <Text>{item.preco}</Text>
+      <Text>{item.qtd}</Text>
     </Item>
     <Item>
-      <Text>{item.qtd}</Text>
+      <Text>R$ {item.preco}</Text>
     </Item>
     <Item>
       <ImageTrash
         src={require("../../../../assets/images/excluir.png")}
-        onClick={() => deleteItem(item.titulo)}
+        onClick={() => showModal(item.titulo)}
       />
     </Item>
   </TituloTopo>
@@ -30,16 +30,8 @@ ListaCarrinho.propTypes = {
   // bla: PropTypes.string,
 };
 
-// const mapStateToProps = state => ({
-//   carrinho: state.livraria.carrinho
-// });
-
-// const mapDispatchToProps = (dispatch, { history }) => ({
-//   showCarrinho: (carrinho) => {dispatch(getCarrinho(carrinho)); history.push("/carrinho")}
-// });
-
 const mapDispatchToProps = dispatch => ({
-  deleteItem: titulo => {
+  showModal: titulo => {
     dispatch(showModal(titulo, true));
   }
 });

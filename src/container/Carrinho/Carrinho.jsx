@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { useState } from "react";
 import Layout from "../../components/Layout";
 import {
   TableCart,
@@ -13,8 +13,8 @@ import Button from "../../components/Button";
 import Titulo from "../../components/Title";
 import Text from "../../components/Text";
 import ListaCarrinho from "./components/ListaCarrinho";
-import RemoveItemModal from "../../components/RemoveItemModal";
-import { showModal } from "../../store/actions";
+import ModalComponent from "../../components/ModalComponent";
+import { removeLivro, showModal } from "../../store/actions";
 
 const somaCarrinho = carrinho => {
   let soma = 0;
@@ -24,7 +24,10 @@ const somaCarrinho = carrinho => {
   return soma.toFixed(2);
 };
 
-const Carrinho = ({ carrinho, history, showModal }) => {
+const Carrinho = ({ carrinho, history, funcaoConfirma, cancel }) => {
+  const [showModal, setModalStatus] = useState(false);
+
+
   if (carrinho.length === 0) {
     {
       history.push("/");
@@ -32,7 +35,15 @@ const Carrinho = ({ carrinho, history, showModal }) => {
   }
   return (
     <Layout>
-      {showModal && <RemoveItemModal onClose={() => {}} />}
+      {showModal && (
+        <ModalComponent
+          temaModal='Finalizar compra?'
+          mensagem="O item selecionado será excluído permanentemente."
+          onClose={cancel}
+          funcaoConfirma={funcaoConfirma}
+          cancel={cancel}
+        />
+      )}
       <BodyCart>
         <TableCart>
           <thead>
@@ -41,10 +52,10 @@ const Carrinho = ({ carrinho, history, showModal }) => {
                 <Titulo>Título</Titulo>
               </Cabecalho>
               <Cabecalho>
-                <Titulo>Preço</Titulo>
+                <Titulo>Quantidade</Titulo>
               </Cabecalho>
               <Cabecalho>
-                <Titulo>Quantidade</Titulo>
+                <Titulo>Preço</Titulo>
               </Cabecalho>
               <Cabecalho>
                 <Titulo>Descartar</Titulo>
@@ -62,7 +73,7 @@ const Carrinho = ({ carrinho, history, showModal }) => {
           <Text> R$ {somaCarrinho(carrinho)}</Text>
         </TotalContainer>
         <ButtonContainer>
-          <Button background="green">Finalizar</Button>
+          <Button background="green" onClick={() => setModalStatus(!showModal)}>Finalizar</Button>
           <Button background="red" onClick={() => history.push("/")}>
             Cancelar
           </Button>
@@ -78,9 +89,16 @@ Carrinho.propTypes = {
 
 const mapStateToProps = state => ({
   carrinho: state.livraria.carrinho,
-  showModal: state.livraria.removeModal
+  // showModal: state.livraria.removeModal
 });
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({
+  funcaoConfirma: () => {
+    dispatch(removeLivro());
+  },
+  cancel: () => {
+    dispatch(showModal("", false));
+  }
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Carrinho);

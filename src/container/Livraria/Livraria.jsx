@@ -4,14 +4,23 @@ import { connect } from "react-redux";
 import Layout from "../../components/Layout";
 import Card from "./components/Card/Card";
 import RemoveItemModal from "../../components/RemoveItemModal";
+import ModalComponent from "../../components/ModalComponent";
+import { removeLivro, showModal } from "../../store/actions";
+
 // import {
 //   Test
 // } from "./Livraria.styles";
 
-const Livraria = ({ livros, showModal }) => (
+const Livraria = ({ livros, showModal, funcaoConfirma, cancel }) => (
   <Layout>
     {showModal && (
-      <RemoveItemModal onClose={() => {}} />
+      <ModalComponent
+        temaModal="Deseja excluir o item?"
+        mensagem="O item selecionado será excluído permanentemente."
+        onClose={cancel}
+        funcaoConfirma={funcaoConfirma}
+        cancel={cancel}
+      />
     )}
 
     {livros.map((livro, index) => {
@@ -29,4 +38,13 @@ const mapStateToProps = state => ({
   showModal: state.livraria.removeModal
 });
 
-export default connect(mapStateToProps)(Livraria);
+const mapDispatchToProps = dispatch => ({
+  funcaoConfirma: () => {
+    dispatch(removeLivro());
+  },
+  cancel: () => {
+    dispatch(showModal("", false));
+  }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Livraria);
