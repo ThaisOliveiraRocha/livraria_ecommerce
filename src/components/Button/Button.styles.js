@@ -25,4 +25,24 @@ export const ButtonComponent = styled.button`
   &:active {
     transform: scale(0.9, 0.9);
   }
+
+  &.margin-right-10{
+    margin-right: 10px;
+  }
+
+  &.close{
+    background-color: red;
+    color: #fff;
+    border-radius: 50%;
+    border: 1px solid white;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 `;

@@ -5,7 +5,6 @@ export const addEditCarrinho = livro => ({
   payload: { livro }
 });
 
-
 export const getDetail = livro => ({
   type: livros.GET_DETAILS,
   payload: { livro }
@@ -16,7 +15,11 @@ export const getCarrinho = livro => ({
   payload: { livro }
 });
 
-export const removeLivro = livro => ({
-  type: livros.REMOVE,
-  payload: { livro }
+export const removeLivro = () => ({
+  type: livros.REMOVE
+});
+
+export const showModal = (titulo, status) => ({
+  type: livros.SHOW,
+  payload: { titulo, status }
 });

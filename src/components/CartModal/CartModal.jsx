@@ -8,7 +8,8 @@ import {
   Th,
   TotalContainer,
   ButtonGroup,
-  Overlay
+  Overlay,
+  Linha
 } from "./CartModal.styles";
 import Titulo from "../../components/Title";
 import Text from "../../components/Text";
@@ -29,28 +30,35 @@ const CartModal = ({ carrinho, showCarrinho, onClose }) => {
   if (carrinho.length === 0) {
     return (
       <>
-      <Overlay onClick={onClose}/>
-      <ModalBody>
-        <Titulo>Meu Carrinho</Titulo>
-        <Text>Carrinho vazio! Comece a comprar agora.</Text>
-      </ModalBody>
+        <Overlay onClick={onClose} />
+        <ModalBody>
+          <Titulo>Meu Carrinho</Titulo>
+          <Text>Carrinho vazio! Comece a comprar agora.</Text>
+        </ModalBody>
       </>
     );
   }
   return (
     <>
-      <Overlay onClick={onClose}/>
+      <Overlay onClick={onClose} />
       <ModalBody>
         <Titulo>Meu carrinho</Titulo>
         <Table>
           <thead>
             <Tr>
               <Th></Th>
-              <Th><Text>Título</Text></Th>
-              <Th><Text>Qnt.</Text></Th>
-              <Th><Text>Preço</Text></Th>
+              <Th>
+                <Text>Título</Text>
+              </Th>
+              <Th>
+                <Text>Qnt.</Text>
+              </Th>
+              <Th>
+                <Text>Preço</Text>
+              </Th>
               <Th></Th>
             </Tr>
+            
           </thead>
           <tbody>
             {carrinho.map((item, index) => {

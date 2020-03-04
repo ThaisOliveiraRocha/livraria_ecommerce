@@ -40,6 +40,12 @@ export const ModalBody = styled.div`
 export const Table = styled.table`
   font-size: 16px;
   font-weight: 600;
+  border-collapse: collapse;
+  margin-top: 15px;
+
+  thead{
+    border-bottom: 1px solid gray;
+  }
 `;
 
 export const Titulo = styled.div`
@@ -119,4 +125,8 @@ export const Overlay = styled.div`
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 2;
+`;
+
+export const Linha = styled.div`
+  border-top: 1px solid rgba(11, 107, 230, 0.5);
 `;
