@@ -14,7 +14,7 @@ import Titulo from "../../components/Title";
 import Text from "../../components/Text";
 import ListaCarrinho from "./components/ListaCarrinho";
 import RemoveItemModal from "../../components/RemoveItemModal";
-
+import { showModal } from "../../store/actions";
 
 const somaCarrinho = carrinho => {
   let soma = 0;
@@ -63,7 +63,9 @@ const Carrinho = ({ carrinho, history, showModal }) => {
         </TotalContainer>
         <ButtonContainer>
           <Button background="green">Finalizar</Button>
-          <Button background="red">Cancelar</Button>
+          <Button background="red" onClick={() => history.push("/")}>
+            Cancelar
+          </Button>
         </ButtonContainer>
       </BodyCart>
     </Layout>
@@ -79,4 +81,6 @@ const mapStateToProps = state => ({
   showModal: state.livraria.removeModal
 });
 
-export default connect(mapStateToProps, null)(Carrinho);
+const mapDispatchToProps = dispatch => ({});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Carrinho);
