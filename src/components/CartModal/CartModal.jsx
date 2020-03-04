@@ -46,9 +46,9 @@ const CartModal = ({ carrinho, showCarrinho, onClose }) => {
           <thead>
             <Tr>
               <Th></Th>
-              <Th>Título</Th>
-              <Th>Quantidade</Th>
-              <Th>Preço</Th>
+              <Th><Text>Título</Text></Th>
+              <Th><Text>Qnt.</Text></Th>
+              <Th><Text>Preço</Text></Th>
               <Th></Th>
             </Tr>
           </thead>

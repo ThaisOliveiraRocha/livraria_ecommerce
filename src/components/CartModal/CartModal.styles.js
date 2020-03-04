@@ -1,4 +1,15 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const fade = keyframes`
+  from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+`;
 
 export const ModalBody = styled.div`
   display: flex;
@@ -21,6 +32,9 @@ export const ModalBody = styled.div`
   z-index: 10;
 
   padding: 10px;
+
+  animation: ${fade} 250ms;
+  animation-fill-mode: backwards;
 `;
 
 export const Table = styled.table`
@@ -37,14 +51,12 @@ export const Tr = styled.tr`
   /* display: flex;
   align-items: center;
   width: 100%; */
-  
 `;
 
 export const Td = styled.td`
   width: 70px;
   font-weight: normal;
 `;
-
 
 export const Th = styled.th`
   width: 70px;
@@ -89,14 +101,12 @@ export const TotalContainer = styled.div`
   margin-bottom: 10px;
 `;
 
-
 export const ButtonGroup = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 `;
-
 
 export const Overlay = styled.div`
   position: fixed;
@@ -107,6 +117,6 @@ export const Overlay = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 2;
 `;
