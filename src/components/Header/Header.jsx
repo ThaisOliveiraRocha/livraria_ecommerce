@@ -45,7 +45,7 @@ const Header = ({ carrinho, history }) => {
           <QuantidadeItens>{totalCart(carrinho)}</QuantidadeItens>
         )}
       </CartContainer>
-      {showModal && <CartModal carrinho={carrinho}/>}
+      {showModal && <CartModal carrinho={carrinho} onClose={() => setModalStatus(false)}/>}
     </Container>
   );
 };

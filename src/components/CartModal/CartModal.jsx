@@ -7,7 +7,8 @@ import {
   Tr,
   Th,
   TotalContainer,
-  ButtonGroup
+  ButtonGroup,
+  Overlay
 } from "./CartModal.styles";
 import Titulo from "../../components/Title";
 import Text from "../../components/Text";
@@ -24,42 +25,50 @@ const somaCarrinho = carrinho => {
   return soma.toFixed(2);
 };
 
-const CartModal = ({ carrinho, showCarrinho }) => {
+const CartModal = ({ carrinho, showCarrinho, onClose }) => {
   if (carrinho.length === 0) {
     return (
+      <>
+      <Overlay onClick={onClose}/>
       <ModalBody>
         <Titulo>Meu Carrinho</Titulo>
         <Text>Carrinho vazio! Comece a comprar agora.</Text>
       </ModalBody>
+      </>
     );
   }
   return (
-    <ModalBody>
-      <Titulo>Meu carrinho</Titulo>
-      <Table>
-        <thead>
-          <Tr>
-            <Th></Th>
-            <Th>Título</Th>
-            <Th>Quantidade</Th>
-            <Th>Preço</Th>
-            <Th></Th>
-          </Tr>
-        </thead>
-        <tbody>
-          {carrinho.map((item, index) => {
-            return <ItemCart key={index} item={item} />;
-          })}
-        </tbody>
-      </Table>
-      <TotalContainer>
-        <Titulo>Total da compra:</Titulo>
-        <Text> R$ {somaCarrinho(carrinho)}</Text>
-      </TotalContainer>
-      <ButtonGroup>
-        <Button onClick={() => showCarrinho(carrinho)}>Finalizar Compra</Button>
-      </ButtonGroup>
-    </ModalBody>
+    <>
+      <Overlay onClick={onClose}/>
+      <ModalBody>
+        <Titulo>Meu carrinho</Titulo>
+        <Table>
+          <thead>
+            <Tr>
+              <Th></Th>
+              <Th>Título</Th>
+              <Th>Quantidade</Th>
+              <Th>Preço</Th>
+              <Th></Th>
+            </Tr>
+          </thead>
+          <tbody>
+            {carrinho.map((item, index) => {
+              return <ItemCart key={index} item={item} />;
+            })}
+          </tbody>
+        </Table>
+        <TotalContainer>
+          <Titulo>Total da compra:</Titulo>
+          <Text> R$ {somaCarrinho(carrinho)}</Text>
+        </TotalContainer>
+        <ButtonGroup>
+          <Button onClick={() => showCarrinho(carrinho)}>
+            Finalizar Compra
+          </Button>
+        </ButtonGroup>
+      </ModalBody>
+    </>
   );
 };
 

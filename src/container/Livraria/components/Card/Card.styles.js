@@ -2,18 +2,20 @@ import styled from "styled-components";
 
 export const CardContainer = styled.div`
   display: flex;
-  border: 1px solid rgba(0, 0, 0, 0.125);
   margin: 15px;
   flex-direction: column;
   width: 350px;
   height: 330px;
+
+  background-color: white;
+  border-radius: 15px;
+  border: 1px solid #043277;
 `;
 
 export const CardBody = styled.div`
   display: flex;
   align-items: center;
   margin: 10px;
-
   cursor: pointer;
 `;
 
