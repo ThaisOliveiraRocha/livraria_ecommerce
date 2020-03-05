@@ -26,7 +26,7 @@ const somaCarrinho = carrinho => {
   return soma.toFixed(2);
 };
 
-const CartModal = ({ carrinho, showCarrinho, onClose }) => {
+export const CartModal = ({ carrinho, showCarrinho, onClose }) => {
   if (carrinho.length === 0) {
     return (
       <>
@@ -71,7 +71,7 @@ const CartModal = ({ carrinho, showCarrinho, onClose }) => {
           <Text> R$ {somaCarrinho(carrinho)}</Text>
         </TotalContainer>
         <ButtonGroup>
-          <Button onClick={() => showCarrinho(carrinho)}>
+          <Button className="btnComprar" onClick={() => showCarrinho(carrinho)}>
             Finalizar Compra
           </Button>
         </ButtonGroup>

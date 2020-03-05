@@ -1,7 +1,129 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<CartModal /> should render basic infos 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+<Fragment>
+  <styled.div />
+  <styled.div>
+    <Title>
+      Meu carrinho
+    </Title>
+    <styled.table>
+      <thead>
+        <styled.tr>
+          <styled.th />
+          <styled.th>
+            <Text>
+              Título
+            </Text>
+          </styled.th>
+          <styled.th>
+            <Text>
+              Qnt.
+            </Text>
+          </styled.th>
+          <styled.th>
+            <Text>
+              Preço
+            </Text>
+          </styled.th>
+          <styled.th />
+        </styled.tr>
+      </thead>
+      <tbody>
+        <withRouter(Connect(ItemCart))
+          item={
+            Object {
+              "ano": "2018",
+              "autor": "Colleen Hoover",
+              "genero": "romance",
+              "imagem": "book1.png",
+              "preco": "40.00",
+              "qtd": 0,
+              "situacao": "novo",
+              "titulo": "É Assim Que Acaba",
+            }
+          }
+          key="0"
+        />
+        <withRouter(Connect(ItemCart))
+          item={
+            Object {
+              "ano": "2016",
+              "autor": "Colleen Hoover",
+              "genero": "drama",
+              "imagem": "book2.png",
+              "preco": "18.00",
+              "qtd": 0,
+              "situacao": "usado",
+              "titulo": "Tarde Demais",
+            }
+          }
+          key="1"
+        />
+        <withRouter(Connect(ItemCart))
+          item={
+            Object {
+              "ano": "2010",
+              "autor": "William Gibson",
+              "genero": "ficção cientifica",
+              "imagem": "book3.png",
+              "preco": "32.90",
+              "qtd": 0,
+              "situacao": "novo",
+              "titulo": "Neuromancer",
+            }
+          }
+          key="2"
+        />
+        <withRouter(Connect(ItemCart))
+          item={
+            Object {
+              "ano": "1990",
+              "autor": "Stephen King",
+              "genero": "terror",
+              "imagem": "book4.png",
+              "preco": "29.50",
+              "qtd": 0,
+              "situacao": "usado",
+              "titulo": "It - A coisa",
+            }
+          }
+          key="3"
+        />
+        <withRouter(Connect(ItemCart))
+          item={
+            Object {
+              "ano": "2000",
+              "autor": "George Martin",
+              "genero": "fantasia",
+              "imagem": "book5.png",
+              "preco": "25.00",
+              "qtd": 0,
+              "situacao": "novo",
+              "titulo": "Game of Thrones",
+            }
+          }
+          key="4"
+        />
+      </tbody>
+    </styled.table>
+    <styled.div>
+      <Title>
+        Total da compra:
+      </Title>
+      <Text>
+         R$ 
+        0.00
+      </Text>
+    </styled.div>
+    <styled.div>
+      <Button
+        className="btnComprar"
+        onClick={[Function]}
+      >
+        Finalizar Compra
+      </Button>
+    </styled.div>
+  </styled.div>
+</Fragment>
 `;
