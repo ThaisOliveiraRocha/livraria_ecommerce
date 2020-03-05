@@ -11,6 +11,7 @@ import {
 import Titulo from "../Title";
 import Texto from "../Text";
 import Button from "../Button";
+import { withRouter } from "react-router-dom";
 
 const ModalComponent = ({ temaModal, mensagem, funcaoConfirma, cancel }) => {
   return (
@@ -55,4 +56,4 @@ const mapStateToProps = state => ({
   // blabla: state.blabla,
 });
 
-export default connect(mapStateToProps, null)(ModalComponent);
+export default withRouter(connect(mapStateToProps, null)(ModalComponent));

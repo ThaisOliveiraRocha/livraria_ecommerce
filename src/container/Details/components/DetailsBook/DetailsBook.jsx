@@ -27,6 +27,7 @@ import Titulo from "../../../../components/Title";
 import Text from "../../../../components/Text";
 import { FaStar } from "react-icons/fa";
 import { addEditCarrinho } from "../../../../store/actions";
+import { withRouter } from "react-router-dom";
 
 const DetailsBook = ({ livro, addItemCarrinho }) => (
   <Body>
@@ -123,4 +124,4 @@ const mapDispatchToProps = dispatch => ({
   addItemCarrinho: livro => dispatch(addEditCarrinho(livro))
 });
 
-export default connect(null, mapDispatchToProps)(DetailsBook);
+export default withRouter(connect(null, mapDispatchToProps)(DetailsBook));

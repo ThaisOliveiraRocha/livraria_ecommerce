@@ -5,6 +5,7 @@ import { TituloTopo, Item, ImageTrash } from "./ListaCarrinho.styles";
 import { connect } from "react-redux";
 import Text from "../../../../components/Text";
 import { showModal } from "../../../../store/actions";
+import { withRouter } from "react-router-dom";
 
 const ListaCarrinho = ({ item, showModal }) => (
   <TituloTopo>
@@ -36,4 +37,4 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(null, mapDispatchToProps)(ListaCarrinho);
+export default withRouter(connect(null, mapDispatchToProps)(ListaCarrinho));

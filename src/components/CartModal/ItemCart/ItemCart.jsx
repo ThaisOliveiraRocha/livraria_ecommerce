@@ -4,8 +4,9 @@ import { connect } from "react-redux";
 import { Tr, Td, ImageBook, ImageTrash } from "./ItemCart.styles";
 import Text from "../../../components/Text";
 import { showModal } from "../../../store/actions";
+import { withRouter } from "react-router-dom";
 
-const ItemCart = ({ item, deleteItem }) => {
+export const ItemCart = ({ item, deleteItem }) => {
   return (
     <>
       <Tr>
@@ -46,4 +47,4 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ItemCart);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ItemCart));

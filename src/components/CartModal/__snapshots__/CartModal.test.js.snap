@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CartModal /> should render basic infos 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;

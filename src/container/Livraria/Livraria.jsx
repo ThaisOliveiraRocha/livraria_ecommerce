@@ -3,13 +3,9 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Layout from "../../components/Layout";
 import Card from "./components/Card/Card";
-import RemoveItemModal from "../../components/RemoveItemModal";
 import ModalComponent from "../../components/ModalComponent";
 import { removeLivro, showModal } from "../../store/actions";
-
-// import {
-//   Test
-// } from "./Livraria.styles";
+import { withRouter } from "react-router-dom";
 
 const Livraria = ({ livros, showModal, funcaoConfirma, cancel }) => (
   <Layout>
@@ -47,4 +43,4 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Livraria);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Livraria));

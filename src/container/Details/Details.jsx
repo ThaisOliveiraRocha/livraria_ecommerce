@@ -6,6 +6,7 @@ import Layout from "../../components/Layout";
 import DetailsBook from "./components/DetailsBook";
 import ModalComponent from "../../components/ModalComponent";
 import { removeLivro, showModal } from "../../store/actions";
+import { withRouter } from "react-router-dom";
 
 
 const Details = ({ detalhes, history, funcaoConfirma, cancel, showModal }) => {
@@ -49,4 +50,4 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Details);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Details));

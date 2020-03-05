@@ -15,6 +15,7 @@ import Text from "../../components/Text";
 import ListaCarrinho from "./components/ListaCarrinho";
 import ModalComponent from "../../components/ModalComponent";
 import { removeLivro, showModal, showCompra } from "../../store/actions";
+import { withRouter } from "react-router-dom";
 
 const somaCarrinho = carrinho => {
   let soma = 0;
@@ -126,4 +127,4 @@ const mapDispatchToProps = (dispatch, { history }) => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Carrinho);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Carrinho));
