@@ -18,5 +18,3 @@ function App() {
 }
 
 export default App;
-
-//https://medium.com/luizalabs/testes-automatizados-em-react-e431db826d65
