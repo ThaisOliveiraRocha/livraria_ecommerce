@@ -79,7 +79,6 @@ describe("<Carrinho />", () => {
     expect(mock).toHaveBeenCalled();
   });
   it("clicou no botão >Cancelar< e chamou a função", () => {
-    const mock = jest.fn();
     const wrapper = shallow(
       <Carrinho carrinho={carrinho} history={history} />
     );
