@@ -29,7 +29,7 @@ import { FaStar } from "react-icons/fa";
 import { addEditCarrinho } from "../../../../store/actions";
 import { withRouter } from "react-router-dom";
 
-const DetailsBook = ({ livro, addItemCarrinho }) => (
+export const DetailsBook = ({ livro, addItemCarrinho }) => (
   <Body>
     <Topo>
       <FichaTecnica>
@@ -75,7 +75,7 @@ const DetailsBook = ({ livro, addItemCarrinho }) => (
           </DetailsComponent>
         </LivroComponent>
         <LinhaButton>
-          <Button onClick={() => addItemCarrinho(livro)}>
+          <Button className="btnAdicionarCarrinho" onClick={() => addItemCarrinho(livro)}>
             Adicionar ao Carrinho
           </Button>
         </LinhaButton>

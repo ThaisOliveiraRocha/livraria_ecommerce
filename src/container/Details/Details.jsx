@@ -9,7 +9,7 @@ import { removeLivro, showModal } from "../../store/actions";
 import { withRouter } from "react-router-dom";
 
 
-const Details = ({ detalhes, history, funcaoConfirma, cancel, showModal }) => {
+export const Details = ({ detalhes, history, funcaoConfirma, cancel, showModal }) => {
   if (Object.keys(detalhes).length === 0) {
     {
       history.push("/");

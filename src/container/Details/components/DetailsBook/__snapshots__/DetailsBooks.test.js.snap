@@ -1,7 +1,160 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<DetailsBook /> should render basic infos 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+<styled.div>
+  <styled.div>
+    <styled.div>
+      <styled.div>
+        <styled.div>
+          <styled.img
+            alt=""
+            src="book1.png"
+          />
+        </styled.div>
+        <styled.div>
+          <styled.div>
+            <styled.div>
+              <Title>
+                Título
+              </Title>
+            </styled.div>
+            <styled.div>
+              <Title>
+                Autor
+              </Title>
+            </styled.div>
+            <styled.div>
+              <Title>
+                Ano
+              </Title>
+            </styled.div>
+            <styled.div>
+              <Title>
+                Situação
+              </Title>
+            </styled.div>
+            <styled.div>
+              <Title>
+                Preço
+              </Title>
+            </styled.div>
+          </styled.div>
+          <styled.div>
+            <styled.div>
+              <Text>
+                É Assim Que Acaba
+              </Text>
+            </styled.div>
+            <styled.div>
+              <Text>
+                Colleen Hoover
+              </Text>
+            </styled.div>
+            <styled.div>
+              <Text>
+                2018
+              </Text>
+            </styled.div>
+            <styled.div>
+              <Text>
+                novo
+              </Text>
+            </styled.div>
+            <styled.div>
+              <Text>
+                40.00
+              </Text>
+            </styled.div>
+          </styled.div>
+        </styled.div>
+      </styled.div>
+      <styled.div>
+        <Button
+          className="btnAdicionarCarrinho"
+          onClick={[Function]}
+        >
+          Adicionar ao Carrinho
+        </Button>
+      </styled.div>
+    </styled.div>
+    <styled.div>
+      <styled.div>
+        <Title>
+          Sinopse
+        </Title>
+      </styled.div>
+      <styled.div>
+        <Text>
+          texto sinopse
+        </Text>
+      </styled.div>
+    </styled.div>
+  </styled.div>
+  <styled.div>
+    <Title>
+      Avaliações
+    </Title>
+    <styled.div>
+      <styled.div>
+        <Text>
+          Nome user
+        </Text>
+        <Text>
+          <FaStar
+            className="yellow"
+          />
+          <FaStar
+            className="yellow"
+          />
+          <FaStar
+            className="yellow"
+          />
+          <FaStar
+            className="yellow"
+          />
+          <FaStar
+            className="yellow"
+          />
+        </Text>
+        <Text>
+          data
+        </Text>
+        <styled.span>
+          <styled.img
+            src={
+              Object {
+                "ReactComponent": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "render": [Function],
+                },
+                "__esModule": true,
+                "default": "like.svg",
+              }
+            }
+          />
+          <styled.img
+            src={
+              Object {
+                "ReactComponent": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "render": [Function],
+                },
+                "__esModule": true,
+                "default": "finger.svg",
+              }
+            }
+          />
+        </styled.span>
+      </styled.div>
+      <styled.div>
+        <Text>
+          Texto avaliação
+        </Text>
+      </styled.div>
+    </styled.div>
+    <Button>
+      Adicionar Comentário
+    </Button>
+  </styled.div>
+</styled.div>
 `;

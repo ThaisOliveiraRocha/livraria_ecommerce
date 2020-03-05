@@ -1,7 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Details /> should render basic infos 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+<Layout>
+  <withRouter(Connect(DetailsBook))
+    livro={
+      Object {
+        "ano": "2018",
+        "autor": "Colleen Hoover",
+        "genero": "romance",
+        "imagem": "book1.png",
+        "preco": "40.00",
+        "qtd": 0,
+        "situacao": "novo",
+        "titulo": "É Assim Que Acaba",
+      }
+    }
+  />
+</Layout>
 `;
