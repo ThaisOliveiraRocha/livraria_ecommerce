@@ -25,7 +25,7 @@ const somaCarrinho = carrinho => {
   return soma.toFixed(2);
 };
 
-const Carrinho = ({
+export const Carrinho = ({
   carrinho,
   history,
   funcaoConfirma,
@@ -90,10 +90,10 @@ const Carrinho = ({
           <Text> R$ {somaCarrinho(carrinho)}</Text>
         </TotalContainer>
         <ButtonContainer>
-          <Button background="green" onClick={() => showCompra(true)}>
+          <Button background="green" onClick={() => showCompra(true)} className="btnFinalizar">
             Finalizar
           </Button>
-          <Button background="red" onClick={() => history.push("/")}>
+          <Button background="red" onClick={() => history.push("/")} className="btnCancelar">
             Cancelar
           </Button>
         </ButtonContainer>
