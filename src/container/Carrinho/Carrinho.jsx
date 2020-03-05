@@ -24,9 +24,11 @@ const somaCarrinho = carrinho => {
   return soma.toFixed(2);
 };
 
-const Carrinho = ({ carrinho, history, funcaoConfirma, cancel }) => {
-  const [showModal, setModalStatus] = useState(false);
+const Carrinho = ({ carrinho, history, funcaoConfirma, cancel, showModal }) => {
+  const temaModal = "Deseja realizar a exclusão?";  
+  const mensagem= "O item selecionado será excluído permanentemente.";
 
+  const [show, setModalStatus] = useState(false);
 
   if (carrinho.length === 0) {
     {
@@ -37,8 +39,8 @@ const Carrinho = ({ carrinho, history, funcaoConfirma, cancel }) => {
     <Layout>
       {showModal && (
         <ModalComponent
-          temaModal='Finalizar compra?'
-          mensagem="O item selecionado será excluído permanentemente."
+          temaModal={temaModal}
+          mensagem={mensagem}
           onClose={cancel}
           funcaoConfirma={funcaoConfirma}
           cancel={cancel}
@@ -73,7 +75,7 @@ const Carrinho = ({ carrinho, history, funcaoConfirma, cancel }) => {
           <Text> R$ {somaCarrinho(carrinho)}</Text>
         </TotalContainer>
         <ButtonContainer>
-          <Button background="green" onClick={() => setModalStatus(!showModal)}>Finalizar</Button>
+          <Button background="green" onClick={() => setModalStatus(!show)}>Finalizar</Button>
           <Button background="red" onClick={() => history.push("/")}>
             Cancelar
           </Button>
@@ -89,7 +91,7 @@ Carrinho.propTypes = {
 
 const mapStateToProps = state => ({
   carrinho: state.livraria.carrinho,
-  // showModal: state.livraria.removeModal
+  showModal: state.livraria.removeModal
 });
 
 const mapDispatchToProps = dispatch => ({
