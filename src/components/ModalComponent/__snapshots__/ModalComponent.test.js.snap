@@ -1,7 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<ModalComponent /> should render basic infos 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+<Fragment>
+  <styled.div />
+  <styled.div>
+    <Button
+      className="close"
+    >
+      X
+    </Button>
+    <styled.div>
+      <Title />
+    </styled.div>
+    <styled.div>
+      <Text>
+        mensagem
+      </Text>
+    </styled.div>
+    <styled.div>
+      <Button
+        background="green"
+        className="margin-right-10 btnConfirmar"
+      >
+        Confirmar
+      </Button>
+      <Button
+        background="red"
+        className="btnCancelar"
+      >
+        Cancelar
+      </Button>
+    </styled.div>
+  </styled.div>
+</Fragment>
 `;
