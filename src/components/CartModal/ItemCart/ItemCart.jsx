@@ -24,6 +24,7 @@ export const ItemCart = ({ item, deleteItem }) => {
         </Td>
         <Td>
           <ImageTrash
+            className="btnLixeira"
             src={require("../../../assets/images/excluir.png")}
             onClick={() => deleteItem(item.titulo)}
           />

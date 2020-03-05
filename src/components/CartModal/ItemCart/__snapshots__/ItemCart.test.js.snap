@@ -1,7 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<ItemCart /> should render basic infos 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+<Fragment>
+  <styled.tr>
+    <styled.td>
+      <styled.img
+        src="book1.png"
+      />
+    </styled.td>
+    <styled.td>
+      <Text>
+        É Assim Que Acaba
+      </Text>
+    </styled.td>
+    <styled.td>
+      <Text>
+        0
+      </Text>
+    </styled.td>
+    <styled.td>
+      <Text>
+        R$
+        40.00
+      </Text>
+    </styled.td>
+    <styled.td>
+      <styled.img
+        className="btnLixeira"
+        onClick={[Function]}
+        src="excluir.png"
+      />
+    </styled.td>
+  </styled.tr>
+</Fragment>
 `;

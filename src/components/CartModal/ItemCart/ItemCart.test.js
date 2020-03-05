@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import ItemCartConnected, {ItemCart} from "./";
+import { ItemCart } from "./ItemCart";
 
 const item = {
   imagem: "book1.png",
@@ -15,10 +15,18 @@ const item = {
 
 describe("<ItemCart />", () => {
   it("should render without crashing", () => {
-    shallow(<ItemCartConnected item={item}/>);
+    shallow(<ItemCart item={item} />);
   });
   it("should render basic infos", () => {
-    const wrapper = shallow(<ItemCartConnected item={item}/>);
+    const wrapper = shallow(<ItemCart item={item} />);
     expect(wrapper).toMatchSnapshot();
+  });
+  it("clicou no botão e chamou a função", () => {
+    const mock = jest.fn();
+    const wrapper = shallow(<ItemCart item={item} deleteItem={mock} />);
+
+    wrapper.find(".btnLixeira").simulate("click");
+
+    expect(mock).toHaveBeenCalled();
   });
 });
