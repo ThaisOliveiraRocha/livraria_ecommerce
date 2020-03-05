@@ -19,12 +19,12 @@ export const removeLivro = () => ({
   type: livros.REMOVE
 });
 
-export const showModal = (status) => ({
+export const showModal = (titulo, status) => ({
   type: livros.SHOW,
-  payload: { status }
+  payload: { titulo, status }
 });
 
-export const excluirItem = (titulo) => ({
-  type: livros.REMOVER_ITEM,
-  payload: { titulo }
+export const showCompra = (status) => ({
+  type: livros.SHOW_MODAL_COMPRA,
+  payload: { status }
 });

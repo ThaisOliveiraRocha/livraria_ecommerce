@@ -55,8 +55,9 @@ const initialState = {
     }
   ],
   detalhes: {},
-  exibeModal: false,
-  selectedTitle: ""
+  removeModal: false,
+  selectedTitle: '',
+  modalCompra: false
 };
 
 export const livrariaReducer = (state = initialState, action) => {
@@ -93,18 +94,19 @@ export const livrariaReducer = (state = initialState, action) => {
         carrinho: state.carrinho.filter(
           livro => livro.titulo !== state.selectedTitle
         ),
-        exibeModal: false
+        removeModal: false
       };
     case livros.SHOW:
       return {
         ...state,
-        exibeModal: action.payload.status
-      };
-    case livros.REMOVER_ITEM:
-      return {
-        ...state,
+        removeModal: action.payload.status,
         selectedTitle: action.payload.titulo
       };
+    case livros.SHOW_MODAL_COMPRA:
+      return {
+        ...state,
+        modalCompra: action.payload.status
+      }
 
     default:
       return state;

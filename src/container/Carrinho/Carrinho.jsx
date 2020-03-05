@@ -14,7 +14,7 @@ import Titulo from "../../components/Title";
 import Text from "../../components/Text";
 import ListaCarrinho from "./components/ListaCarrinho";
 import ModalComponent from "../../components/ModalComponent";
-import { removeLivro, showModal } from "../../store/actions";
+import { removeLivro, showModal, showCompra } from "../../store/actions";
 
 const somaCarrinho = carrinho => {
   let soma = 0;
@@ -24,11 +24,16 @@ const somaCarrinho = carrinho => {
   return soma.toFixed(2);
 };
 
-const Carrinho = ({ carrinho, history, funcaoConfirma, cancel, showModal }) => {
-  const temaModal = "Deseja realizar a exclusão?";  
-  const mensagem= "O item selecionado será excluído permanentemente.";
-
-  const [info, setState] = useState({cabecalho: "topo", msg: "msg"});
+const Carrinho = ({
+  carrinho,
+  history,
+  funcaoConfirma,
+  funcaoFinalizar,
+  cancel,
+  showRemoveModal,
+  showModalCompra,
+  showCompra
+}) => {
 
   if (carrinho.length === 0) {
     {
@@ -37,13 +42,22 @@ const Carrinho = ({ carrinho, history, funcaoConfirma, cancel, showModal }) => {
   }
   return (
     <Layout>
-      {showModal && (
+      {showRemoveModal && (
         <ModalComponent
-          temaModal={info.cabecalho}
-          mensagem={info.msg}
+          temaModal={"Deseja realizar a exclusão?"}
+          mensagem={"O item selecionado será excluído permanentemente."}
           onClose={cancel}
           funcaoConfirma={funcaoConfirma}
           cancel={cancel}
+        />
+      )}
+      {showModalCompra && (
+        <ModalComponent
+          temaModal={"Deseja finalizar a compra?"}
+          mensagem={"Você será redirecionado para a Home."}
+          onClose={() => showCompra(false)}
+          funcaoConfirma={funcaoFinalizar}
+          cancel={() => showCompra(false)}
         />
       )}
       <BodyCart>
@@ -75,7 +89,9 @@ const Carrinho = ({ carrinho, history, funcaoConfirma, cancel, showModal }) => {
           <Text> R$ {somaCarrinho(carrinho)}</Text>
         </TotalContainer>
         <ButtonContainer>
-          <Button background="green" onClick={() => setState({cabecalho: "finalizar", msg: "oioi"})}>Finalizar</Button>
+          <Button background="green" onClick={() => showCompra(true)}>
+            Finalizar
+          </Button>
           <Button background="red" onClick={() => history.push("/")}>
             Cancelar
           </Button>
@@ -91,15 +107,22 @@ Carrinho.propTypes = {
 
 const mapStateToProps = state => ({
   carrinho: state.livraria.carrinho,
-  showModal: state.livraria.removeModal
+  showRemoveModal: state.livraria.removeModal,
+  showModalCompra: state.livraria.modalCompra
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch, { history }) => ({
   funcaoConfirma: () => {
     dispatch(removeLivro());
   },
+  funcaoFinalizar: () => {
+    history.push("/");
+  },
   cancel: () => {
     dispatch(showModal("", false));
+  },
+  showCompra: (status) => {
+    dispatch(showCompra(status));
   }
 });
 
