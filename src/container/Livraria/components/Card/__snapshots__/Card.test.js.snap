@@ -1,7 +1,71 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Card /> should render basic infos 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+<styled.div>
+  <styled.div>
+    <Title>
+      É Assim Que Acaba
+    </Title>
+  </styled.div>
+  <styled.div
+    onClick={[Function]}
+  >
+    <styled.div>
+      <styled.img
+        src="book1.png"
+      />
+    </styled.div>
+    <styled.div>
+      <div>
+        <Title>
+          Autor 
+        </Title>
+        <Text>
+          Colleen Hoover
+        </Text>
+      </div>
+      <div>
+        <Title>
+          Ano 
+        </Title>
+        <Text>
+          2018
+        </Text>
+      </div>
+      <div>
+        <Title>
+          Gênero 
+        </Title>
+        <Text>
+          romance
+        </Text>
+      </div>
+      <div>
+        <Title>
+          Preço 
+        </Title>
+        <Text>
+          R$ 
+          40.00
+        </Text>
+      </div>
+      <div>
+        <Title>
+          Situação 
+        </Title>
+        <Text>
+          novo
+        </Text>
+      </div>
+    </styled.div>
+  </styled.div>
+  <styled.div>
+    <Button
+      className="btnComprar"
+      onClick={[Function]}
+    >
+      Comprar
+    </Button>
+  </styled.div>
+</styled.div>
 `;

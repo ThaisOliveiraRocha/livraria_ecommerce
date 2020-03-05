@@ -10,5 +10,4 @@ describe("<Livraria />", () => {
     const wrapper = shallow(<Livraria />);
     expect(wrapper).toMatchSnapshot();
   });
-  
 });

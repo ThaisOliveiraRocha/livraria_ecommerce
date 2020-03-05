@@ -9,7 +9,7 @@ import {
   CardButton,
   TopTitle
 } from "./Card.styles";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import Button from "../../../../components/Button";
 import Titulo from "../../../../components/Title";
 import Text from "../../../../components/Text";
@@ -17,7 +17,7 @@ import Text from "../../../../components/Text";
 import { connect } from "react-redux";
 import { addEditCarrinho, getDetail } from "../../../../store/actions";
 
-const Card = ({ livro, addItemCarrinho, showDetails }) => {
+export const Card = ({ livro, addItemCarrinho, showDetails }) => {
   return (
     <CardContainer>
       <TopTitle>
@@ -53,7 +53,9 @@ const Card = ({ livro, addItemCarrinho, showDetails }) => {
         </InfoCard>
       </CardBody>
       <CardButton>
-        <Button onClick={() => addItemCarrinho(livro)}>Comprar</Button>
+        <Button className="btnComprar" onClick={() => addItemCarrinho(livro)}>
+          Comprar
+        </Button>
       </CardButton>
     </CardContainer>
   );
