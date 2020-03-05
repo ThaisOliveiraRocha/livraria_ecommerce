@@ -28,7 +28,7 @@ const Carrinho = ({ carrinho, history, funcaoConfirma, cancel, showModal }) => {
   const temaModal = "Deseja realizar a exclusão?";  
   const mensagem= "O item selecionado será excluído permanentemente.";
 
-  const [show, setModalStatus] = useState(false);
+  const [info, setState] = useState({cabecalho: "topo", msg: "msg"});
 
   if (carrinho.length === 0) {
     {
@@ -39,8 +39,8 @@ const Carrinho = ({ carrinho, history, funcaoConfirma, cancel, showModal }) => {
     <Layout>
       {showModal && (
         <ModalComponent
-          temaModal={temaModal}
-          mensagem={mensagem}
+          temaModal={info.cabecalho}
+          mensagem={info.msg}
           onClose={cancel}
           funcaoConfirma={funcaoConfirma}
           cancel={cancel}
@@ -75,7 +75,7 @@ const Carrinho = ({ carrinho, history, funcaoConfirma, cancel, showModal }) => {
           <Text> R$ {somaCarrinho(carrinho)}</Text>
         </TotalContainer>
         <ButtonContainer>
-          <Button background="green" onClick={() => setModalStatus(!show)}>Finalizar</Button>
+          <Button background="green" onClick={() => setState({cabecalho: "finalizar", msg: "oioi"})}>Finalizar</Button>
           <Button background="red" onClick={() => history.push("/")}>
             Cancelar
           </Button>
