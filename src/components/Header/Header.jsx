@@ -13,6 +13,7 @@ import { connect } from "react-redux";
 
 import Button from "../../components/Button";
 import Titulo from "../../components/Title";
+import Texto from "../../components/Text";
 import CartModal from "../CartModal";
 import { withRouter } from "react-router-dom";
 
@@ -39,13 +40,15 @@ const Header = ({ carrinho, history }) => {
           <CartImage
             src={require("../../assets/images/carrinho_mercado.png")}
           />
-          Carrinho
+          <Texto>Carrinho</Texto>
         </Button>
         {carrinho.length > 0 && (
           <QuantidadeItens>{totalCart(carrinho)}</QuantidadeItens>
         )}
       </CartContainer>
-      {showModal && <CartModal carrinho={carrinho} onClose={() => setModalStatus(false)}/>}
+      {showModal && (
+        <CartModal carrinho={carrinho} onClose={() => setModalStatus(false)} />
+      )}
     </Container>
   );
 };
