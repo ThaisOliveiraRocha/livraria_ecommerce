@@ -55,7 +55,6 @@ const carrinho = [
   }
 ];
 
-
 describe("<Carrinho />", () => {
   const history= {
     push: jest.fn()
