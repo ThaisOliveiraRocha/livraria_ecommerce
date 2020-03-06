@@ -1,5 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<CartModal /> nao há itens no carrinho 1`] = `
+<Fragment>
+  <styled.div />
+  <styled.div>
+    <Title>
+      Meu Carrinho
+    </Title>
+    <Text>
+      Carrinho vazio! Comece a comprar agora.
+    </Text>
+  </styled.div>
+</Fragment>
+`;
+
 exports[`<CartModal /> should render basic infos 1`] = `
 <Fragment>
   <styled.div />

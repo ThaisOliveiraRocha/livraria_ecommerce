@@ -57,10 +57,10 @@ const carrinho = [
 
 describe("<CartModal />", () => {
   it("should render without crashing", () => {
-    shallow(<CartModal carrinho={carrinho}/>);
+    shallow(<CartModal carrinho={carrinho} />);
   });
   it("should render basic infos", () => {
-    const wrapper = shallow(<CartModal carrinho={carrinho}/>);
+    const wrapper = shallow(<CartModal carrinho={carrinho} />);
     expect(wrapper).toMatchSnapshot();
   });
   it("clicou no botão e chamou a função", () => {
@@ -71,5 +71,10 @@ describe("<CartModal />", () => {
     wrapper.find(".btnComprar").simulate("click");
 
     expect(mock).toHaveBeenCalled();
+  });
+  it("nao há itens no carrinho", () => {
+    const wrapper = shallow(<CartModal carrinho={""} />);
+
+    expect(wrapper).toMatchSnapshot();
   });
 });
