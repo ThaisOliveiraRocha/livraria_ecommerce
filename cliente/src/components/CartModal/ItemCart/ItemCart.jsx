@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Tr, Td, ImageBook, ImageTrash } from "./ItemCart.styles";
-import Text from "../../../components/Text";
+import Text from "../../Text";
 import { showModal } from "../../../store/actions";
 import { withRouter } from "react-router-dom";
 

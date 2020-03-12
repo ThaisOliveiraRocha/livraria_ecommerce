@@ -11,9 +11,9 @@ import {
   Overlay,
   Linha
 } from "./CartModal.styles";
-import Titulo from "../../components/Title";
-import Text from "../../components/Text";
-import Button from "../../components/Button";
+import Titulo from "../Title";
+import Text from "../Text";
+import Button from "../Button";
 import ItemCart from "./ItemCart/ItemCart";
 import { withRouter } from "react-router-dom";
 import { getCarrinho } from "../../store/actions";

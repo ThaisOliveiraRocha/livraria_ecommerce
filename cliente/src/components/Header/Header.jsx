@@ -11,9 +11,9 @@ import {
 
 import { connect } from "react-redux";
 
-import Button from "../../components/Button";
-import Titulo from "../../components/Title";
-import Texto from "../../components/Text";
+import Button from "../Button";
+import Titulo from "../Title";
+import Texto from "../Text";
 import CartModal from "../CartModal";
 import { withRouter } from "react-router-dom";
 
