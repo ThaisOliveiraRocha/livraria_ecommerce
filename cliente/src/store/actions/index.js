@@ -28,3 +28,8 @@ export const showCompra = (status) => ({
   type: livros.SHOW_MODAL_COMPRA,
   payload: { status }
 });
+
+export const getLivros = (list) => ({
+  type: livros.GET_LIVROS,
+  payload: { list }
+});
