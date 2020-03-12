@@ -13,6 +13,10 @@ html {
     background-color: rgb(236,236,234);
     font-family: 'museo-sans';
 }
+
+body{
+  margin: 0;
+}
 @font-face {
     font-family: 'museo-sans';
     src: url('https://use.typekit.net/af/620bf8/00000000000000000000e7fe/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3')
