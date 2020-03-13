@@ -6,7 +6,8 @@ module.exports = app => {
     insertUser,
     listUser,
     deleteUser,
-    listAllUsers
+    listAllUsers,
+    updatePassword
   } = require("../config/db");
   const { check, validationResult } = require("express-validator/check");
 
@@ -34,10 +35,14 @@ module.exports = app => {
   });
 
   app.post("/user-cliente", async function(req, res) {
-    await insertUser(req.body);
+    res.send(await insertUser(req.body));
   });
 
   app.delete("/user-cliente", async function(req, res) {
-    await deleteUser(req.body);
+    res.send(await deleteUser(req.body));
+  });
+
+  app.put("/user-cliente", async function(req, res) {
+    res.send(await updatePassword(req.body.email, req.body.senha));
   });
 };

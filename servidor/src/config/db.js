@@ -91,6 +91,7 @@ insertUser = async novoUser => {
       const collection = dataBase.collection("Usuarios");
       collection.insertOne(novoUser);
       console.log("usuário inserido com sucesso.");
+      resolve("inserido com sucesso!");
     });
   });
 };
@@ -107,12 +108,13 @@ deleteUser = async id => {
       collection.deleteOne(id, function(err, obj) {
         if (err) throw err;
         console.log(`${id} deletado com sucesso!`);
+        resolve("excluido com sucesso!");
       });
     });
   });
 };
 
-updatePassword = async pwd => {
+updatePassword = async (email, pwd) => {
   new Promise((resolve, reject) => {
     mongo.connect(url, (err, client) => {
       if (err) {
@@ -121,9 +123,13 @@ updatePassword = async pwd => {
       }
       const dataBase = client.db("LivrariaDB");
       const collection = dataBase.collection("Usuarios");
-      collection.updateOne(pwd, function(err, obj) {
+      const myquery = {email: email};
+      const newValue = {$set:{senha: pwd}};
+
+      collection.updateOne(myquery, newValue, function(err, obj) {
         if (err) throw err;
         console.log("Senha alterada com sucesso!");
+        resolve("Alterado com sucesso!");
       });
     });
   });
@@ -135,5 +141,6 @@ module.exports = {
   insertUser,
   listUser,
   deleteUser,
-  listAllUsers
+  listAllUsers,
+  updatePassword
 };
