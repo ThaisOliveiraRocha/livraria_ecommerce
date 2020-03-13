@@ -24,12 +24,22 @@ export const showModal = (titulo, status) => ({
   payload: { titulo, status }
 });
 
-export const showCompra = (status) => ({
+export const showCompra = status => ({
   type: livros.SHOW_MODAL_COMPRA,
   payload: { status }
 });
 
-export const getLivros = (list) => ({
+export const getLivros = list => ({
   type: livros.GET_LIVROS,
   payload: { list }
+});
+
+export const getLogin = login => ({
+  type: livros.GET_LOGIN,
+  payload: { login }
+});
+
+export const isAdm = adm => ({
+  type: livros.IS_ADM,
+  paylod: { adm }
 });

@@ -6,7 +6,9 @@ const initialState = {
   detalhes: {},
   removeModal: false,
   selectedTitle: "",
-  modalCompra: false
+  modalCompra: false,
+  user: {},
+  isAdm: 0,
 };
 
 export const livrariaReducer = (state = initialState, action) => {
@@ -61,6 +63,16 @@ export const livrariaReducer = (state = initialState, action) => {
         ...state,
         livros: action.payload.list
       };
+    case livros.GET_LOGIN:
+      return {
+        ...state,
+        user: action.payload.login
+      };
+    case livros.IS_ADM:
+      return{
+        ...state, 
+        isAdm: action.payload.adm
+      }
 
     default:
       return state;

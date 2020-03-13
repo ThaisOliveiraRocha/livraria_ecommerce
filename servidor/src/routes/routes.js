@@ -7,7 +7,8 @@ module.exports = app => {
     listUser,
     deleteUser,
     listAllUsers,
-    updatePassword
+    updatePassword,
+    authenticateUser
   } = require("../config/db");
   const { check, validationResult } = require("express-validator/check");
 
@@ -44,5 +45,17 @@ module.exports = app => {
 
   app.put("/user-cliente", async function(req, res) {
     res.send(await updatePassword(req.body.email, req.body.senha));
+  });
+
+  app.post("/user", async function authenticate(req, res, next) {
+    await authenticateUser(req.body)
+      .then(user =>
+        user
+          ? res.json(user)
+          : res
+              .status(400)
+              .json({ message: "Username or password is incorrect" })
+      )
+      .catch(err => next(err));
   });
 };

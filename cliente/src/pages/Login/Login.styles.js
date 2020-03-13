@@ -12,7 +12,7 @@ export const Modal = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 30%;
+  width: 50vh;
   height: 40%;
 
   border: 1px solid rgba(11, 107, 230, 0.5);

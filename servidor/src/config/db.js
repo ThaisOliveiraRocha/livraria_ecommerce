@@ -123,14 +123,33 @@ updatePassword = async (email, pwd) => {
       }
       const dataBase = client.db("LivrariaDB");
       const collection = dataBase.collection("Usuarios");
-      const myquery = {email: email};
-      const newValue = {$set:{senha: pwd}};
+      const myquery = { email: email };
+      const newValue = { $set: { senha: pwd } };
 
       collection.updateOne(myquery, newValue, function(err, obj) {
         if (err) throw err;
         console.log("Senha alterada com sucesso!");
         resolve("Alterado com sucesso!");
       });
+    });
+  });
+};
+
+authenticateUser = async ({ email, senha }) => {
+  new Promise((resolve, reject) => {
+    mongo.connect(url, (err, client) => {
+      if (err) {
+        console.log(err);
+        return;
+      }
+      const dataBase = client.db("LivrariaDB");
+      const collection = dataBase.collection("Usuarios");
+      const user = collection.findOne({ email });
+
+      if (user.senha === senha) {
+        return user;
+      }
+      return "Usuário não encontrado.";
     });
   });
 };
@@ -142,5 +161,6 @@ module.exports = {
   listUser,
   deleteUser,
   listAllUsers,
-  updatePassword
+  updatePassword,
+  authenticateUser
 };
