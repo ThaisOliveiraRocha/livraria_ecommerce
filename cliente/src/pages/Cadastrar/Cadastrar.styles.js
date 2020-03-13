@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Body = styled.div`
   display: flex;
@@ -21,6 +21,7 @@ export const Modal = styled.div`
   background-color: white;
 `;
 
+
 export const LabelComponent = styled.div`
   display: flex;
   align-items: center;
@@ -35,13 +36,4 @@ export const InputComponent = styled.input`
   margin-left: 20px;
 `;
 
-export const LinkComponent = styled.div`
-  display: flex;
-  width: 100%;
-  height: 80px;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
-`;
 

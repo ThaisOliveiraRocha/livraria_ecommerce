@@ -1,36 +1,38 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Body, Modal, LabelComponent, InputComponent, LinkComponent } from "./Login.styles";
-import Button from "../../components/Button";
 import Titulo from "../../components/Title";
 import Texto from "../../components/Text";
+import Button from "../../components/Button";
 import { GlobalStyles } from "../../assets/styles/GlobalStyles";
-import { Link } from "react-router-dom";
+import { Body, Modal, LabelComponent, InputComponent } from './Cadastrar.styles';
 
-const Login = props => (
+const Cadastrar = props => (
   <>
     <GlobalStyles />
     <Body>
       <Modal>
         <LabelComponent>
-          <Titulo font="22px">Bem-Vindo!</Titulo>
+          <Titulo font="22px">Cadastrar</Titulo>
         </LabelComponent>
         <LabelComponent>
-          <Titulo>E-mail:</Titulo>
+          <Texto>Nome:</Texto>
+          <InputComponent type="text" name="username" />
+        </LabelComponent>
+        <LabelComponent>
+          <Texto>E-mail:</Texto>
           <InputComponent type="email" name="email" />
         </LabelComponent>
         <LabelComponent>
-          <Titulo>Senha:</Titulo>
+          <Texto>Senha:</Texto>
           <InputComponent type="password" name="senha" />
         </LabelComponent>
-        <LinkComponent>
-          <Link to="/cadastrar">Cadastrar</Link>
-          <Link to="/cadastrar">Esqueci a senha</Link>
-        </LinkComponent>
+        <LabelComponent>
+          <InputComponent type="hidden" name="is_adm" value="0" />
+        </LabelComponent>
         <LabelComponent>
           <Button>
-            <Texto color="white">Login</Texto>
+            <Texto color="white">Concluir</Texto>
           </Button>
         </LabelComponent>
       </Modal>
@@ -38,11 +40,11 @@ const Login = props => (
   </>
 );
 
-Login.propTypes = {
+Cadastrar.propTypes = {
   // bla: PropTypes.string,
 };
 
-Login.defaultProps = {
+Cadastrar.defaultProps = {
   // bla: 'test',
 };
 
@@ -54,4 +56,4 @@ const mapDispatchToProps = dispatch => ({
   // fnBlaBla: () => dispatch(action.name()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Cadastrar);
