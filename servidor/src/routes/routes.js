@@ -47,15 +47,16 @@ module.exports = app => {
     res.send(await updatePassword(req.body.email, req.body.senha));
   });
 
-  app.post("/user", async function authenticate(req, res, next) {
+  app.post("/user", async function(req, res, next) {
     await authenticateUser(req.body)
-      .then(user =>
+      .then(user => {
+        console.log("user na rota ", user);
         user
           ? res.json(user)
           : res
               .status(400)
-              .json({ message: "Username or password is incorrect" })
-      )
+              .json({ message: "Username or password is incorrect" });
+      })
       .catch(err => next(err));
   });
 };

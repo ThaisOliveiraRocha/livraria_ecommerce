@@ -144,11 +144,21 @@ authenticateUser = async ({ email, senha }) => {
       }
       const dataBase = client.db("LivrariaDB");
       const collection = dataBase.collection("Usuarios");
-      const user = collection.findOne({ email });
+      const user = collection.findOne({ email }, function(err, result) {
+        console.log("ESSE VAI ",result);
+        if (err) throw err;
+        // resolve(JSON.stringify(result));
+        // if (result.senha === senha) {
+        //   resolve(result);
+        // }
+        resolve(JSON.stringify(result));
+      });
+      console.log("user db ==> ", user);
 
-      if (user.senha === senha) {
-        return user;
-      }
+      //console.log(collection);
+      // if (user.senha === senha) {
+      //   return user;
+      // }
       return "Usuário não encontrado.";
     });
   });

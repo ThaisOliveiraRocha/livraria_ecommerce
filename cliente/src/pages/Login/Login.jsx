@@ -37,7 +37,7 @@ const Login = props => (
         }}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
-            const infoUser = JSON.stringify(values);
+            const infoUser = values;
             console.log(infoUser);
 
             authenticateUser(infoUser)
