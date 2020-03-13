@@ -5,13 +5,15 @@ import Login from "./pages/Login";
 import Home from "./pages/Home/Home";
 import Carrinho from "./container/Carrinho";
 import Details from "./container/Details";
-import Cadastrar from "./pages/Cadastrar/Cadastrar";
+import Cadastrar from "./pages/Cadastrar";
+import AlterarSenha from "./pages/AlterarSenha";
 
 function App() {
   return (
     <BrowserRouter>
       <Switch>
         <Route path="/" exact component={Login} />
+        <Route path="/alterar" component={AlterarSenha} />
         <Route path="/cadastrar" component={Cadastrar} />
         <Route path="/home" component={Home} />
         <Route path="/carrinho" component={Carrinho} />

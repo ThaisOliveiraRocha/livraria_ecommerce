@@ -16,15 +16,15 @@ const Cadastrar = props => (
           <Titulo font="22px">Cadastrar</Titulo>
         </LabelComponent>
         <LabelComponent>
-          <Texto>Nome:</Texto>
+          <Titulo>Nome:</Titulo>
           <InputComponent type="text" name="username" />
         </LabelComponent>
         <LabelComponent>
-          <Texto>E-mail:</Texto>
+          <Titulo>E-mail:</Titulo>
           <InputComponent type="email" name="email" />
         </LabelComponent>
         <LabelComponent>
-          <Texto>Senha:</Texto>
+          <Titulo>Senha:</Titulo>
           <InputComponent type="password" name="senha" />
         </LabelComponent>
         <LabelComponent>

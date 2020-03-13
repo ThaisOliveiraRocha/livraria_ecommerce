@@ -26,7 +26,7 @@ const Login = props => (
         </LabelComponent>
         <LinkComponent>
           <Link to="/cadastrar">Cadastrar</Link>
-          <Link to="/cadastrar">Esqueci a senha</Link>
+          <Link to="/alterar">Esqueci a senha</Link>
         </LinkComponent>
         <LabelComponent>
           <Button>
