@@ -17,15 +17,15 @@ const Cadastrar = props => (
         </LabelComponent>
         <LabelComponent>
           <Titulo>Nome:</Titulo>
-          <InputComponent type="text" name="username" />
+          <InputComponent type="text" name="username" placeholder="Digite o nome completo" required/>
         </LabelComponent>
         <LabelComponent>
           <Titulo>E-mail:</Titulo>
-          <InputComponent type="email" name="email" />
+          <InputComponent type="email" name="email" placeholder="Digite o e-mail" required/>
         </LabelComponent>
         <LabelComponent>
           <Titulo>Senha:</Titulo>
-          <InputComponent type="password" name="senha" />
+          <InputComponent type="password" name="senha" placeholder="Escolha uma senha" required/>
         </LabelComponent>
         <LabelComponent>
           <InputComponent type="hidden" name="is_adm" value="0" />

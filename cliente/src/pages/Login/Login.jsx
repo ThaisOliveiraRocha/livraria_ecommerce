@@ -18,11 +18,11 @@ const Login = props => (
         </LabelComponent>
         <LabelComponent>
           <Titulo>E-mail:</Titulo>
-          <InputComponent type="email" name="email" />
+          <InputComponent type="email" name="email" placeholder="Digite o e-mail" required/>
         </LabelComponent>
         <LabelComponent>
           <Titulo>Senha:</Titulo>
-          <InputComponent type="password" name="senha" />
+          <InputComponent type="password" name="senha" placeholder="Digite a senha" required/>
         </LabelComponent>
         <LinkComponent>
           <Link to="/cadastrar">Cadastrar</Link>

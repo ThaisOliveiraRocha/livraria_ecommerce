@@ -22,7 +22,7 @@ const AlterarSenha = props => (
         </LabelComponent>
         <LabelComponent>
           <Titulo>Nova senha:</Titulo>
-          <InputComponent type="password" name="senha" />
+          <InputComponent type="password" name="senha" placeholder="Digite a nova senha" required/>
         </LabelComponent>
         <LabelComponent>
           <Button>
