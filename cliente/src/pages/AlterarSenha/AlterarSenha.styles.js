@@ -21,7 +21,6 @@ export const Modal = styled.div`
   background-color: white;
 `;
 
-
 export const LabelComponent = styled.div`
   display: flex;
   align-items: center;

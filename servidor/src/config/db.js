@@ -112,6 +112,23 @@ deleteUser = async id => {
   });
 };
 
+updatePassword = async pwd => {
+  new Promise((resolve, reject) => {
+    mongo.connect(url, (err, client) => {
+      if (err) {
+        console.log(err);
+        return;
+      }
+      const dataBase = client.db("LivrariaDB");
+      const collection = dataBase.collection("Usuarios");
+      collection.updateOne(pwd, function(err, obj) {
+        if (err) throw err;
+        console.log("Senha alterada com sucesso!");
+      });
+    });
+  });
+};
+
 module.exports = {
   listAllProducts,
   insertProduct,

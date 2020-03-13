@@ -21,6 +21,10 @@ const AlterarSenha = props => (
           <Titulo font="22px">Alterar Senha</Titulo>
         </LabelComponent>
         <LabelComponent>
+          <Titulo>E-mail:</Titulo>
+          <InputComponent type="email" name="email" placeholder="Digite o e-mail" required/>
+        </LabelComponent>
+        <LabelComponent>
           <Titulo>Nova senha:</Titulo>
           <InputComponent type="password" name="senha" placeholder="Digite a nova senha" required/>
         </LabelComponent>
