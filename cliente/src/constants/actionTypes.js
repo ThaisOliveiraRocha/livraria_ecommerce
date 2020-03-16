@@ -9,3 +9,4 @@ export const GET_LIVROS = "GET_LIVROS";
 export const GET_LOGIN = "GET_LOGIN";
 export const IS_ADM = "IS_ADM";
 export const GET_PASSWORD = "GET_PASSWORD";
+export const NEW_USER = "NEW_USER";

@@ -48,3 +48,8 @@ export const updatePass = user => ({
   type: livros.GET_PASSWORD,
   payload: { user }
 });
+
+export const createUser = user => ({
+  type: livros.NEW_USER,
+  payload: { user }
+});

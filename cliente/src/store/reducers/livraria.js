@@ -78,6 +78,11 @@ export const livrariaReducer = (state = initialState, action) => {
         ...state,
         user: action.payload.user
       };
+    case livros.NEW_USER:
+      return {
+        ...state,
+        user: action.payload.user
+      };
 
     default:
       return state;
