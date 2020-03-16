@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const TextComponent = styled.span`
-    font-size: 14px;
-    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-    color: ${({ color }) => (color ? color : "black")};
+  font-size: 14px;
+  font-weight: 400;
+  color: ${({ color }) => (color ? color : "black")};
 `;

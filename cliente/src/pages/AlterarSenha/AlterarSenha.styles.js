@@ -12,8 +12,8 @@ export const Modal = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 30%;
-  height: 40%;
+  width: 50vh;
+  height: 40vh;
 
   border: 1px solid rgba(11, 107, 230, 0.5);
   border-radius: 5px;
