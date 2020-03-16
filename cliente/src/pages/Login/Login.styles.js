@@ -13,12 +13,13 @@ export const Modal = styled.div`
   flex-direction: column;
   align-items: center;
   width: 50vh;
-  height: 40%;
+  height: 40vh;
 
   border: 1px solid rgba(11, 107, 230, 0.5);
   border-radius: 5px;
   box-shadow: 5px 5px 30px rgba(11, 107, 230, 0.3);
   background-color: white;
+  padding: 20px;
 `;
 
 export const LabelComponent = styled.div`
@@ -30,9 +31,9 @@ export const LabelComponent = styled.div`
 `;
 
 export const InputComponent = styled.input`
-  width: 40%;
+  width: 50%;
   height: 25px;
-  margin-left: 20px;
+  margin-left: 10px;
 `;
 
 export const LinkComponent = styled.div`

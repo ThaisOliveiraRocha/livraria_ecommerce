@@ -19,6 +19,7 @@ export const Modal = styled.div`
   border-radius: 5px;
   box-shadow: 5px 5px 30px rgba(11, 107, 230, 0.3);
   background-color: white;
+  padding: 20px;
 `;
 
 export const LabelComponent = styled.div`
