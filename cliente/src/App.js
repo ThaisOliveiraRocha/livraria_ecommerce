@@ -7,6 +7,7 @@ import Carrinho from "./container/Carrinho";
 import Details from "./container/Details";
 import Cadastrar from "./pages/Cadastrar";
 import AlterarSenha from "./pages/AlterarSenha";
+import Gerenciar from "./pages/Gerenciar";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/home" component={Home} />
         <Route path="/carrinho" component={Carrinho} />
         <Route path="/details" component={Details} />
+        <Route path="/gerenciar" component={Gerenciar} />
       </Switch>
     </BrowserRouter>
   );
