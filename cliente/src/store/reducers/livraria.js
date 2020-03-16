@@ -8,7 +8,7 @@ const initialState = {
   selectedTitle: "",
   modalCompra: false,
   user: {},
-  isAdm: 0,
+  isAdm: 0
 };
 
 export const livrariaReducer = (state = initialState, action) => {
@@ -69,10 +69,15 @@ export const livrariaReducer = (state = initialState, action) => {
         user: action.payload.login
       };
     case livros.IS_ADM:
-      return{
-        ...state, 
+      return {
+        ...state,
         isAdm: action.payload.adm
-      }
+      };
+    case livros.GET_PASSWORD:
+      return {
+        ...state,
+        user: action.payload.user
+      };
 
     default:
       return state;

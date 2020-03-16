@@ -12,7 +12,7 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/" exact component={Login} />
+        <Route path="/login" exact component={Login} />
         <Route path="/alterar" component={AlterarSenha} />
         <Route path="/cadastrar" component={Cadastrar} />
         <Route path="/home" component={Home} />

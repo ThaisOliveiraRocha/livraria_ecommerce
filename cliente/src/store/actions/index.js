@@ -43,3 +43,8 @@ export const isAdm = adm => ({
   type: livros.IS_ADM,
   paylod: { adm }
 });
+
+export const updatePass = user => ({
+  type: livros.GET_PASSWORD,
+  payload: { user }
+});
