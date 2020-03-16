@@ -18,13 +18,13 @@ module.exports = {
 
     async delete(req, res) {
         const userParam = req.param.email
-        await User.findOneAndRemove(userParam)
+        await User.deleteOne(userParam)
         return res.send();
     },
 
     async login(req, res) {
         const userBody = req.body
-        const user = await User.findOne(userBody.email);
+        const user = await User.findOne({"email": userBody.email});
 
         if (user.senha === userBody.senha) {
             return res.status(200).json(user)
