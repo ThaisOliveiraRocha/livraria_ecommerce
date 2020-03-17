@@ -38,6 +38,9 @@ const Login = props => (
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
             const infoUser = values;
+
+            if (values.email === null || values.senha === null) return;
+
             console.log(infoUser);
 
             authenticateUser(infoUser)
@@ -52,13 +55,7 @@ const Login = props => (
           }, 400);
         }}
       >
-        {({
-          values,
-          handleChange,
-          handleSubmit,
-          isSubmitting
-          /* and other goodies */
-        }) => (
+        {({ values, handleChange, handleSubmit, isSubmitting }) => (
           <form onSubmit={handleSubmit}>
             <Modal>
               <LabelComponent>
@@ -117,7 +114,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = (dispatch, { history }) => ({
   getLogin: user => {
-    dispatch(getLogin(user))
+    dispatch(getLogin(user));
   },
   history: () => {
     history.push("/home");
