@@ -46,8 +46,10 @@ const Login = props => (
             authenticateUser(infoUser)
               .then(response => {
                 const data = response.data;
+                console.log(data);
                 props.getLogin(data);
-                props.history();
+                if (data.isAdm === "1") props.history("/gerenciarProdutos");
+                else props.history("/home");
               })
               .catch(e => console.log(e));
 
@@ -109,15 +111,15 @@ Login.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-  // blabla: state.blabla,
+  isAdm: state.livraria.isAdm
 });
 
 const mapDispatchToProps = (dispatch, { history }) => ({
   getLogin: user => {
     dispatch(getLogin(user));
   },
-  history: () => {
-    history.push("/home");
+  history: path => {
+    history.push(path);
   }
 });
 

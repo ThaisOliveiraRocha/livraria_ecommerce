@@ -50,7 +50,7 @@ module.exports = {
     const user = await User.findOne({ email: userBody.email });
 
     if (user.senha === userBody.senha) {
-      return res.status(200).json(user);
+      return res.status(200).send(user);
     }
     return res.status(401);
   }
