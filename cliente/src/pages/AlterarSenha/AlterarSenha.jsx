@@ -5,15 +5,17 @@ import { Formik } from "formik";
 import { GlobalStyles } from "../../assets/styles/GlobalStyles";
 import {
   Body,
-  Modal,
-  LabelComponent,
-  InputComponent
+  FormComponent,
+  ColText,
+  ColInput,
+  Row
 } from "./AlterarSenha.styles";
 import Titulo from "../../components/Title";
 import Texto from "../../components/Text";
 import Button from "../../components/Button";
 import { updatePassword } from "../../api";
 import { updatePass } from "../../store/actions";
+import Input from "../../components/Input";
 
 const AlterarSenha = props => (
   <>
@@ -57,38 +59,48 @@ const AlterarSenha = props => (
           /* and other goodies */
         }) => (
           <form onSubmit={handleSubmit}>
-            <Modal>
-              <LabelComponent>
+            <FormComponent>
+              <Row>
                 <Titulo font="22px">Alterar Senha</Titulo>
-              </LabelComponent>
-              <LabelComponent>
-                <Titulo>E-mail:</Titulo>
-                <InputComponent
-                  type="email"
-                  name="email"
-                  onChange={handleChange}
-                  value={values.email}
-                  placeholder="Digite o e-mail"
-                  required
-                />
-              </LabelComponent>
-              <LabelComponent>
-                <Titulo>Nova senha:</Titulo>
-                <InputComponent
-                  type="password"
-                  name="senha"
-                  onChange={handleChange}
-                  value={values.senha}
-                  placeholder="Digite a nova senha"
-                  required
-                />
-              </LabelComponent>
-              <LabelComponent>
+              </Row>
+
+              <Row>
+                <ColText>
+                  <Titulo>E-mail:</Titulo>
+                </ColText>
+                <ColInput>
+                  <Input
+                    type="email"
+                    name="email"
+                    onChange={handleChange}
+                    value={values.email}
+                    placeholder="Digite o e-mail"
+                    required
+                  />
+                </ColInput>
+              </Row>
+
+              <Row>
+                <ColText>
+                  <Titulo>Nova senha:</Titulo>
+                </ColText>
+                <ColInput>
+                  <Input
+                    type="password"
+                    name="senha"
+                    onChange={handleChange}
+                    value={values.senha}
+                    placeholder="Digite a nova senha"
+                    required
+                  />
+                </ColInput>
+              </Row>
+              <Row>
                 <Button type="submit" disabled={isSubmitting}>
-                  <Texto color="white">Continuar</Texto>
+                  <Texto color="white">Alterar</Texto>
                 </Button>
-              </LabelComponent>
-            </Modal>
+              </Row>
+            </FormComponent>
           </form>
         )}
       </Formik>
@@ -110,7 +122,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = (dispatch, { history }) => ({
   updatePass: user => {
-    dispatch(updatePass(user))
+    dispatch(updatePass(user));
   },
   history: () => {
     history.push("/login");

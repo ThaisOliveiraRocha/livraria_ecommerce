@@ -8,7 +8,7 @@ export const Body = styled.div`
   height: 100vh;
 `;
 
-export const Modal = styled.div`
+export const FormComponent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,4 +36,25 @@ export const InputComponent = styled.input`
   margin-left: 20px;
 `;
 
+export const Row = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  justify-content: center;
+`;
+
+export const ColText = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+`;
+
+export const ColInput = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70%;
+`;
 

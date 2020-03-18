@@ -5,12 +5,15 @@ import { Formik } from "formik";
 import Titulo from "../../components/Title";
 import Texto from "../../components/Text";
 import Button from "../../components/Button";
+import Input from "../../components/Input";
 import { GlobalStyles } from "../../assets/styles/GlobalStyles";
 import {
   Body,
-  Modal,
+  FormComponent,
   LabelComponent,
-  InputComponent
+  ColText,
+  ColInput,
+  Row
 } from "./Cadastrar.styles";
 import { insertNewUser } from "../../api";
 import { createUser } from "../../store/actions";
@@ -50,65 +53,73 @@ const Cadastrar = props => (
           }, 400);
         }}
       >
-        {({
-          values,
-          handleChange,
-          handleSubmit,
-          isSubmitting
-          /* and other goodies */
-        }) => (
+        {({ values, handleChange, handleSubmit, isSubmitting }) => (
           <form onSubmit={handleSubmit}>
-            <Modal>
-              <LabelComponent>
-                <Titulo font="22px">Cadastrar</Titulo>
-              </LabelComponent>
-              <LabelComponent>
-                <Titulo>Nome:</Titulo>
-                <InputComponent
-                  type="text"
-                  name="nome"
-                  onChange={handleChange}
-                  value={values.nome}
-                  placeholder="Digite o nome completo"
-                  required
-                />
-              </LabelComponent>
-              <LabelComponent>
-                <Titulo>E-mail:</Titulo>
-                <InputComponent
-                  type="email"
-                  name="email"
-                  onChange={handleChange}
-                  value={values.email}
-                  placeholder="Digite o e-mail"
-                  required
-                />
-              </LabelComponent>
-              <LabelComponent>
-                <Titulo>Senha:</Titulo>
-                <InputComponent
-                  type="password"
-                  name="senha"
-                  onChange={handleChange}
-                  value={values.senha}
-                  placeholder="Escolha uma senha"
-                  required
-                />
-              </LabelComponent>
-              <LabelComponent>
-                <InputComponent
-                  type="hidden"
-                  name="isAdm"
-                  onChange={handleChange}
-                  value={values.isAdm}
-                />
-              </LabelComponent>
-              <LabelComponent>
-                <Button type="submit" disabled={isSubmitting}>
-                  <Texto color="white">Concluir</Texto>
-                </Button>
-              </LabelComponent>
-            </Modal>
+            <FormComponent>
+              <Titulo font="22px">Cadastrar</Titulo>
+
+              <Row>
+                <ColText>
+                  <Titulo>Nome:</Titulo>
+                </ColText>
+                <ColInput>
+                  <Input
+                    type="text"
+                    name="nome"
+                    onChange={handleChange}
+                    value={values.nome}
+                    placeholder="Digite o nome completo"
+                    required
+                  />
+                </ColInput>
+              </Row>
+
+              <Row>
+                <ColText>
+                  <Titulo>E-mail:</Titulo>
+                </ColText>
+                <ColInput>
+                  <Input
+                    type="email"
+                    name="email"
+                    onChange={handleChange}
+                    value={values.email}
+                    placeholder="Digite o e-mail"
+                    required
+                  />
+                </ColInput>
+              </Row>
+
+              <Row>
+                <ColText>
+                  <Titulo>Senha:</Titulo>
+                </ColText>
+                <ColInput>
+                  <Input
+                    type="password"
+                    name="senha"
+                    onChange={handleChange}
+                    value={values.senha}
+                    placeholder="Escolha uma senha"
+                    required
+                  />
+                </ColInput>
+              </Row>
+
+              <Row>
+                <ColInput>
+                  <Input
+                    type="hidden"
+                    name="isAdm"
+                    onChange={handleChange}
+                    value={values.isAdm}
+                  />
+                </ColInput>
+              </Row>
+              <Button type="submit" disabled={isSubmitting}>
+                <Texto color="white">Cadastrar</Texto>
+              </Button>
+            </FormComponent>
           </form>
         )}
       </Formik>
