@@ -4,18 +4,20 @@ import { connect } from "react-redux";
 import { Formik } from "formik";
 import {
   Body,
-  Modal,
+  FormComponent,
   LabelComponent,
-  InputComponent,
-  LinkComponent
+  LinkComponent,
+  Row,
+  ColText,
+  ColInput
 } from "./Login.styles";
 import Button from "../../components/Button";
 import Titulo from "../../components/Title";
 import Texto from "../../components/Text";
+import Input from "../../components/Input";
 import { GlobalStyles } from "../../assets/styles/GlobalStyles";
 import { Link } from "react-router-dom";
 import { authenticateUser } from "../../api";
-
 import { getLogin } from "../../store/actions";
 
 const Login = props => (
@@ -59,32 +61,39 @@ const Login = props => (
       >
         {({ values, handleChange, handleSubmit, isSubmitting }) => (
           <form onSubmit={handleSubmit}>
-            <Modal>
-              <LabelComponent>
-                <Titulo font="22px">Bem-Vindo!</Titulo>
-              </LabelComponent>
-              <LabelComponent>
-                <Titulo>E-mail:</Titulo>
-                <InputComponent
-                  type="email"
-                  name="email"
-                  onChange={handleChange}
-                  value={values.email}
-                  placeholder="Digite o e-mail"
-                  required
-                />
-              </LabelComponent>
-              <LabelComponent>
-                <Titulo>Senha:</Titulo>
-                <InputComponent
-                  type="password"
-                  name="senha"
-                  onChange={handleChange}
-                  value={values.senha}
-                  placeholder="Digite a senha"
-                  required
-                />
-              </LabelComponent>
+            <FormComponent>
+              <Titulo font="22px">Bem-Vindo!</Titulo>
+              <Row>
+                <ColText>
+                  <Titulo>E-mail:</Titulo>
+                </ColText>
+                <ColInput>
+                  <Input
+                    type="email"
+                    name="email"
+                    onChange={handleChange}
+                    value={values.email}
+                    placeholder="Digite o e-mail"
+                    required
+                  />
+                </ColInput>
+              </Row>
+
+              <Row>
+                <ColText>
+                  <Titulo>Senha:</Titulo>
+                </ColText>
+                <ColInput>
+                  <Input
+                    type="password"
+                    name="senha"
+                    onChange={handleChange}
+                    value={values.senha}
+                    placeholder="Digite a senha"
+                    required
+                  />
+                </ColInput>
+              </Row>
               <LinkComponent>
                 <Link to="/cadastrar">Cadastrar</Link>
                 <Link to="/alterar">Esqueci a senha</Link>
@@ -94,7 +103,7 @@ const Login = props => (
                   <Texto color="white">Login</Texto>
                 </Button>
               </LabelComponent>
-            </Modal>
+            </FormComponent>
           </form>
         )}
       </Formik>

@@ -8,7 +8,7 @@ export const Body = styled.div`
   height: 100vh;
 `;
 
-export const Modal = styled.div`
+export const FormComponent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,7 +22,7 @@ export const Modal = styled.div`
   padding: 20px;
 `;
 
-export const LabelComponent = styled.div`
+export const Row = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
@@ -30,10 +30,26 @@ export const LabelComponent = styled.div`
   justify-content: center;
 `;
 
-export const InputComponent = styled.input`
-  width: 50%;
-  height: 25px;
-  margin-left: 10px;
+export const ColText = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+`;
+
+export const ColInput = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70%;
+`;
+
+export const LabelComponent = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  justify-content: center;
 `;
 
 export const LinkComponent = styled.div`

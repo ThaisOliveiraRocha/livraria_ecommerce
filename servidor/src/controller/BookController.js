@@ -11,7 +11,6 @@ module.exports = {
   async insertBooks(req, res) {
     const book = req.body;
     const newBook = await Book.create(book);
-    //return res.json({ msg: `Livro ${book.titulo} inserido com sucesso!`, newBook });
     return res.send(newBook);
   }
 };
