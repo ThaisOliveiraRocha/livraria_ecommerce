@@ -83,6 +83,11 @@ export const livrariaReducer = (state = initialState, action) => {
         ...state,
         user: action.payload.user
       };
+    case livros.INSERT_BOOK:
+      return {
+        ...state,
+        livro: action.payload.insert
+      };
 
     default:
       return state;

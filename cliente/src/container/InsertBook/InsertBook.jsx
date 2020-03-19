@@ -13,7 +13,7 @@ import Button from "../../components/Button";
 import Titulo from "../../components/Title";
 import Texto from "../../components/Text";
 import Input from "../../components/Input";
-import { addEditCarrinho } from "../../store/actions";
+import { insertBookItem } from "../../store/actions";
 import { insertBook } from "../../api";
 
 const InsertBook = props => (
@@ -40,9 +40,9 @@ const InsertBook = props => (
             .then(response => {
               const data = response.data;
               console.log(data);
-              props.addEditCarrinho(data);
+              props.insertBookItem(data);
 
-              values = "";
+              alert(`Item ${data.titulo} inserido com sucesso!`);
             })
             .catch(e => console.log(e));
 
@@ -201,9 +201,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  addEditCarrinho: book => {
-    dispatch(addEditCarrinho(book));
-  },
+  insertBookItem: book => {
+    dispatch(insertBookItem(book));
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(InsertBook);

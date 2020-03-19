@@ -53,3 +53,8 @@ export const createUser = user => ({
   type: livros.NEW_USER,
   payload: { user }
 });
+
+export const insertBookItem = insert => ({
+  type: livros.INSERT_BOOK,
+  payload: { insert }
+});
