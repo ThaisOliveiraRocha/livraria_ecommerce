@@ -7,9 +7,13 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
+import AddCircleIcon from "@material-ui/icons/AddCircle";
+import UpdateIcon from '@material-ui/icons/Update';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 import InsertBook from "../../container/InsertBook";
 import Layout from "../../components/Layout";
+import UpdateBook from "../../container/UpdateBook";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -77,10 +81,11 @@ const Produtos = props => {
             value={value}
             onChange={handleChange}
             aria-label="nav tabs example"
+            style={{backgroundColor: "#003d99"}}
           >
-            <LinkTab label="Cadastrar" href="/drafts" {...a11yProps(0)} />
-            <LinkTab label="Alterar" href="/trash" {...a11yProps(1)} />
-            <LinkTab label="Excluir" href="/spam" {...a11yProps(2)} />
+            <LinkTab icon={<AddCircleIcon />} label="Adicionar" {...a11yProps(0)} />
+            <LinkTab icon={<UpdateIcon />} label="Alterar" {...a11yProps(1)} />
+            <LinkTab icon={<DeleteIcon />} label="Excluir" {...a11yProps(2)} />
           </Tabs>
         </AppBar>
         <TabPanel
@@ -103,7 +108,7 @@ const Produtos = props => {
             justifyContent: "center"
           }}
         >
-          <InsertBook />
+          <UpdateBook />
         </TabPanel>
         <TabPanel
           value={value}
