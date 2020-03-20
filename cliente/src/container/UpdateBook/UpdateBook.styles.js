@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+export const Body = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+`;
+
 export const FormComponent = styled.div`
   display: flex;
   flex-direction: column;

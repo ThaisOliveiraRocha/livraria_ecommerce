@@ -5,15 +5,29 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Divider from "@material-ui/core/Divider";
 import Texto from "../../../../components/Text";
+import { setTitulo } from "../../../../store/actions";
 //import { Test } from './ListarItens.styles';
 
-const ListarItens = livro => (
-  <>
-    {livro.map((l, index) => {
-      return <Texto>{l.titulo}</Texto>;
-    })}
-  </>
-);
+const ListarItens = ({ livro, setTitulo }) => {
+  const [selectedIndex, setSelectedIndex] = React.useState(0);
+
+  const handleListItemClick = (event, index, titulo) => {
+    setTitulo(titulo);
+    setSelectedIndex(index);
+  };
+  return (
+    <>
+      <ListItem
+        button
+        selected={selectedIndex === 1}
+        onClick={event => handleListItemClick(event, 1, livro.titulo)}
+      >
+        <ListItemText primary={livro.titulo} style={{ textAlign: "center" }} />
+      </ListItem>
+      <Divider />
+    </>
+  );
+};
 
 ListarItens.propTypes = {
   // bla: PropTypes.string,
@@ -28,7 +42,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  // fnBlaBla: () => dispatch(action.name()),
+  setTitulo: titulo => {
+    dispatch(setTitulo(titulo));
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListarItens);

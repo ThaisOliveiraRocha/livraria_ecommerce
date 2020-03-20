@@ -58,3 +58,8 @@ export const insertBookItem = insert => ({
   type: livros.INSERT_BOOK,
   payload: { insert }
 });
+
+export const setTitulo = titulo => ({
+  type: livros.SET_TITULO, 
+  payload: {titulo}
+})

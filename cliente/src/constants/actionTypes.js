@@ -11,3 +11,4 @@ export const IS_ADM = "IS_ADM";
 export const GET_PASSWORD = "GET_PASSWORD";
 export const NEW_USER = "NEW_USER";
 export const INSERT_BOOK = "INSERT_BOOK";
+export const SET_TITULO = "SET_TITULO";

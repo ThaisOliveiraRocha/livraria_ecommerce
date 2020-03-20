@@ -8,7 +8,8 @@ const initialState = {
   selectedTitle: "",
   modalCompra: false,
   user: {},
-  isAdm: 0
+  isAdm: 0,
+  titulo: ""
 };
 
 export const livrariaReducer = (state = initialState, action) => {
@@ -87,6 +88,11 @@ export const livrariaReducer = (state = initialState, action) => {
       return {
         ...state,
         livro: action.payload.insert
+      };
+    case livros.SET_TITULO:
+      return {
+        ...state,
+        titulo: action.payload.titulo
       };
 
     default:

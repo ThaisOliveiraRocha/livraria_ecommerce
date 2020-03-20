@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
@@ -10,10 +10,12 @@ import Box from "@material-ui/core/Box";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
 import UpdateIcon from '@material-ui/icons/Update';
 import DeleteIcon from '@material-ui/icons/Delete';
-
 import InsertBook from "../../container/InsertBook";
 import Layout from "../../components/Layout";
 import UpdateBook from "../../container/UpdateBook";
+import ListarItens from "../../container/UpdateBook/components/ListarItens/ListarItens";
+import { getBooks } from "../../api";
+import { getLivros } from "../../store/actions";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -64,13 +66,23 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Produtos = props => {
+const Produtos = ({livros, getLivros}) => {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
+  //const [livros, setLivros] = React.useState('');
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  useEffect(() => {
+    getBooks()
+      .then(response => {
+        const data = response.data;
+        getLivros(data);
+      })
+      .catch(e => console.log(e));
+  }, []);
 
   return (
     <Layout>
@@ -107,6 +119,7 @@ const Produtos = props => {
             alignItems: "center",
             justifyContent: "center"
           }}
+          
         >
           <UpdateBook />
         </TabPanel>
@@ -135,11 +148,13 @@ Produtos.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-  // blabla: state.blabla,
+  livros: state.livraria.livros
 });
 
 const mapDispatchToProps = dispatch => ({
-  // fnBlaBla: () => dispatch(action.name()),
+  getLivros: livros => {
+    dispatch(getLivros(livros));
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Produtos);
