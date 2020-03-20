@@ -59,7 +59,7 @@ export const insertBookItem = insert => ({
   payload: { insert }
 });
 
-export const setTitulo = titulo => ({
+export const setTitulo = livro => ({
   type: livros.SET_TITULO, 
-  payload: {titulo}
+  payload: {livro}
 })

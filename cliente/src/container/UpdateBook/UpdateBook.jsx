@@ -8,7 +8,7 @@ import ListarItens from "./components/ListarItens";
 import FormUpdate from "./components/FormUpdate";
 import { getLivros } from "../../store/actions";
 
-const UpdateBook = ({ livros, titulo }) => {
+const UpdateBook = ({ livros, infoTitleSelect }) => {
   const [value, setState] = React.useState("");
 
   return (
@@ -23,7 +23,7 @@ const UpdateBook = ({ livros, titulo }) => {
         </FormComponent>
         <FormComponent>
           <Titulo>Alterar</Titulo>
-          <FormUpdate titulo={titulo} />
+          <FormUpdate book={infoTitleSelect} />
         </FormComponent>
       </Body>
     </>
@@ -40,7 +40,7 @@ UpdateBook.defaultProps = {
 
 const mapStateToProps = state => ({
   livros: state.livraria.livros,
-  titulo: state.livraria.titulo
+  infoTitleSelect: state.livraria.titulo
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -92,7 +92,7 @@ export const livrariaReducer = (state = initialState, action) => {
     case livros.SET_TITULO:
       return {
         ...state,
-        titulo: action.payload.titulo
+        titulo: action.payload.livro
       };
 
     default:

@@ -18,4 +18,6 @@ export const FormComponent = styled.div`
   box-shadow: 5px 5px 30px rgba(11, 107, 230, 0.3);
   background-color: white;
   padding: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
 `;

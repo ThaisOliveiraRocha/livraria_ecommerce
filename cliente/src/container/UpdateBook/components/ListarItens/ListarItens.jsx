@@ -11,8 +11,8 @@ import { setTitulo } from "../../../../store/actions";
 const ListarItens = ({ livro, setTitulo }) => {
   const [selectedIndex, setSelectedIndex] = React.useState(0);
 
-  const handleListItemClick = (event, index, titulo) => {
-    setTitulo(titulo);
+  const handleListItemClick = (event, index, livro) => {
+    setTitulo(livro);
     setSelectedIndex(index);
   };
   return (
@@ -20,7 +20,7 @@ const ListarItens = ({ livro, setTitulo }) => {
       <ListItem
         button
         selected={selectedIndex === 1}
-        onClick={event => handleListItemClick(event, 1, livro.titulo)}
+        onClick={event => handleListItemClick(event, 1, livro)}
       >
         <ListItemText primary={livro.titulo} style={{ textAlign: "center" }} />
       </ListItem>
@@ -42,8 +42,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  setTitulo: titulo => {
-    dispatch(setTitulo(titulo));
+  setTitulo: book => {
+    dispatch(setTitulo(book));
   }
 });
 

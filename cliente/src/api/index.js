@@ -2,6 +2,7 @@ import axios from "axios";
 
 export const getBooks = () => axios.get("http://localhost:5001/books/get-books");
 export const insertBook = (body) => axios.post("http://localhost:5001/books/insert", body);
+export const updateBook = (body) => axios.put("http://localhost:5001/books/update-books", body);
 
 
 

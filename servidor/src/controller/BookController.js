@@ -12,5 +12,25 @@ module.exports = {
     const book = req.body;
     const newBook = await Book.create(book);
     return res.send(newBook);
+  },
+
+  async updateBooks(req, res) {
+    const titulo = req.body.titulo;
+    const updateFields = {
+      imagem: req.body.imagem,
+      ano: req.body.ano,
+      sinopse: req.body.sinopse,
+      situacao: req.body.situacao,
+      preco: req.body.preco
+    };
+    const findUser = await Book.updateOne({ titulo: titulo }, updateFields, {
+      new: true
+    });
+    const updateBook = await Book.findOne({ titulo: titulo });
+    console.log(updateBook);
+    return res.json({
+      msg: `Livro atualizado com sucesso ${titulo}`,
+      updateBook
+    });
   }
 };
