@@ -16,6 +16,7 @@ import UpdateBook from "../../container/UpdateBook";
 import ListarItens from "../../container/UpdateBook/components/ListarItens/ListarItens";
 import { getBooks } from "../../api";
 import { getLivros } from "../../store/actions";
+import DeleteBook from "../../container/DeleteBook/DeleteBook";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -132,7 +133,7 @@ const Produtos = ({livros, getLivros}) => {
             justifyContent: "center"
           }}
         >
-          <InsertBook />
+          <DeleteBook />
         </TabPanel>
       </div>
     </Layout>

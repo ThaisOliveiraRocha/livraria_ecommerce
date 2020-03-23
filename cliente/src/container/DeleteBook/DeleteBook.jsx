@@ -1,13 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-//import { Test } from './DeleteBook.styles';
+import { Body, FormComponent } from './DeleteBook.styles';
+import Titulo from "../../components/Title";
+import ListarItens from '../UpdateBook/components/ListarItens';
+import FormDelete from './components/FormDelete';
 
-const DeleteBook = (props) => (
-  <div className="DeleteBookWrapper">
-    Test content
-  </div>
-);
+const DeleteBook = ({livros, bookSelec}) =>{
+
+  return (
+    <>
+      <Body>
+        <FormComponent>
+          <Titulo>Lista de Livros</Titulo>
+          {livros.map((livro, index) => {
+            console.log(livro, " --> LIVRO <-- ");
+            return <ListarItens key={index} livro={livro} />;
+          })}
+        </FormComponent>
+        <FormComponent>
+          <Titulo>Excluir Livro</Titulo>
+          <FormDelete book={bookSelec}/>
+        </FormComponent>
+      </Body>
+    </>
+  );
+};
 
 DeleteBook.propTypes = {
   // bla: PropTypes.string,
@@ -18,7 +36,8 @@ DeleteBook.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-  // blabla: state.blabla,
+  livros: state.livraria.livros,
+  bookSelec: state.livraria.titulo
 });
 
 const mapDispatchToProps = dispatch => ({

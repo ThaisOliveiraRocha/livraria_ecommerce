@@ -51,9 +51,9 @@ const FormUpdate = ({ book }) => {
               .then(response => {
                 const data = response.data;
                 console.log(data);
-                insertBookItem(data);
+                //insertBookItem(data);
 
-                alert(`Item ${data.titulo} alterado com sucesso!`);
+                alert(`Item alterado com sucesso!`);
               })
               .catch(e => console.log(e));
 

@@ -32,5 +32,12 @@ module.exports = {
       msg: `Livro atualizado com sucesso ${titulo}`,
       updateBook
     });
+  },
+
+  async deleteBooks(req, res) {
+    const tituloDelete = req.body;
+    console.log("body recebido ", req.body);
+    const deletado = await Book.deleteOne({ titulo: tituloDelete });
+    return res.json({ msg: `Item excluido com sucesso`, deletado });
   }
 };
