@@ -9,7 +9,6 @@ import FormUpdate from "./components/FormUpdate";
 import { getLivros } from "../../store/actions";
 
 const UpdateBook = ({ livros, infoTitleSelect }) => {
-  const [value, setState] = React.useState("");
 
   return (
     <>

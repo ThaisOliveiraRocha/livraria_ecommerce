@@ -2,15 +2,16 @@ import React from "react";
 import PropTypes from "prop-types";
 import { InputItem } from "./Input.styles";
 
-const Input = ({ type, name, onChange, value, place, required }) => (
+const Input = ({ type, name, onChange, value, placeholder, required, disabled }) => (
   <>
     <InputItem
       type={type}
       name={name}
       onChange={onChange}
       value={value}
-      placeholder={place}
+      placeholder={placeholder}
       required={required}
+      disabled={disabled}
     />
   </>
 );

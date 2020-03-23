@@ -1,30 +1,60 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
-import Divider from "@material-ui/core/Divider";
-import Texto from "../../../../components/Text";
 import { setTitulo } from "../../../../store/actions";
+import { Collapse, List } from "@material-ui/core";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import ExpandLess from "@material-ui/icons/ExpandLess";
+import ExpandMore from "@material-ui/icons/ExpandMore";
+import StarBorder from "@material-ui/icons/StarBorder";
 //import { Test } from './ListarItens.styles';
 
 const ListarItens = ({ livro, setTitulo }) => {
   const [selectedIndex, setSelectedIndex] = React.useState(0);
 
-  const handleListItemClick = (event, index, livro) => {
+  const [open, setOpen] = React.useState(false);
+
+  const handleClick = (event, index, livro) => {
     setTitulo(livro);
     setSelectedIndex(index);
+    setOpen(!open);
   };
   return (
     <>
       <ListItem
         button
+        onClick={event => handleClick(event, 1, livro)}
         selected={selectedIndex === 1}
-        onClick={event => handleListItemClick(event, 1, livro)}
       >
-        <ListItemText primary={livro.titulo} style={{ textAlign: "center" }} />
+        <ListItemText primary={livro.titulo} />
+        {open ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
-      <Divider />
+      <Collapse
+        in={open}
+        timeout="auto"
+        unmountOnExit
+        style={{ width: "100%" }}
+      >
+        <List component="div" disablePadding>
+          <ListItem
+            style={{
+              width: "100%",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "flex-start",
+              alignItems: "flex-start"
+            }}
+          >
+            <ListItemText secondary={`Imagem: ${livro.imagem}`} />
+            <ListItemText secondary={`Ano: ${livro.ano}`} />
+            <ListItemText secondary={`Sinopse: ${livro.sinopse.substr(0, 100)}...`} />
+            <ListItemText secondary={`Situação: ${livro.situacao}`} />
+            <ListItemText secondary={`Preço: R$${livro.preco}`} />
+          </ListItem>
+        </List>
+      </Collapse>
     </>
   );
 };
