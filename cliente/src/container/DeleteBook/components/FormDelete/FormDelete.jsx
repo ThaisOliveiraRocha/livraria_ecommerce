@@ -25,19 +25,19 @@ const FormDelete = ({ book }) => {
                 titulo: ""
               }
             : {
-                titulo: `${book.titulo}`
+                titulo: book.titulo
               }
         }
         validate={values => {}}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
-            const info = values;
+            const info = {values};
             console.log("dados tela ==> ", info);
 
             deleteBook(info)
               .then(response => {
                 const data = response.data;
-                console.log("oi");
+                console.log("oi data--> ", data);
 
                 alert(`Item excluido com sucesso!`);
               })
@@ -58,7 +58,7 @@ const FormDelete = ({ book }) => {
                   type="text"
                   name="titulo"
                   onChange={handleChange}
-                  value={(values.titulo = book.titulo)}
+                  value={book.titulo === "" ? values.titulo : values.titulo = book.titulo}
                   placeholder="Informe o título"
                   required
                   disabled

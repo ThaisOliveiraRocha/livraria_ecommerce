@@ -3,12 +3,12 @@ const Schema = mongoose.Schema;
 
 const BookSchema = new Schema({
     titulo: { type: String, unique: true, required: true },
-    imagem: { type: String, required: true },
-    autor: {type: String, required: true},
-    ano: { type: String, required: true },
-    genero: { type: String, required: true },
-    preco: { type: String, required: true },
-    situacao: { type: String, required: true },
+    imagem: { type: String },
+    autor: {type: String},
+    ano: { type: String },
+    genero: { type: String },
+    preco: { type: String },
+    situacao: { type: String },
     sinopse: { type: String },
     createdAt: { type: Date, default: Date.now }
 });
