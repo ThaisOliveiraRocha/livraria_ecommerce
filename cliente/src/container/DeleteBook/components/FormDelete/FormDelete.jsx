@@ -13,12 +13,14 @@ import Titulo from "../../../../components/Title";
 import Texto from "../../../../components/Text";
 import Input from "../../../../components/Input";
 import Button from "../../../../components/Button";
-import { deleteBook } from "../../../../api";
+import { deleteBook, getBooks } from "../../../../api";
+import { getLivros } from "../../../../store/actions";
 
 const FormDelete = ({ book }) => {
   return (
     <>
       <Formik
+        enableReinitialize
         initialValues={
           !book
             ? {
@@ -31,20 +33,13 @@ const FormDelete = ({ book }) => {
         validate={values => {}}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
-            const info = values;
-            console.log("dados tela ==> ", JSON.stringify(info));
-            const param = {
-              "titulo": info.titulo
-            };
-            console.log("PARAM ==> ", param);
-
-
-            deleteBook(param)
+            deleteBook(values)
               .then(response => {
-                const data = response.data;
-                console.log("oi data--> ", data);
-
-                alert(`Item excluido com sucesso!`);
+                getBooks().then(response => {
+                  const data = response.data;
+                  getLivros(data);
+                });
+                alert(`Livro ${values.titulo} excluido com sucesso!`);
               })
               .catch(e => console.log(e));
 
@@ -63,7 +58,11 @@ const FormDelete = ({ book }) => {
                   type="text"
                   name="titulo"
                   onChange={handleChange}
-                  value={book.titulo === "" ? values.titulo : values.titulo = book.titulo}
+                  value={
+                    book.titulo === ""
+                      ? values.titulo
+                      : (values.titulo = book.titulo)
+                  }
                   placeholder="Informe o título"
                   required
                   disabled
@@ -96,7 +95,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  // fnBlaBla: () => dispatch(action.name()),
+  getLivros: livros => {
+    dispatch(getLivros(livros));
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FormDelete);

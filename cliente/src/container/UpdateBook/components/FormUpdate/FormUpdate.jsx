@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Formik } from "formik";
@@ -13,13 +13,14 @@ import Titulo from "../../../../components/Title";
 import Texto from "../../../../components/Text";
 import Input from "../../../../components/Input";
 import Button from "../../../../components/Button";
-import { insertBookItem } from "../../../../store/actions";
-import { updateBook } from "../../../../api";
+import { updateBook, getBooks } from "../../../../api";
+import { getLivros } from "../../../../store/actions";
 
-const FormUpdate = ({ book }) => {
+const FormUpdate = ({ book, getLivros }) => {
   return (
     <>
       <Formik
+        enableReinitialize
         initialValues={
           !book
             ? {
@@ -50,7 +51,10 @@ const FormUpdate = ({ book }) => {
               .then(response => {
                 const data = response.data;
                 console.log(data);
-                //insertBookItem(data);
+                getBooks().then(response => {
+                  const data = response.data;
+                  getLivros(data);
+                });
 
                 alert(`Item alterado com sucesso!`);
               })
@@ -180,7 +184,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  // fnBlaBla: () => dispatch(action.name()),
+  getLivros: livros => {
+    dispatch(getLivros(livros));
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FormUpdate);

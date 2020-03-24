@@ -15,7 +15,7 @@ import Layout from "../../components/Layout";
 import UpdateBook from "../../container/UpdateBook";
 import ListarItens from "../../container/UpdateBook/components/ListarItens/ListarItens";
 import { getBooks } from "../../api";
-import { getLivros } from "../../store/actions";
+import { getLivros, setTitulo } from "../../store/actions";
 import DeleteBook from "../../container/DeleteBook/DeleteBook";
 
 function TabPanel(props) {
@@ -67,12 +67,12 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Produtos = ({livros, getLivros}) => {
+const Produtos = ({livros, getLivros, setTitulo}) => {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
-  //const [livros, setLivros] = React.useState('');
 
   const handleChange = (event, newValue) => {
+    setTitulo("");
     setValue(newValue);
   };
 
@@ -155,6 +155,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   getLivros: livros => {
     dispatch(getLivros(livros));
+  },
+  setTitulo: titulo => {
+    dispatch(setTitulo(titulo));
   }
 });
 
