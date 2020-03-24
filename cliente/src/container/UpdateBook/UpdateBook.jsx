@@ -16,7 +16,6 @@ const UpdateBook = ({ livros, infoTitleSelect }) => {
         <FormComponent>
           <Titulo>Lista de Livros</Titulo>
           {livros.map((livro, index) => {
-            console.log(livro, " --> LIVRO <-- ");
             return <ListarItens key={index} livro={livro} />;
           })}
         </FormComponent>
@@ -38,7 +37,7 @@ UpdateBook.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-  livros: state.livraria.livros,
+  livros: state.livraria.vetLivros,
   infoTitleSelect: state.livraria.titulo
 });
 

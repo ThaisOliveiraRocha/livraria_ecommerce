@@ -51,8 +51,9 @@ const Gerenciar = props => (
               deleteUser(infoUser)
                 .then(response => {
                   const data = response.data;
-                  props.getLogin(data);
-                  props.history();
+                  alert("excluido com sucesso!")
+                  //props.getLogin(data);
+                  //props.history();
                 })
                 .catch(e => console.log(e));
 
@@ -79,7 +80,6 @@ const Gerenciar = props => (
                       onChange={handleChange}
                       placeholder="Selecione o e-mail"
                       required
-                      disabled
                     />
                     <Button type="submit" disabled={isSubmitting}>
                       <Texto color="white">Confirmar</Texto>

@@ -31,10 +31,15 @@ const FormDelete = ({ book }) => {
         validate={values => {}}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
-            const info = {values};
-            console.log("dados tela ==> ", info);
+            const info = values;
+            console.log("dados tela ==> ", JSON.stringify(info));
+            const param = {
+              "titulo": info.titulo
+            };
+            console.log("PARAM ==> ", param);
 
-            deleteBook(info)
+
+            deleteBook(param)
               .then(response => {
                 const data = response.data;
                 console.log("oi data--> ", data);

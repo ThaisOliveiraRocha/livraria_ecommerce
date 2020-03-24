@@ -2,7 +2,7 @@ import * as livros from "../../constants/actionTypes";
 
 const initialState = {
   carrinho: [],
-  livros: [],
+  vetLivros: [],
   detalhes: {},
   removeModal: false,
   selectedTitle: "",
@@ -62,7 +62,7 @@ export const livrariaReducer = (state = initialState, action) => {
     case livros.GET_LIVROS:
       return {
         ...state,
-        livros: action.payload.list
+        vetLivros: action.payload.list
       };
     case livros.GET_LOGIN:
       return {
@@ -87,7 +87,7 @@ export const livrariaReducer = (state = initialState, action) => {
     case livros.INSERT_BOOK:
       return {
         ...state,
-        livro: action.payload.insert
+        vetLivros: [...state.vetLivros, action.payload.insert]
       };
     case livros.SET_TITULO:
       return {

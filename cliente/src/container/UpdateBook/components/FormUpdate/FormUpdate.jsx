@@ -17,7 +17,6 @@ import { insertBookItem } from "../../../../store/actions";
 import { updateBook } from "../../../../api";
 
 const FormUpdate = ({ book }) => {
-  console.log(book, "book aaaa");
   return (
     <>
       <Formik

@@ -14,7 +14,6 @@ const DeleteBook = ({livros, bookSelec}) =>{
         <FormComponent>
           <Titulo>Lista de Livros</Titulo>
           {livros.map((livro, index) => {
-            console.log(livro, " --> LIVRO <-- ");
             return <ListarItens key={index} livro={livro} />;
           })}
         </FormComponent>
@@ -36,7 +35,7 @@ DeleteBook.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-  livros: state.livraria.livros,
+  livros: state.livraria.vetLivros,
   bookSelec: state.livraria.titulo
 });
 

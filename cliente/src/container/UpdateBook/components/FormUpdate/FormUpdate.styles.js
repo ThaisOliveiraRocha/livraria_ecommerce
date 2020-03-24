@@ -18,7 +18,7 @@ export const Row = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  height: 80px;
+  height: 60px;
   justify-content: center;
 `;
 

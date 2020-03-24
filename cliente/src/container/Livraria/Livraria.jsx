@@ -30,7 +30,7 @@ Livraria.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  livros: state.livraria.livros,
+  livros: state.livraria.vetLivros,
   showModal: state.livraria.removeModal
 });
 
