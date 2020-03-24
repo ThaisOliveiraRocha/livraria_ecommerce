@@ -10,6 +10,11 @@ module.exports = {
 
   async insertBooks(req, res) {
     const book = req.body;
+    const exist_book = await Book.findOne({titulo: book.titulo});
+
+    if(exist_book){
+      return res.send("existe");
+    }
     const newBook = await Book.create(book);
     return res.send(newBook);
   },

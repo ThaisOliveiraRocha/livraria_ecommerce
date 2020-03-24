@@ -64,7 +64,7 @@ const FormUpdate = ({ book, getLivros }) => {
           }, 400);
         }}
       >
-        {({ values, handleChange, handleSubmit, isSubmitting }) => (
+        {({ values, handleChange, handleSubmit, isSubmitting, resetForm }) => (
           <form onSubmit={handleSubmit}>
             <Row>
               <ColText>
@@ -160,8 +160,11 @@ const FormUpdate = ({ book, getLivros }) => {
             </Row>
 
             <ButtonComponent>
+              <Button type="submit" onClick={() => resetForm("")} background="#818A96">
+                <Texto color="white">Cancelar</Texto>
+              </Button>
               <Button type="submit" disabled={isSubmitting}>
-                <Texto color="white">Confirmar Alteração</Texto>
+                <Texto color="white">Concluir</Texto>
               </Button>
             </ButtonComponent>
           </form>

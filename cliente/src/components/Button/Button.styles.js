@@ -12,8 +12,9 @@ export const ButtonComponent = styled.button`
     background ? background : "#003d99"};
   color: white;
   font-size: 14px;
-  width: ${({ width }) => (width ? width : "170px")};
+  width: ${({ width }) => (width ? width : "150px")};
   padding: 15px;
+  margin: 5px;
 
   border: none;
   border-radius: 3px;
