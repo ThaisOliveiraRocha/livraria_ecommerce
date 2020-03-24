@@ -37,6 +37,7 @@ const FormDelete = ({ book }) => {
               .then(response => {
                 getBooks().then(response => {
                   const data = response.data;
+                  console.log(data);
                   getLivros(data);
                 });
                 alert(`Livro ${values.titulo} excluido com sucesso!`);

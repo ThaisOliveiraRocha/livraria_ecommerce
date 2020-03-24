@@ -4,8 +4,8 @@ import { connect } from "react-redux";
 import { FormComponent, Body } from "./UpdateBook.styles";
 import Titulo from "../../components/Title";
 import Texto from "../../components/Text";
-import ListarItens from "./components/ListarItens";
 import FormUpdate from "./components/FormUpdate";
+import ListarItens from "../../container/ListarItens";
 import { getLivros } from "../../store/actions";
 
 const UpdateBook = ({ livros, infoTitleSelect }) => {

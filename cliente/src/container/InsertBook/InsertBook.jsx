@@ -19,6 +19,7 @@ import { insertBook } from "../../api";
 const InsertBook = props => (
   <>
     <Formik
+      enableReinitialize
       initialValues={{
         imagem: "",
         titulo: "",

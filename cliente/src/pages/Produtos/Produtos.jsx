@@ -13,7 +13,6 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import InsertBook from "../../container/InsertBook";
 import Layout from "../../components/Layout";
 import UpdateBook from "../../container/UpdateBook";
-import ListarItens from "../../container/UpdateBook/components/ListarItens/ListarItens";
 import { getBooks } from "../../api";
 import { getLivros, setTitulo } from "../../store/actions";
 import DeleteBook from "../../container/DeleteBook/DeleteBook";

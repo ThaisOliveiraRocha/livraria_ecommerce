@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Body, FormComponent } from './DeleteBook.styles';
 import Titulo from "../../components/Title";
-import ListarItens from './components/ListarItens';
+import ListarItens from '../../container/ListarItens';
 import FormDelete from './components/FormDelete';
 
 const DeleteBook = ({livros, bookSelec}) =>{
