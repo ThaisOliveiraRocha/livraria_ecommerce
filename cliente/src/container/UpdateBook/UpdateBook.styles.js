@@ -10,8 +10,9 @@ export const FormComponent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 40vh;
-  height: 70vh;
+  width: 40%;
+  max-height: 70%;
+  min-height: 30%;
 
   border: 1px solid rgba(11, 107, 230, 0.5);
   border-radius: 5px;
