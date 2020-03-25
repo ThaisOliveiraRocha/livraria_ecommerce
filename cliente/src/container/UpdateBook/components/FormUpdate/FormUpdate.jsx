@@ -13,6 +13,7 @@ import Titulo from "../../../../components/Title";
 import Texto from "../../../../components/Text";
 import Input from "../../../../components/Input";
 import Button from "../../../../components/Button";
+import CurrencyInput from "../../../../components/CurrencyInput";
 import { updateBook, getBooks } from "../../../../api";
 import { getLivros } from "../../../../store/actions";
 
@@ -148,12 +149,10 @@ const FormUpdate = ({ book, getLivros }) => {
                 <Titulo>Preço: </Titulo>
               </ColText>
               <ColInput>
-                <Input
-                  type="number"
+                <CurrencyInput
+                  placeholder="R$"
                   name="preco"
-                  onChange={handleChange}
                   value={values.preco}
-                  placeholder="Informe o preço"
                   required
                 />
               </ColInput>

@@ -13,6 +13,7 @@ import Button from "../../components/Button";
 import Titulo from "../../components/Title";
 import Texto from "../../components/Text";
 import Input from "../../components/Input";
+import CurrencyInput from "../../components/CurrencyInput";
 import { insertBookItem } from "../../store/actions";
 import { insertBook } from "../../api";
 
@@ -170,12 +171,10 @@ const InsertBook = props => (
                 <Titulo>Preço: </Titulo>
               </ColText>
               <ColInput>
-                <Input
-                  type="number"
+              <CurrencyInput
+                  placeholder="R$"
                   name="preco"
-                  onChange={handleChange}
                   value={values.preco}
-                  placeholder="Informe o preço"
                   required
                 />
               </ColInput>
