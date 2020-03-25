@@ -12,12 +12,13 @@ import {
 import { withRouter } from "react-router-dom";
 import Button from "../../../../components/Button";
 import Titulo from "../../../../components/Title";
-import Text from "../../../../components/Text";
+import Texto from "../../../../components/Text";
 
 import { connect } from "react-redux";
 import { addEditCarrinho, getDetail } from "../../../../store/actions";
 
 export const Card = ({ livro, addItemCarrinho, showDetails }) => {
+  console.log(livro);
   return (
     <CardContainer>
       <TopTitle>
@@ -32,29 +33,29 @@ export const Card = ({ livro, addItemCarrinho, showDetails }) => {
         <InfoCard>
           <div>
             <Titulo>Autor </Titulo>
-            <Text>{livro.autor}</Text>
+            <Texto>{livro.autor}</Texto>
           </div>
           <div>
             <Titulo>Ano </Titulo>
-            <Text>{livro.ano}</Text>
+            <Texto>{livro.ano}</Texto>
           </div>
           <div>
             <Titulo>Gênero </Titulo>
-            <Text>{livro.genero}</Text>
+            <Texto>{livro.genero}</Texto>
           </div>
           <div>
             <Titulo>Preço </Titulo>
-            <Text>R$ {livro.preco}</Text>
+            <Texto>R$ {livro.preco}</Texto>
           </div>
           <div>
             <Titulo>Situação </Titulo>
-            <Text>{livro.situacao}</Text>
+            <Texto>{livro.situacao}</Texto>
           </div>
         </InfoCard>
       </CardBody>
       <CardButton>
         <Button className="btnComprar" onClick={() => addItemCarrinho(livro)}>
-          Comprar
+          <Texto color="white">Comprar</Texto>
         </Button>
       </CardButton>
     </CardContainer>

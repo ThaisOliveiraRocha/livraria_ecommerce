@@ -23,7 +23,7 @@ export const FichaTecnica = styled.div`
   padding: 20px;
 
   background-color: #fff;
-  border: 1px solid #043277;
+  border: 1px solid #406EB3;
 `;
 
 export const DetailsComponent = styled.div`
@@ -108,7 +108,7 @@ export const Sinopse = styled.div`
   padding: 20px;
 
   background-color: #fff;
-  border: 1px solid #043277;
+  border: 1px solid #406EB3;
 `;
 
 export const Texto = styled.span`
@@ -126,7 +126,7 @@ export const AvaliacoesComponent = styled.div`
   padding: 20px;
 
   background-color: #fff;
-  border: 1px solid #043277;
+  border: 1px solid #406EB3;
 `;
 
 export const Avaliacao = styled.div`

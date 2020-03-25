@@ -6,7 +6,8 @@ import {
   CartContainer,
   CartImage,
   QuantidadeItens,
-  HomeComponent
+  HomeComponent,
+  CartButtonComponent
 } from "./Header.styles";
 
 import { connect } from "react-redux";
@@ -37,10 +38,12 @@ const Header = ({ carrinho, history }) => {
       </HomeComponent>
       <CartContainer onClick={() => setModalStatus(!showModal)}>
         <Button>
-          <CartImage
-            src={require("../../assets/images/carrinho_mercado.png")}
-          />
-          <Texto>Carrinho</Texto>
+          <CartButtonComponent>
+            <CartImage
+              src={require("../../assets/images/carrinho_mercado.png")}
+            />
+            <Texto color="white">Carrinho</Texto>
+          </CartButtonComponent>
         </Button>
         {carrinho.length > 0 && (
           <QuantidadeItens>{totalCart(carrinho)}</QuantidadeItens>

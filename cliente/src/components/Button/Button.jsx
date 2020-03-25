@@ -12,7 +12,7 @@ const Button = ({ children, background, onClick, width, className, type, disable
     className={className}
     disabled = {disabled}
   >
-    <Texto>{children}</Texto>
+    {children}
   </ButtonComponent>
 );
 

@@ -158,15 +158,20 @@ const FormUpdate = ({ book, getLivros }) => {
                 />
               </ColInput>
             </Row>
-
-            <ButtonComponent>
-              <Button type="submit" onClick={() => resetForm("")} background="#818A96">
-                <Texto color="white">Cancelar</Texto>
-              </Button>
-              <Button type="submit" disabled={isSubmitting}>
-                <Texto color="white">Concluir</Texto>
-              </Button>
-            </ButtonComponent>
+            <Row>
+              <ButtonComponent>
+                <Button
+                  type="submit"
+                  onClick={() => resetForm("")}
+                  background="#818A96"
+                >
+                  <Texto color="white">Cancelar</Texto>
+                </Button>
+                <Button type="submit" disabled={isSubmitting}>
+                  <Texto color="white">Concluir</Texto>
+                </Button>
+              </ButtonComponent>
+            </Row>
           </form>
         )}
       </Formik>

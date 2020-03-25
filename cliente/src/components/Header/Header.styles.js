@@ -7,7 +7,7 @@ export const Container = styled.div`
   padding: 10px;
 
   align-items: center;
-  background-color: #003d99;
+  background-color: #406EB3;
 `;
 
 export const Image = styled.img`
@@ -59,4 +59,9 @@ export const QuantidadeItens = styled.span`
   left: 45px;
 
   margin-left: 10px;
+`;
+
+export const CartButtonComponent = styled.span`
+  display: flex;
+  align-items: center;
 `;

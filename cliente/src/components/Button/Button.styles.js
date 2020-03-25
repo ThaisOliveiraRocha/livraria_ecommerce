@@ -9,15 +9,15 @@ export const ButtonComponent = styled.button`
   align-items: center;
   justify-content: center;
   background-color: ${({ background }) =>
-    background ? background : "#003d99"};
+    background ? background : "#406EB3"};
   color: white;
   font-size: 14px;
   width: ${({ width }) => (width ? width : "150px")};
-  padding: 15px;
+  padding: 10px;
   margin: 5px;
 
   border: none;
-  border-radius: 3px;
+  border-radius: 6px;
   outline: none;
 
   cursor: pointer;

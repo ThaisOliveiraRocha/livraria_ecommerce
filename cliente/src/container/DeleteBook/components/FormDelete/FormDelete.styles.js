@@ -4,8 +4,9 @@ export const FormComponent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: 40vh;
-  height: 70vh;
+  height: 100%;
 
   border: 1px solid rgba(11, 107, 230, 0.5);
   border-radius: 5px;
@@ -14,11 +15,19 @@ export const FormComponent = styled.div`
   padding: 20px;
 `;
 
+export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const Row = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
   height: 80px;
+  margin-top: 10px;
   justify-content: center;
 `;
 
@@ -33,13 +42,13 @@ export const ColInput = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 70%;
+  width: 50%;
 `;
 
 export const ButtonComponent = styled.div`
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 80%;
   height: 80px;
   justify-content: center;
 `;

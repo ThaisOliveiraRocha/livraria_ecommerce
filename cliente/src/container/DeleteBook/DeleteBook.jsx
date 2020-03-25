@@ -1,26 +1,32 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { Body, FormComponent } from './DeleteBook.styles';
+import React from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import {
+  Body,
+  FormComponentList,
+  FormComponentDelete,
+  Row
+} from "./DeleteBook.styles";
 import Titulo from "../../components/Title";
-import ListarItens from '../../container/ListarItens';
-import FormDelete from './components/FormDelete';
+import ListarItens from "../../container/ListarItens";
+import FormDelete from "./components/FormDelete";
 
-const DeleteBook = ({livros, bookSelec}) =>{
-
+const DeleteBook = ({ livros, bookSelec }) => {
   return (
     <>
       <Body>
-        <FormComponent>
+        <FormComponentList>
           <Titulo>Lista de Livros</Titulo>
           {livros.map((livro, index) => {
             return <ListarItens key={index} livro={livro} />;
           })}
-        </FormComponent>
-        <FormComponent>
-          <Titulo>Excluir Livro</Titulo>
-          <FormDelete book={bookSelec}/>
-        </FormComponent>
+        </FormComponentList>
+        <FormComponentDelete>
+          <Row>
+            <Titulo>Excluir Livro</Titulo>
+          </Row>
+          <FormDelete book={bookSelec} />
+        </FormComponentDelete>
       </Body>
     </>
   );
@@ -43,7 +49,4 @@ const mapDispatchToProps = dispatch => ({
   // fnBlaBla: () => dispatch(action.name()),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(DeleteBook);
+export default connect(mapStateToProps, mapDispatchToProps)(DeleteBook);

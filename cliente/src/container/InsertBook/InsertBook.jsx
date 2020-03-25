@@ -70,7 +70,7 @@ const InsertBook = props => (
                   name="imagem"
                   onChange={handleChange}
                   value={values.imagem}
-                  placeholder="Informe o nome da imagem"
+                  placeholder="Informe a imagem"
                   required
                 />
               </ColInput>

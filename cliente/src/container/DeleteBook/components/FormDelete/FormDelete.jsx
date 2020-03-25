@@ -7,7 +7,8 @@ import {
   Row,
   ColText,
   ColInput,
-  ButtonComponent
+  ButtonComponent,
+  Form
 } from "./FormDelete.styles";
 import Titulo from "../../../../components/Title";
 import Texto from "../../../../components/Text";
@@ -49,7 +50,7 @@ const FormDelete = ({ book }) => {
         }}
       >
         {({ values, handleChange, handleSubmit, isSubmitting, resetForm }) => (
-          <form onSubmit={handleSubmit}>
+          <Form onSubmit={handleSubmit}>
             <Row>
               <ColText>
                 <Titulo>Titulo: </Titulo>
@@ -70,16 +71,19 @@ const FormDelete = ({ book }) => {
                 />
               </ColInput>
             </Row>
-
             <ButtonComponent>
-              <Button type="submit" onClick={() => resetForm("")} background="#818A96">
+              <Button
+                type="submit"
+                onClick={() => resetForm("")}
+                background="#818A96"
+              >
                 <Texto color="white">Cancelar</Texto>
               </Button>
               <Button type="submit" disabled={isSubmitting}>
                 <Texto color="white">Concluir</Texto>
               </Button>
             </ButtonComponent>
-          </form>
+          </Form>
         )}
       </Formik>
     </>

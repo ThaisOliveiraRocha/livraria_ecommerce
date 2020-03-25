@@ -9,7 +9,7 @@ export const CardContainer = styled.div`
 
   background-color: white;
   border-radius: 15px;
-  border: 1px solid #043277;
+  border: 1px solid #406EB3;
 `;
 
 export const CardBody = styled.div`
@@ -61,10 +61,4 @@ export const Titulo = styled.span`
   flex-grow: 1;
   font-size: 18px;
   font-weight: 700;
-`;
-
-export const Texto = styled.span`
-  flex-grow: 1;
-  font-size: 14px;
-  margin-top: 5px;
 `;

@@ -18,7 +18,7 @@ export const Row = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  height: 80px;
+  height: 60px;
   justify-content: center;
 `;
 
@@ -33,13 +33,13 @@ export const ColInput = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 70%;
+  width: 50%;
 `;
 
 export const ButtonComponent = styled.div`
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 80%;
   height: 80px;
   justify-content: center;
 `;
