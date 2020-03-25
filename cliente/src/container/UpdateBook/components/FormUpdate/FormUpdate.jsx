@@ -104,7 +104,7 @@ const FormUpdate = ({ book, getLivros }) => {
               </ColText>
               <ColInput>
                 <Input
-                  type="text"
+                  type="number"
                   name="ano"
                   onChange={handleChange}
                   value={values.ano}
@@ -149,7 +149,7 @@ const FormUpdate = ({ book, getLivros }) => {
               </ColText>
               <ColInput>
                 <Input
-                  type="text"
+                  type="number"
                   name="preco"
                   onChange={handleChange}
                   value={values.preco}

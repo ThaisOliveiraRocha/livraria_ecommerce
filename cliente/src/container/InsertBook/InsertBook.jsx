@@ -111,7 +111,7 @@ const InsertBook = props => (
               </ColText>
               <ColInput>
                 <Input
-                  type="text"
+                  type="number"
                   name="ano"
                   onChange={handleChange}
                   value={values.ano}
@@ -171,7 +171,7 @@ const InsertBook = props => (
               </ColText>
               <ColInput>
                 <Input
-                  type="text"
+                  type="number"
                   name="preco"
                   onChange={handleChange}
                   value={values.preco}
