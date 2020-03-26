@@ -52,3 +52,23 @@ export const CartButtonComponent = styled.span`
   display: flex;
   align-items: center;
 `;
+
+export const UserComponent = styled.div`
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: flex-start;
+`;
+
+export const FilterComponent = styled.div`
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  width: 40%;
+  height: 30px;
+  margin-left: 20px;
+  border-radius: 3px;
+  border: 1px solid rgba(157, 171, 181);
+  background-color: #f1f3f4;
+  color: rgba(57, 59, 60);
+`;
