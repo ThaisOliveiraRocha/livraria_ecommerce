@@ -10,7 +10,7 @@ export const GlobalStyles = createGlobalStyle`
 html {
     height: 100%;
     box-sizing: border-box;
-    background-color: rgb(236,236,234);
+    background-color: #f1f3f4;
     font-family: 'museo-sans';
 }
 

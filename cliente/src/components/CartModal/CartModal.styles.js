@@ -19,12 +19,12 @@ export const ModalBody = styled.div`
 
   box-sizing: content-box;
   position: absolute;
-  top: 65px;
+  top: 60px;
   width: 300px;
   right: 10px;
 
-  border: 1px solid rgba(11, 107, 230, 0.5);
-  box-shadow: 5px 5px 30px rgba(11, 107, 230, 0.3);
+  border: 1px solid #79bac1;
+  box-shadow: 5px 5px 30px rgba(121, 186, 193, 0.5);
   background-color: white;
 
   /* height: 170px; */

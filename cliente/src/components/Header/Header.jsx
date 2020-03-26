@@ -9,14 +9,13 @@ import {
   HomeComponent,
   CartButtonComponent
 } from "./Header.styles";
-
+import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-
 import Button from "../Button";
 import Titulo from "../Title";
 import Texto from "../Text";
 import CartModal from "../CartModal";
-import { withRouter } from "react-router-dom";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 
 const totalCart = carrinho => {
   const total = carrinho.reduce((aux, livro) => {
@@ -32,17 +31,15 @@ const Header = ({ carrinho, history }) => {
     <Container>
       <HomeComponent onClick={() => history.push("/")}>
         <Image src={require("../../assets/images/rapidez.png")} />
-        <Titulo font="28px" color="#ffffff" grow="1">
-          Livraria on-line
+        <Titulo font="26px" color="#ffffff" grow="1">
+          futuro
         </Titulo>
       </HomeComponent>
       <CartContainer onClick={() => setModalStatus(!showModal)}>
         <Button>
           <CartButtonComponent>
-            <CartImage
-              src={require("../../assets/images/carrinho_mercado.png")}
-            />
-            <Texto color="white">Carrinho</Texto>
+            <CartImage><ShoppingCartIcon fontSize="default" /></CartImage>
+            <Titulo color="white">Carrinho</Titulo>
           </CartButtonComponent>
         </Button>
         {carrinho.length > 0 && (

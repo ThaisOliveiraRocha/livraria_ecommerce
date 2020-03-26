@@ -20,7 +20,7 @@ const InputItem = {
   height: '25px',
   borderRadius: '2px',
   border: '1px solid rgba(157, 171, 181)',
-  backgroundColor: 'rgba(157, 171, 181, 0.2)',
+  backgroundColor: '#f1f3f4',
   color: 'rgba(57, 59, 60)',
   fontWeight: '400',
   textAlign: 'center'

@@ -3,39 +3,28 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   width: 100%;
-  height: 90px;
-  padding: 10px;
-
+  height: 60px;
+  padding: 20px 10px 20px 50px;
   align-items: center;
-  background-color: #406EB3;
+  background-color: #2a7886;
 `;
 
 export const Image = styled.img`
-  width: 50px;
+  width: 40px;
   height: auto;
   margin-right: 5px;
-`;
-
-export const Titulo = styled.span`
-  flex-grow: 1;
-  color: #ffffff;
-  font-size: 26px;
-  font-weight: 700;
 `;
 
 export const CartContainer = styled.div`
   display: flex;
   color: #ffffff;
   align-items: center;
-
-  margin-right: 15px;
   position: relative;
 `;
 
-export const CartImage = styled.img`
+export const CartImage = styled.div`
   width: 30px;
   height: auto;
-  margin-right: 10px;
 `;
 
 export const HomeComponent = styled.div`
@@ -47,18 +36,16 @@ export const HomeComponent = styled.div`
 export const QuantidadeItens = styled.span`
   border-radius: 50%;
   background-color: red;
-  font-weight: 300;
-  width: 20px;
-  height: 20px;
+  font-size: 12px;
+  width: 15px;
+  height: 15px;
 
   display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: 5px;
+  top: 8px;
   left: 45px;
-
-  margin-left: 10px;
 `;
 
 export const CartButtonComponent = styled.span`

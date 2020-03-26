@@ -9,9 +9,9 @@ export const ButtonComponent = styled.button`
   align-items: center;
   justify-content: center;
   background-color: ${({ background }) =>
-    background ? background : "#406EB3"};
+    background ? background : "#2a7886"};
   color: white;
-  font-size: 14px;
+  font-size: 16px;
   width: ${({ width }) => (width ? width : "150px")};
   padding: 10px;
   margin: 5px;
