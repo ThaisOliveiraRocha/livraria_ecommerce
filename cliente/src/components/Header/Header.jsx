@@ -31,7 +31,7 @@ const Header = ({ carrinho, history }) => {
   return (
     <Container>
       <HomeComponent onClick={() => history.push("/")}>
-        <Image src={require("../../assets/images/book_novo.svg")} />
+        <Image src={require("../../assets/images/rapidez.png")} />
         <Titulo font="28px" color="#ffffff" grow="1">
           Livraria on-line
         </Titulo>
