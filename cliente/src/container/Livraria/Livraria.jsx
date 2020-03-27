@@ -6,6 +6,7 @@ import Card from "./components/Card/Card";
 import ModalComponent from "../../components/ModalComponent";
 import { removeLivro, showModal } from "../../store/actions";
 import { withRouter } from "react-router-dom";
+import Slider from "../../components/Slider";
 
 const Livraria = ({ livros, showModal, funcaoConfirma, cancel }) => (
   <Layout>
@@ -19,9 +20,11 @@ const Livraria = ({ livros, showModal, funcaoConfirma, cancel }) => (
       />
     )}
 
-    {livros.map((livro, index) => {
+      <Slider />
+
+    {/* {livros.map((livro, index) => {
       return <Card key={index} livro={livro} />;
-    })}
+    })} */}
   </Layout>
 );
 
