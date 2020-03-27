@@ -72,7 +72,7 @@ export const CartModal = ({ carrinho, showCarrinho, onClose }) => {
         </TotalContainer>
         <ButtonGroup>
           <Button className="btnComprar" onClick={() => showCarrinho(carrinho)}>
-            Finalizar Compra
+            <Text color="white">Finalizar Compra</Text>
           </Button>
         </ButtonGroup>
       </ModalBody>

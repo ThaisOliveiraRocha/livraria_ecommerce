@@ -13,13 +13,18 @@ import Texto from "../Text";
 import Button from "../Button";
 import { withRouter } from "react-router-dom";
 
-export const ModalComponent = ({ temaModal, mensagem, funcaoConfirma, cancel }) => {
+export const ModalComponent = ({
+  temaModal,
+  mensagem,
+  funcaoConfirma,
+  cancel
+}) => {
   return (
     <>
       <Overlay onClick={cancel} />
       <ContainerModal>
-        <Button onClick={cancel} className="close">
-          X
+        <Button onClick={cancel} className="close" background="#818A96">
+          <Texto color="white">X</Texto>
         </Button>
         <HeaderModal>
           <Titulo>{temaModal}</Titulo>
@@ -29,14 +34,13 @@ export const ModalComponent = ({ temaModal, mensagem, funcaoConfirma, cancel }) 
         </BodyModal>
         <FooterModal>
           <Button
-            background="green"
             onClick={funcaoConfirma}
             className="margin-right-10 btnConfirmar"
           >
-            Confirmar
+            <Texto color="white">Confirmar</Texto>
           </Button>
-          <Button background="red" onClick={cancel} className="btnCancelar">
-            Cancelar
+          <Button background="#818A96" onClick={cancel} className="btnCancelar">
+            <Texto color="white">Cancelar</Texto>
           </Button>
         </FooterModal>
       </ContainerModal>
