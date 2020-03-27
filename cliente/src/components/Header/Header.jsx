@@ -9,7 +9,8 @@ import {
   HomeComponent,
   CartButtonComponent,
   UserComponent,
-  FilterComponent
+  FilterComponent,
+  Filter
 } from "./Header.styles";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
@@ -20,7 +21,12 @@ import CartModal from "../CartModal";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import SearchIcon from "@material-ui/icons/Search";
+import Input from "@material-ui/core/Input";
 import InputBase from "@material-ui/core/InputBase";
+import Divider from "@material-ui/core/Divider";
+import IconButton from "@material-ui/core/IconButton";
+import DirectionsIcon from "@material-ui/icons/Directions";
+import MenuIcon from "@material-ui/icons/Menu";
 
 const totalCart = carrinho => {
   const total = carrinho.reduce((aux, livro) => {
@@ -41,15 +47,20 @@ const Header = ({ carrinho, history }) => {
         </Titulo>
       </HomeComponent>
       <FilterComponent>
-        <CartImage>
-          <SearchIcon
-            style={{ color: "#2a7886", display: "flex", alignSelf: "center" }}
+        <Filter>
+          <IconButton aria-label="menu">
+            <MenuIcon />
+          </IconButton>
+          <InputBase
+            placeholder="Pesquisar..."
+            inputProps={{ "aria-label": "pesquisar" }}
+            name="pesquisar"
+            fullWidth="true"
           />
-        </CartImage>
-        <InputBase
-          placeholder="Pesquisar..."
-          inputProps={{ "aria-label": "search" }}
-        />
+          <IconButton type="submit" aria-label="search">
+            <SearchIcon />
+          </IconButton>
+        </Filter>
       </FilterComponent>
       <UserComponent>
         <Button>
@@ -59,7 +70,7 @@ const Header = ({ carrinho, history }) => {
                 style={{ color: "white", marginRight: "5px" }}
               />
             </CartImage>
-            <Texto color="white">Olá, fulano!</Texto>
+            <Texto color="white">Olá, mãe!</Texto>
           </CartButtonComponent>
         </Button>
       </UserComponent>

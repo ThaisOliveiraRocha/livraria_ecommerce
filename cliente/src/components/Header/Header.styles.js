@@ -63,10 +63,18 @@ export const UserComponent = styled.div`
 export const FilterComponent = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-grow: 1;
-  width: 40%;
+  width: 80%;
   height: 30px;
   margin-left: 20px;
+`;
+
+export const Filter = styled.div`
+  display: flex;
+  align-items: center;
+  width: 50%;
+  height: 30px;
   border-radius: 3px;
   border: 1px solid rgba(157, 171, 181);
   background-color: #f1f3f4;
