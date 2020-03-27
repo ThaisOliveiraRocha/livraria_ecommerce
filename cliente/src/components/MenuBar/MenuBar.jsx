@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Body } from "./MenuBar.styles";
@@ -9,22 +9,20 @@ import Divider from "@material-ui/core/Divider";
 const MenuBar = props => (
   <>
     <Body>
-      <Button background="#dadada">
-        <Texto>HOME</Texto>
+      <Button background="#dadada" color="black">
+        HOME
       </Button>
       <Divider style={{ heigth: "28", margin: "4" }} orientation="vertical" />
-      <Button background="#dadada">
-        <Texto>PROMOÇÕES</Texto>
+      <Button background="#dadada" color="black">
+        PROMOÇÕES
       </Button>
       <Divider style={{ heigth: "28", margin: "4" }} orientation="vertical" />
-
-      <Button background="#dadada">
-        <Texto>DETALHES</Texto>
+      <Button background="#dadada" color="black">
+        DETALHES
       </Button>
       <Divider style={{ heigth: "28", margin: "4" }} orientation="vertical" />
-
-      <Button background="#dadada">
-        <Texto>SOBRE</Texto>
+      <Button background="#dadada" color="black">
+        SOBRE
       </Button>
     </Body>
   </>

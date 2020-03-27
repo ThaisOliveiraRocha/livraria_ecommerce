@@ -64,7 +64,7 @@ const Header = ({ carrinho, history }) => {
           <CartButtonComponent>
             <CartImage>
               <AccountCircleIcon
-                style={{ color: "white", marginRight: "5px" }}
+                style={{ marginRight: "5px" }}
               />
             </CartImage>
             <Texto color="white">Olá, mãe!</Texto>

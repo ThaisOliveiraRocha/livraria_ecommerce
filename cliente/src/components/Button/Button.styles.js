@@ -10,15 +10,19 @@ export const ButtonComponent = styled.button`
   justify-content: center;
   background-color: ${({ background }) =>
     background ? background : "#2a7886"};
-  color: white;
-  font-size: 16px;
+  color: ${({ color }) => (color ? color : "white")};
+  font-size: 14px;
   width: ${({ width }) => (width ? width : "150px")};
   padding: 10px;
   margin: 5px;
 
   border: none;
-  border-radius: 6px;
+  border-radius: 3px;
   outline: none;
+
+  &:hover {
+    color: #fe416d;
+  }
 
   cursor: pointer;
   &:active {
