@@ -21,11 +21,8 @@ import CartModal from "../CartModal";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import SearchIcon from "@material-ui/icons/Search";
-import Input from "@material-ui/core/Input";
 import InputBase from "@material-ui/core/InputBase";
-import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
-import DirectionsIcon from "@material-ui/icons/Directions";
 import MenuIcon from "@material-ui/icons/Menu";
 
 const totalCart = carrinho => {
@@ -55,7 +52,7 @@ const Header = ({ carrinho, history }) => {
             placeholder="Pesquisar..."
             inputProps={{ "aria-label": "pesquisar" }}
             name="pesquisar"
-            fullWidth="true"
+            fullWidth
           />
           <IconButton type="submit" aria-label="search">
             <SearchIcon />

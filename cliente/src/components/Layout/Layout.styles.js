@@ -12,5 +12,5 @@ export const ChildrenComponent = styled.div`
   flex-wrap: wrap;
 
   padding: 30px;
-  background-color: rgb(236, 236, 234);
+  background-color: #f1f3f4;
 `;
