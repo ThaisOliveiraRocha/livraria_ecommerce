@@ -7,7 +7,9 @@ import {
   ImageCard,
   InfoCard,
   CardButton,
-  TopTitle
+  TopTitle,
+  Row,
+  Col
 } from "./Card.styles";
 import { withRouter } from "react-router-dom";
 import Button from "../../../../components/Button";
@@ -31,26 +33,31 @@ export const Card = ({ livro, addItemCarrinho, showDetails }) => {
           />
         </TopCard>
         <InfoCard>
-          <div>
-            <Titulo>Autor </Titulo>
-            <Texto>{livro.autor}</Texto>
-          </div>
-          <div>
-            <Titulo>Ano </Titulo>
-            <Texto>{livro.ano}</Texto>
-          </div>
-          <div>
-            <Titulo>Gênero </Titulo>
-            <Texto>{livro.genero}</Texto>
-          </div>
-          <div>
-            <Titulo>Preço </Titulo>
-            <Texto>R$ {livro.preco}</Texto>
-          </div>
-          <div>
-            <Titulo>Situação </Titulo>
-            <Texto>{livro.situacao}</Texto>
-          </div>
+          <Row>
+            <Col>
+              <Texto font="16px">{livro.autor}</Texto>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Texto font="16px">{livro.ano}</Texto>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Texto font="16px">{livro.genero}</Texto>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Texto font="16px">R$ {livro.preco}</Texto>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Texto font="16px">{livro.situacao}</Texto>
+            </Col>
+          </Row>
         </InfoCard>
       </CardBody>
       <CardButton>

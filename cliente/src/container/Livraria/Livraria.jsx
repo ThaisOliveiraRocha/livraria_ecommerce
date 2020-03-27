@@ -7,6 +7,12 @@ import ModalComponent from "../../components/ModalComponent";
 import { removeLivro, showModal } from "../../store/actions";
 import { withRouter } from "react-router-dom";
 import Slider from "../../components/Slider";
+import {
+  LivrariaContainer,
+  SliderContainer,
+  CardContainer
+} from "./Livraria.styles";
+import Titulo from "../../components/Title";
 
 const Livraria = ({ livros, showModal, funcaoConfirma, cancel }) => (
   <Layout>
@@ -19,12 +25,17 @@ const Livraria = ({ livros, showModal, funcaoConfirma, cancel }) => (
         cancel={cancel}
       />
     )}
-
-      <Slider />
-
-    {/* {livros.map((livro, index) => {
-      return <Card key={index} livro={livro} />;
-    })} */}
+    <LivrariaContainer>
+      <SliderContainer>
+        <Slider />
+      </SliderContainer>
+      <Titulo font="18px">Nossos Produtos</Titulo>
+      <CardContainer>
+        {livros.map((livro, index) => {
+          return <Card key={index} livro={livro} />;
+        })}
+      </CardContainer>
+    </LivrariaContainer>
   </Layout>
 );
 
@@ -46,4 +57,6 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Livraria));
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(Livraria)
+);

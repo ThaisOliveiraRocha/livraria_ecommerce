@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import { TextComponent } from "./Text.styles";
 
-const Text = ({ children, color, bold }) => {
+const Text = ({ font, children, color, bold }) => {
   return (
-    <TextComponent color={color} bold={bold}>
+    <TextComponent font={font} color={color} bold={bold}>
       {children}
     </TextComponent>
   );

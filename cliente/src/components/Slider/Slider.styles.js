@@ -1,10 +1,17 @@
 import styled from "styled-components";
 
 export const SliderContainer = styled.div`
-  width: 200px;
+  width: 100%;
 `;
 
-export const Image = styled.img`
-    height: 160px;
-    width: auto;
+export const SlickPrev = styled.div `
+    ::before{
+        display: none;
+    }
+`;
+
+export const SlickNext = styled.div `
+    ::before{
+        display: none;
+    }
 `;

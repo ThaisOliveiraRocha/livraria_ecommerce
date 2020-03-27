@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { SliderContainer, Image } from './Slider.styles';
+import { SliderContainer, SlickPrev, SlickNext } from './Slider.styles';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -11,22 +11,22 @@ import rightArrow from "../../assets/images/rightArrow.png";
 
 const PrevArrow = ({ onClick }) => {
   return (
-    <div className="slick-arrow slick-prev" onClick={onClick}>
+    <SlickPrev className="slick-arrow slick-prev" onClick={onClick}>
       <img src={leftArrow} alt="arrow_left" />
-    </div>
+    </SlickPrev>
   );
 };
 
 const NextArrow = ({ onClick }) => {
   return (
-    <div className="slick-arrow slick-next" onClick={onClick}>
+    <SlickNext className="slick-arrow slick-next" onClick={onClick}>
       <img src={rightArrow} alt="arrow_right" />
-    </div>
+    </SlickNext>
   );
 };
 
 const settings = {
-  dots: false,
+  dots: true,
   infinite: true,
   nextArrow: <NextArrow />,
   prevArrow: <PrevArrow />,
@@ -39,8 +39,8 @@ const settings = {
     {
       breakpoint: 1024,
       settings: {
-        slidesToShow: 3,
-        slidesToScroll: 3,
+        slidesToShow: 1,
+        slidesToScroll: 1,
         infinite: true,
         dots: false
       }
@@ -52,24 +52,12 @@ const SliderComponent = props => {
   return (
     <>
       <SliderContainer>
-        <Slider {...settings} style={{ width: "100%", height: "200px" }}>
+        <Slider {...settings} style={{ width: "auto", height: "50%" }}>
           <img
-            src={require(`../../assets/images/book1.png`)}
+            src={require(`../../assets/images/estante.png`)}
           />
           <img
-            src={require(`../../assets/images/book1.png`)}
-          />
-          <img
-            src={require(`../../assets/images/book1.png`)}
-          />
-          <img
-            src={require(`../../assets/images/book1.png`)}
-          />
-          <img
-            src={require(`../../assets/images/book1.png`)}
-          />
-          <img
-            src={require(`../../assets/images/book1.png`)}
+            src={require(`../../assets/images/livros.png`)}
           />
         </Slider>
       </SliderContainer>

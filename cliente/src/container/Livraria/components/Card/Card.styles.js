@@ -4,12 +4,12 @@ export const CardContainer = styled.div`
   display: flex;
   margin: 15px;
   flex-direction: column;
-  width: 350px;
-  height: 330px;
+  width: 300px;
+  height: 310px;
 
   background-color: white;
-  border-radius: 15px;
-  border: 1px solid #406EB3;
+  border-radius: 5px;
+  border: 1px solid #79bac1;
 `;
 
 export const CardBody = styled.div`
@@ -45,7 +45,7 @@ export const InfoCard = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 10px;
+  width: 100%;
 `;
 
 export const CardButton = styled.div`
@@ -55,10 +55,15 @@ export const CardButton = styled.div`
   margin: 10px;
 `;
 
-export const Titulo = styled.span`
+export const Row = styled.div`
   display: flex;
-  text-align: center;
-  flex-grow: 1;
-  font-size: 18px;
-  font-weight: 700;
+  align-items: center;
+  width: 100%;
+`;
+
+export const Col = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
 `;

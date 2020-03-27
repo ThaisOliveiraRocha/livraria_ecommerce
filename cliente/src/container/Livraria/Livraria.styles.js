@@ -1,5 +1,26 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const Test = styled.div`
- display: flex;
+export const LivrariaContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 20px 0 20px;
+`;
+
+export const SliderContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 40px;
+`;
+
+export const CardContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  
 `;
