@@ -171,9 +171,10 @@ const InsertBook = props => (
                 <Titulo>Preço: </Titulo>
               </ColText>
               <ColInput>
-              <CurrencyInput
-                  placeholder="R$"
+              <Input
+                  placeholder="Informe o preço"
                   name="preco"
+                  onChange={handleChange}
                   value={values.preco}
                   required
                 />
