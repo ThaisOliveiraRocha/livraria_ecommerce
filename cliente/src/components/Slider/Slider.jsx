@@ -54,10 +54,13 @@ const SliderComponent = props => {
       <SliderContainer>
         <Slider {...settings} style={{ width: "auto", height: "50%" }}>
           <img
-            src={require(`../../assets/images/estante.png`)}
+            src={require(`../../assets/images/promocoes.png`)}
           />
           <img
-            src={require(`../../assets/images/livros.png`)}
+            src={require(`../../assets/images/banner-got.png`)}
+          />
+          <img
+            src={require(`../../assets/images/star-wars.png`)}
           />
         </Slider>
       </SliderContainer>

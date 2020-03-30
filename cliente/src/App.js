@@ -14,10 +14,10 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/login" exact component={Login} />
+        <Route path="/login" component={Login} />
         <Route path="/alterar" component={AlterarSenha} />
         <Route path="/cadastrar" component={Cadastrar} />
-        <Route path="/home" component={Home} />
+        <Route path="/home" exact={true} component={Home} />
         <Route path="/carrinho" component={Carrinho} />
         <Route path="/details" component={Details} />
         <Route path="/gerenciar" component={Gerenciar} />
