@@ -29,7 +29,7 @@ const Livraria = ({ livros, showModal, funcaoConfirma, cancel }) => (
       <SliderContainer>
         <Slider />
       </SliderContainer>
-      <Titulo font="18px">Nossos Produtos</Titulo>
+      <Titulo font="22px">Conheça nossos produtos</Titulo>
       <CardContainer>
         {livros.map((livro, index) => {
           return <Card key={index} livro={livro} />;

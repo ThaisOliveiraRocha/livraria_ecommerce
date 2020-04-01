@@ -4,8 +4,8 @@ export const CardContainer = styled.div`
   display: flex;
   margin: 15px;
   flex-direction: column;
-  width: 300px;
-  height: 310px;
+  width: 250px;
+  height: 350px;
 
   background-color: white;
   border-radius: 5px;
@@ -15,16 +15,10 @@ export const CardContainer = styled.div`
 export const CardBody = styled.div`
   display: flex;
   align-items: center;
-  margin: 10px;
-  cursor: pointer;
-`;
-
-export const TopCard = styled.div`
-  display: flex;
-  align-items: center;
   justify-content: center;
   flex-direction: column;
   margin: 10px;
+  cursor: pointer;
 `;
 
 export const TopTitle = styled.div`
@@ -38,14 +32,7 @@ export const ImageCard = styled.img`
   width: auto;
   height: 160px;
   display: flex;
-  align-self: flex-start;
-`;
-
-export const InfoCard = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
+  align-self: center;
 `;
 
 export const CardButton = styled.div`
@@ -64,6 +51,7 @@ export const Row = styled.div`
 export const Col = styled.div`
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   width: 100%;
+  margin-top: 10px;
 `;
