@@ -4,6 +4,7 @@ import Header from "../Header";
 import { Container, ChildrenComponent } from "./Layout.styles";
 import { GlobalStyles } from "../../assets/styles/GlobalStyles";
 import MenuBar from "../MenuBar";
+import Footer from "../Footer";
 
 const Layout = ({ children }) => (
   <Container>
@@ -13,6 +14,7 @@ const Layout = ({ children }) => (
     <ChildrenComponent>
       {children}
     </ChildrenComponent>
+    <Footer />
   </Container>
 );
 
