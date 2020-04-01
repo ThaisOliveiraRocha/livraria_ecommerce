@@ -7,6 +7,7 @@ import DetailsBook from "./components/DetailsBook";
 import ModalComponent from "../../components/ModalComponent";
 import { removeLivro, showModal } from "../../store/actions";
 import { withRouter } from "react-router-dom";
+import SinopseBook from "./components/SinopseBook";
 
 
 export const Details = ({ detalhes, history, funcaoConfirma, cancel, showModal }) => {
@@ -28,6 +29,7 @@ export const Details = ({ detalhes, history, funcaoConfirma, cancel, showModal }
       />
     )}
       <DetailsBook livro={detalhes} />
+      <SinopseBook livro={detalhes} />
     </Layout>
   );
 };

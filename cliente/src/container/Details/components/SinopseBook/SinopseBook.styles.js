@@ -6,47 +6,32 @@ export const Body = styled.div`
   justify-content: center;
   padding: 20px;
   height: 250px;
-  width: 40%;
+  width: 55%;
   background-color: white;
   border-radius: 5px;
   border: 1px solid #79bac1;
 `;
 
-export const ImageComponent = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-export const DetailsComponent = styled.div`
+export const SinopseComponent = styled.div`
   display: flex;
   flex-direction: column;
-  width: 300px;
-  height: 100%;
-`;
-
-export const Image = styled.img`
-  height: 200px;
-  width: auto;
+  align-items: center;
+  padding: 10px;
 `;
 
 export const Row = styled.div`
   width: 100%;
-  height: 30px;
+  min-height: 30px;
+  height: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
 `;
 
 export const Col = styled.div`
   display: flex;
-  width: 50%;
+  width: 100%;
+  height: 100%;
   align-items: center;
   justify-content: flex-start;
-`;
-
-export const ButtonComponent = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
 `;
