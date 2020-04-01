@@ -41,7 +41,7 @@ export const getLogin = login => ({
 
 export const isAdm = adm => ({
   type: livros.IS_ADM,
-  paylod: { adm }
+  payload: {adm}
 });
 
 export const updatePass = user => ({

@@ -93,7 +93,7 @@ const Produtos = ({livros, getLivros, setTitulo}) => {
             value={value}
             onChange={handleChange}
             aria-label="nav tabs example"
-            style={{backgroundColor: "#406EB3"}}
+            style={{backgroundColor: "#2a7886"}}
           >
             <LinkTab icon={<AddCircleIcon />} label="Adicionar" {...a11yProps(0)} />
             <LinkTab icon={<UpdateIcon />} label="Alterar" {...a11yProps(1)} />

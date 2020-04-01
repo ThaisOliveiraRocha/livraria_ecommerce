@@ -13,7 +13,7 @@ import SinopseBook from "./components/SinopseBook";
 export const Details = ({ detalhes, history, funcaoConfirma, cancel, showModal }) => {
   if (Object.keys(detalhes).length === 0) {
     {
-      history.push("/");
+      history.push("/home");
     }
     return null;
   }

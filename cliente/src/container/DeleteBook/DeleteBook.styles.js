@@ -11,7 +11,9 @@ export const FormComponentList = styled.div`
   flex-direction: column;
   align-items: center;
   width: 40vh;
-  height: 70vh;
+  max-height: 70%;
+  min-height: 30%;
+
 
   border: 1px solid rgba(11, 107, 230, 0.5);
   border-radius: 5px;
@@ -26,8 +28,8 @@ export const FormComponentDelete = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 40vh;
-  height: 30vh;
+  width: 35vh;
+  height: 200px;
 
   border: 1px solid rgba(11, 107, 230, 0.5);
   border-radius: 5px;
@@ -42,6 +44,6 @@ export const Row = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  height: 110px;
+  height: 30px;
   justify-content: center;
 `;

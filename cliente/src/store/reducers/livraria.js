@@ -8,7 +8,7 @@ const initialState = {
   selectedTitle: "",
   modalCompra: false,
   user: {},
-  isAdm: 0,
+  isAdm: "0",
   titulo: ""
 };
 

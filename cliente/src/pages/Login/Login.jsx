@@ -17,8 +17,8 @@ import Texto from "../../components/Text";
 import Input from "../../components/Input";
 import { GlobalStyles } from "../../assets/styles/GlobalStyles";
 import { Link } from "react-router-dom";
-import { authenticateUser, getBooks } from "../../api";
-import { getLogin, getLivros } from "../../store/actions";
+import { authenticateUser } from "../../api";
+import { getLogin, isAdm } from "../../store/actions";
 
 const Login = props => {
   return (
@@ -51,8 +51,11 @@ const Login = props => {
                   const data = response.data;
                   console.log(data);
                   props.getLogin(data);
-                  if (data.isAdm === "1") props.history("/gerenciarProdutos");
-                  else props.history("/home");
+                  props.isAdm(data.isAdm);
+
+                  data.isAdm === "1"
+                    ? props.history("/gerenciarProdutos")
+                    : props.history("/home");
                 })
                 .catch(e => console.log(e));
 
@@ -122,7 +125,7 @@ Login.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-  isAdm: state.livraria.isAdm
+  //
 });
 
 const mapDispatchToProps = (dispatch, { history }) => ({
@@ -131,6 +134,9 @@ const mapDispatchToProps = (dispatch, { history }) => ({
   },
   history: path => {
     history.push(path);
+  },
+  isAdm: adm => {
+    dispatch(isAdm(adm));
   }
 });
 
