@@ -31,7 +31,7 @@ const settings = {
   nextArrow: <NextArrow />,
   prevArrow: <PrevArrow />,
   autoplay: true,
-  autoplaySpeed: 4000,
+  autoplaySpeed: 6000,
   slidesToShow: 1,
   slidesToScroll: 1,
   adaptativeHeight: true,
@@ -61,6 +61,9 @@ const SliderComponent = props => {
           />
           <img
             src={require(`../../assets/images/girl.png`)}
+          />
+          <img
+            src={require(`../../assets/images/infantil.png`)}
           />
         </Slider>
       </SliderContainer>
