@@ -13,16 +13,16 @@ const MenuBar = ({history}) => (
       <Button background="#dadada" color="black" onClick={() => history.push("/home")}>
         HOME
       </Button>
-      <Divider style={{ heigth: "28", margin: "4" }} orientation="vertical" onClick={() => history.push("/promocao")}/>
-      <Button background="#dadada" color="black">
+      <Divider style={{ heigth: "28", margin: "4" }} orientation="vertical" />
+      <Button background="#dadada" color="black" onClick={() => history.push("/promocao")}>
         PROMOÇÕES
       </Button>
-      <Divider style={{ heigth: "28", margin: "4" }} orientation="vertical" onClick={() => history.push("/sobre-nos")}/>
-      <Button background="#dadada" color="black">
+      <Divider style={{ heigth: "28", margin: "4" }} orientation="vertical" />
+      <Button background="#dadada" color="black" onClick={() => history.push("/sobre-nos")}>
         SOBRE
       </Button>
-      <Divider style={{ heigth: "28", margin: "4" }} orientation="vertical" onClick={() => history.push("/contato")}/>
-      <Button background="#dadada" color="black">
+      <Divider style={{ heigth: "28", margin: "4" }} orientation="vertical" />
+      <Button background="#dadada" color="black" onClick={() => history.push("/contato")}>
         CONTATO
       </Button>
     </Body>
