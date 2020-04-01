@@ -20,6 +20,7 @@ import Texto from "../Text";
 import CartModal from "../CartModal";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import SearchIcon from "@material-ui/icons/Search";
 import InputBase from "@material-ui/core/InputBase";
 import IconButton from "@material-ui/core/IconButton";
@@ -60,18 +61,25 @@ const Header = ({ carrinho, history, user }) => {
         </Filter>
       </FilterComponent>
       <UserComponent>
-        <Button onClick={() => history.push("/login")}>
-          <CartButtonComponent>
-            <CartImage>
-              <AccountCircleIcon style={{ marginRight: "5px" }} />
-            </CartImage>
-            {!user.nome ? (
+        {!user.nome ? (
+          <Button onClick={() => history.push("/login")}>
+            <CartButtonComponent>
+              <CartImage>
+                <ExitToAppIcon style={{ marginRight: "5px" }} />
+              </CartImage>
               <Texto color="white">Fazer Login!</Texto>
-            ) : (
+            </CartButtonComponent>
+          </Button>
+        ) : (
+          <Button onClick={() => history.push("/info-user")}>
+            <CartButtonComponent>
+              <CartImage>
+                <AccountCircleIcon style={{ marginRight: "5px" }} />
+              </CartImage>
               <Texto color="white">Olá, {user.nome}!</Texto>
-            )}
-          </CartButtonComponent>
-        </Button>
+            </CartButtonComponent>
+          </Button>
+        )}
       </UserComponent>
       <CartContainer onClick={() => setModalStatus(!showModal)}>
         <Button>
