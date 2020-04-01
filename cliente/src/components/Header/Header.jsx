@@ -33,7 +33,7 @@ const totalCart = carrinho => {
   return total;
 };
 
-const Header = ({ carrinho, history }) => {
+const Header = ({ carrinho, history, user }) => {
   const [showModal, setModalStatus] = useState(false);
   return (
     <Container>
@@ -60,14 +60,16 @@ const Header = ({ carrinho, history }) => {
         </Filter>
       </FilterComponent>
       <UserComponent>
-        <Button>
+        <Button onClick={() => history.push("/login")}>
           <CartButtonComponent>
             <CartImage>
-              <AccountCircleIcon
-                style={{ marginRight: "5px" }}
-              />
+              <AccountCircleIcon style={{ marginRight: "5px" }} />
             </CartImage>
-            <Texto color="white">Olá, mãe!</Texto>
+            {!user.nome ? (
+              <Texto color="white">Fazer Login!</Texto>
+            ) : (
+              <Texto color="white">Olá, {user.nome}!</Texto>
+            )}
           </CartButtonComponent>
         </Button>
       </UserComponent>
@@ -96,7 +98,8 @@ Header.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  carrinho: state.livraria.carrinho
+  carrinho: state.livraria.carrinho,
+  user: state.livraria.user
 });
 
 export default withRouter(connect(mapStateToProps)(Header));
