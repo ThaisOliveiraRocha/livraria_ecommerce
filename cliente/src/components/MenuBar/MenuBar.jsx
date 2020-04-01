@@ -7,7 +7,7 @@ import Button from "../Button";
 import Texto from "../Text";
 import Divider from "@material-ui/core/Divider";
 
-const MenuBar = ({history}) => (
+const MenuBar = ({history, isAdm}) => (
   <>
     <Body>
       <Button background="#dadada" color="black" onClick={() => history.push("/home")}>
@@ -25,6 +25,14 @@ const MenuBar = ({history}) => (
       <Button background="#dadada" color="black" onClick={() => history.push("/contato")}>
         CONTATO
       </Button>
+      {(isAdm==="1") && (
+        <>
+        <Divider style={{ heigth: "28", margin: "4" }} orientation="vertical" />
+        <Button background="#dadada" color="black" onClick={() => history.push("/gerenciarProdutos")}>
+          GERENCIAR
+        </Button>
+        </>
+      )}
     </Body>
   </>
 );
@@ -38,7 +46,7 @@ MenuBar.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-  // blabla: state.blabla,
+  isAdm: state.livraria.isAdm
 });
 
 const mapDispatchToProps = ({dispatch, history}) => ({
