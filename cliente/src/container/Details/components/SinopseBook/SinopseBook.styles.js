@@ -21,7 +21,6 @@ export const SinopseComponent = styled.div`
 
 export const Row = styled.div`
   width: 100%;
-  min-height: 30px;
   height: 100%;
   display: flex;
   align-items: center;
