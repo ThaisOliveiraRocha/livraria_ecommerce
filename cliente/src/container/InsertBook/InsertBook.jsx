@@ -36,8 +36,6 @@ const InsertBook = props => (
         setTimeout(() => {
           const book = values;
 
-          console.log("dados tela ==> ", book);
-
           insertBook(book)
             .then(response => {
               const data = response.data;
