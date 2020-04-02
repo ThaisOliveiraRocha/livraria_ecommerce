@@ -19,8 +19,8 @@ export const SliderContainer = styled.div`
 
 export const CardContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   width: 100%;
-  
 `;
