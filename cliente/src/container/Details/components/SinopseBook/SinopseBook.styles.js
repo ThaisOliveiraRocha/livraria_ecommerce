@@ -5,6 +5,8 @@ export const Body = styled.div`
   align-items: center;
   justify-content: center;
   padding: 20px;
+  max-height: 100%;
+  
   height: 250px;
   width: 55%;
   background-color: white;
@@ -17,11 +19,12 @@ export const SinopseComponent = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 10px;
+  max-height: 200px;
+  overflow: auto;
 `;
 
 export const Row = styled.div`
   width: 100%;
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,4 +36,5 @@ export const Col = styled.div`
   height: 100%;
   align-items: center;
   justify-content: flex-start;
+
 `;
