@@ -20,7 +20,7 @@ import Divider from "@material-ui/core/Divider";
 export const DetailsBook = ({ livro, addItemCarrinho }) => (
   <Body>
     <ImageComponent>
-      <Image src={require(`../../../../assets/images/${livro.imagem}`)} />
+      <Image src={livro.imagem} />
     </ImageComponent>
     <Divider
       style={{

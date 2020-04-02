@@ -25,7 +25,7 @@ export const Card = ({ livro, addItemCarrinho, showDetails }) => {
       </TopTitle>
       <CardBody onClick={() => showDetails(livro)}>
           <ImageCard
-            src={require(`../../../../assets/images/${livro.imagem}`)}
+            src={livro.imagem}
           />
           <Row>
             <Col>

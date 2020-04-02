@@ -11,7 +11,7 @@ export const ItemCart = ({ item, deleteItem }) => {
     <>
       <Tr>
         <Td>
-          <ImageBook src={require(`../../../assets/images/${item.imagem}`)} />
+          <ImageBook src={item.imagem} />
         </Td>
         <Td>
           <Text>{item.titulo}</Text>
