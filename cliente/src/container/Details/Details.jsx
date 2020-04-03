@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
-//import { Test } from './Details.styles';
+import { Body } from "./Details.styles";
 import { connect } from "react-redux";
 import Layout from "../../components/Layout";
 import DetailsBook from "./components/DetailsBook";
@@ -9,8 +9,13 @@ import { removeLivro, showModal } from "../../store/actions";
 import { withRouter } from "react-router-dom";
 import SinopseBook from "./components/SinopseBook";
 
-
-export const Details = ({ detalhes, history, funcaoConfirma, cancel, showModal }) => {
+export const Details = ({
+  detalhes,
+  history,
+  funcaoConfirma,
+  cancel,
+  showModal
+}) => {
   if (Object.keys(detalhes).length === 0) {
     {
       history.push("/home");
@@ -20,16 +25,18 @@ export const Details = ({ detalhes, history, funcaoConfirma, cancel, showModal }
   return (
     <Layout>
       {showModal && (
-      <ModalComponent
-        temaModal="Deseja excluir o item?"
-        mensagem="O item selecionado será excluído permanentemente."
-        onClose={cancel}
-        funcaoConfirma={funcaoConfirma}
-        cancel={cancel}
-      />
-    )}
-      <DetailsBook livro={detalhes} />
-      <SinopseBook livro={detalhes} />
+        <ModalComponent
+          temaModal="Deseja excluir o item?"
+          mensagem="O item selecionado será excluído permanentemente."
+          onClose={cancel}
+          funcaoConfirma={funcaoConfirma}
+          cancel={cancel}
+        />
+      )}
+      <Body>
+        <DetailsBook livro={detalhes} />
+        <SinopseBook livro={detalhes} />
+      </Body>
     </Layout>
   );
 };
@@ -52,4 +59,6 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Details));
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(Details)
+);
