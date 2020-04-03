@@ -2,14 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import {
-  ModalBody,
+  Body,
+  ModalComponent,
+  TituloContainer,
   Table,
-  Tr,
   Th,
   TotalContainer,
   ButtonGroup,
-  Overlay,
-  Linha
+  Overlay
 } from "./CartModal.styles";
 import Titulo from "../Title";
 import Text from "../Text";
@@ -31,41 +31,44 @@ export const CartModal = ({ carrinho, showCarrinho, onClose }) => {
     return (
       <>
         <Overlay onClick={onClose} />
-        <ModalBody>
+        <Body>
           <Titulo>Meu Carrinho</Titulo>
           <Text>Carrinho vazio! Comece a comprar agora.</Text>
-        </ModalBody>
+        </Body>
       </>
     );
   }
   return (
     <>
       <Overlay onClick={onClose} />
-      <ModalBody>
-        <Titulo>Meu carrinho</Titulo>
-        <Table>
-          <thead>
-            <Tr>
-              <Th></Th>
-              <Th>
-                <Text>Título</Text>
-              </Th>
-              <Th>
-                <Text>Qnt.</Text>
-              </Th>
-              <Th>
-                <Text>Preço</Text>
-              </Th>
-              <Th></Th>
-            </Tr>
-            
-          </thead>
-          <tbody>
-            {carrinho.map((item, index) => {
-              return <ItemCart key={index} item={item} />;
-            })}
-          </tbody>
-        </Table>
+      <Body>
+        <TituloContainer>
+          <Titulo>Meu carrinho</Titulo>
+        </TituloContainer>
+        <ModalComponent>
+          <Table>
+            <thead>
+              <tr>
+                <Th></Th>
+                <Th>
+                  <Text>Título</Text>
+                </Th>
+                <Th>
+                  <Text>Qnt.</Text>
+                </Th>
+                <Th>
+                  <Text>Preço</Text>
+                </Th>
+                <Th></Th>
+              </tr>
+            </thead>
+            <tbody>
+              {carrinho.map((item, index) => {
+                return <ItemCart key={index} item={item} />;
+              })}
+            </tbody>
+          </Table>
+        </ModalComponent>
         <TotalContainer>
           <Titulo>Total da compra:</Titulo>
           <Text> R$ {somaCarrinho(carrinho)}</Text>
@@ -75,7 +78,7 @@ export const CartModal = ({ carrinho, showCarrinho, onClose }) => {
             <Text color="white">Finalizar Compra</Text>
           </Button>
         </ButtonGroup>
-      </ModalBody>
+      </Body>
     </>
   );
 };
