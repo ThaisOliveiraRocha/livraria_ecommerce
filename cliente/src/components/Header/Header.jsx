@@ -25,6 +25,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import InputBase from "@material-ui/core/InputBase";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
+import ModalUser from "../ModalUser/ModalUser";
 
 const totalCart = carrinho => {
   const total = carrinho.reduce((aux, livro) => {
@@ -36,6 +37,8 @@ const totalCart = carrinho => {
 
 const Header = ({ carrinho, history, user }) => {
   const [showModal, setModalStatus] = useState(false);
+  const [showModalUser, setModalUserStatus] = useState(false);
+
   return (
     <Container>
       <HomeComponent onClick={() => history.push("/home")}>
@@ -71,7 +74,7 @@ const Header = ({ carrinho, history, user }) => {
             </CartButtonComponent>
           </Button>
         ) : (
-          <Button onClick={() => history.push("/info-user")}>
+          <Button onClick={() => setModalUserStatus(!showModalUser)}>
             <CartButtonComponent>
               <CartImage>
                 <AccountCircleIcon style={{ marginRight: "5px" }} />
@@ -96,6 +99,9 @@ const Header = ({ carrinho, history, user }) => {
       </CartContainer>
       {showModal && (
         <CartModal carrinho={carrinho} onClose={() => setModalStatus(false)} />
+      )}
+      {showModalUser && (
+        <ModalUser user={user} onClose={() => setModalUserStatus(false)} />
       )}
     </Container>
   );
