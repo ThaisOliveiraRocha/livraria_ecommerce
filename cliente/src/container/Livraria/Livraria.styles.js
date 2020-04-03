@@ -15,6 +15,8 @@ export const SliderContainer = styled.div`
   justify-content: center;
   width: 100%;
   margin-bottom: 40px;
+  position: relative;
+  top: 100px;
 `;
 
 export const CardContainer = styled.div`
@@ -23,4 +25,14 @@ export const CardContainer = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
+`;
+
+export const ProductsContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  margin-top: 100px;
 `;

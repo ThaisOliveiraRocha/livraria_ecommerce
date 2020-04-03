@@ -10,7 +10,8 @@ import Slider from "../../components/Slider";
 import {
   LivrariaContainer,
   SliderContainer,
-  CardContainer
+  CardContainer,
+  ProductsContainer
 } from "./Livraria.styles";
 import Titulo from "../../components/Title";
 
@@ -29,12 +30,14 @@ const Livraria = ({ livros, showModal, funcaoConfirma, cancel }) => (
       <SliderContainer>
         <Slider />
       </SliderContainer>
-      <Titulo font="22px">Conheça nossos produtos</Titulo>
-      <CardContainer>
-        {livros.map((livro, index) => {
-          return <Card key={index} livro={livro} />;
-        })}
-      </CardContainer>
+      <ProductsContainer>
+        <Titulo font="22px">Conheça nossos produtos</Titulo>
+        <CardContainer>
+          {livros.map((livro, index) => {
+            return <Card key={index} livro={livro} />;
+          })}
+        </CardContainer>
+      </ProductsContainer>
     </LivrariaContainer>
   </Layout>
 );

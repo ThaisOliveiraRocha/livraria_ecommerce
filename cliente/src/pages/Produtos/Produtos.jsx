@@ -15,6 +15,7 @@ import Layout from "../../components/Layout";
 import UpdateBook from "../../container/UpdateBook";
 import { getBooks } from "../../api";
 import { getLivros, setTitulo } from "../../store/actions";
+import { Body } from "./Produtos.styles";
 import DeleteBook from "../../container/DeleteBook/DeleteBook";
 
 function TabPanel(props) {
@@ -86,7 +87,7 @@ const Produtos = ({livros, getLivros, setTitulo}) => {
 
   return (
     <Layout>
-      <div className={classes.root}>
+      <Body>
         <AppBar position="static">
           <Tabs
             variant="fullWidth"
@@ -134,7 +135,7 @@ const Produtos = ({livros, getLivros, setTitulo}) => {
         >
           <DeleteBook />
         </TabPanel>
-      </div>
+      </Body>
     </Layout>
   );
 };
