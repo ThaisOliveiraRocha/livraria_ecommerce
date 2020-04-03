@@ -8,4 +8,7 @@ export const Body = styled.div`
   height: 40px;
   padding: 10px;
   background-color: #dadada;
+  position:fixed;
+  top: 70px;
+  z-index: 1;
 `;

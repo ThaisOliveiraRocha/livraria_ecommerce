@@ -7,6 +7,9 @@ export const Container = styled.div`
   padding: 20px 10px 20px 50px;
   align-items: center;
   background-color: #2a7886;
+  position: fixed;
+  top: 0;
+  z-index: 2;
 `;
 
 export const Image = styled.img`
