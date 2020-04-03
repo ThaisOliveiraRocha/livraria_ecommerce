@@ -8,4 +8,7 @@ export const FooterComponent = styled.div`
  width: 100%;
  height: 50px;
  background-color: #2a7886;
+ position: absolute;
+ margin-bottom: 0px;
+ left: 0px;
 `;
