@@ -10,25 +10,25 @@ import Divider from "@material-ui/core/Divider";
 const MenuBar = ({history, isAdm}) => (
   <>
     <Body>
-      <Button background="#dadada" color="black" onClick={() => history.push("/home")}>
+      <Button background="#e5e5e5" color="#464159" onClick={() => history.push("/home")}>
         HOME
       </Button>
       <Divider style={{ heigth: "28", margin: "4" }} orientation="vertical" />
-      <Button background="#dadada" color="black" onClick={() => history.push("/promocao")}>
+      <Button background="#e5e5e5" color="#464159" onClick={() => history.push("/promocao")}>
         PROMOÇÕES
       </Button>
       <Divider style={{ heigth: "28", margin: "4" }} orientation="vertical" />
-      <Button background="#dadada" color="black" onClick={() => history.push("/sobre-nos")}>
+      <Button background="#e5e5e5" color="#464159" onClick={() => history.push("/sobre-nos")}>
         SOBRE
       </Button>
       <Divider style={{ heigth: "28", margin: "4" }} orientation="vertical" />
-      <Button background="#dadada" color="black" onClick={() => history.push("/contato")}>
+      <Button background="#e5e5e5" color="#464159" onClick={() => history.push("/contato")}>
         CONTATO
       </Button>
       {(isAdm==="1") && (
         <>
         <Divider style={{ heigth: "28", margin: "4" }} orientation="vertical" />
-        <Button background="#dadada" color="black" onClick={() => history.push("/gerenciarProdutos")}>
+        <Button background="#e5e5e5" color="#464159" onClick={() => history.push("/gerenciarProdutos")}>
           GERENCIAR
         </Button>
         </>

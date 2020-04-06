@@ -7,7 +7,7 @@ export const Body = styled.div`
   width: 100%;
   height: 40px;
   padding: 10px;
-  background-color: #dadada;
+  background-color: #e5e5e5;
   position:fixed;
   top: 70px;
   z-index: 1;
