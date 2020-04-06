@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   width: 100%;
   height: 70px;
-  padding: 20px 25px 20px 25px;
+  padding: 20px 25px 20px 40px;
   justify-content: center;
   align-items: center;
   background-color: #2a7886;
@@ -26,17 +26,17 @@ export const CartImage = styled.div`
 
 export const QuantidadeItens = styled.span`
   border-radius: 50%;
-  background-color: red;
+  background-color: #fe416d;
   font-size: 12px;
-  width: 15px;
-  height: 15px;
+  width: 16px;
+  height: 16px;
 
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
-  top: 8px;
-  left: 45px;
+  position: fixed;
+  top: 10px;
+  right: 115px;
 `;
 
 export const CartButtonComponent = styled.span`
@@ -50,20 +50,6 @@ export const HomeComponent = styled.div`
   justify-content: flex-start;
   width: 50%;
   flex-grow: 1;
-`;
-
-export const CartContainer = styled.div`
-  width: 25%;
-  justify-content: flex-end;
-  display: flex;
-  align-items: center;
-`;
-
-export const UserComponent = styled.div`
-  width: 25%;
-  justify-content: center;
-  display: flex;
-  align-items: center;
 `;
 
 export const ButtonsComponent = styled.div`

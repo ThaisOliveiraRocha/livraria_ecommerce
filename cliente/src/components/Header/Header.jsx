@@ -3,13 +3,11 @@ import PropTypes from "prop-types";
 import {
   Container,
   Image,
-  CartContainer,
   CartImage,
   QuantidadeItens,
   HomeComponent,
   CartButtonComponent,
-  UserComponent,
-  ButtonsComponent
+  ButtonsComponent,
 } from "./Header.styles";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
@@ -57,40 +55,39 @@ const Header = ({ carrinho, history, user }) => {
         </Titulo>
       </HomeComponent>
       <ButtonsComponent>
-        <UserComponent>
-          {!user.nome ? (
-            <Button onClick={() => history.push("/login")}>
-              <CartButtonComponent>
-                <CartImage>
-                  <ExitToAppIcon style={{ marginRight: "5px" }} />
-                </CartImage>
-                <Texto color="white">Fazer Login!</Texto>
-              </CartButtonComponent>
-            </Button>
-          ) : (
-            <Button onClick={() => setModalUserStatus(!showModalUser)}>
-              <CartButtonComponent>
-                <CartImage>
-                  <AccountCircleIcon style={{ marginRight: "5px" }} />
-                </CartImage>
-                <Texto color="white">Olá, {user.nome}!</Texto>
-              </CartButtonComponent>
-            </Button>
-          )}
-        </UserComponent>
-        <CartContainer onClick={() => setModalStatus(!showModal)}>
-          <Button>
+        {!user.nome ? (
+          <Button onClick={() => history.push("/login")}>
             <CartButtonComponent>
               <CartImage>
-                <ShoppingCartIcon />
+                <ExitToAppIcon style={{ marginRight: "5px" }} />
               </CartImage>
-              <Titulo color="white">Carrinho</Titulo>
+              <Texto color="white">Fazer Login!</Texto>
             </CartButtonComponent>
           </Button>
-          {carrinho.length > 0 && (
-            <QuantidadeItens>{totalCart(carrinho)}</QuantidadeItens>
-          )}
-        </CartContainer>
+        ) : (
+          <Button onClick={() => setModalUserStatus(!showModalUser)}>
+            <CartButtonComponent>
+              <CartImage>
+                <AccountCircleIcon style={{ marginRight: "5px" }} />
+              </CartImage>
+              <Texto color="white">Olá, {user.nome}!</Texto>
+            </CartButtonComponent>
+          </Button>
+        )}
+
+        <Button onClick={() => setModalStatus(!showModal)}>
+          <CartButtonComponent>
+            <CartImage>
+              <ShoppingCartIcon />
+            </CartImage>
+            {carrinho.length > 0 && (
+              <QuantidadeItens>
+                <Texto color="white">{totalCart(carrinho)}</Texto>
+              </QuantidadeItens>
+            )}
+            <Titulo color="white">Carrinho</Titulo>
+          </CartButtonComponent>
+        </Button>
       </ButtonsComponent>
       {showModal && (
         <CartModal carrinho={carrinho} onClose={() => setModalStatus(false)} />
