@@ -4,7 +4,8 @@ export const Container = styled.div`
   display: flex;
   width: 100%;
   height: 70px;
-  padding: 20px 10px 20px 50px;
+  padding: 20px 25px 20px 25px;
+  justify-content: center;
   align-items: center;
   background-color: #2a7886;
   position: fixed;
@@ -18,22 +19,9 @@ export const Image = styled.img`
   margin-right: 5px;
 `;
 
-export const CartContainer = styled.div`
-  display: flex;
-  color: #ffffff;
-  align-items: center;
-  position: relative;
-`;
-
 export const CartImage = styled.div`
   width: 30px;
   height: auto;
-`;
-
-export const HomeComponent = styled.div`
-  display: flex;
-  align-items: center;
-  flex-grow: 1;
 `;
 
 export const QuantidadeItens = styled.span`
@@ -56,30 +44,31 @@ export const CartButtonComponent = styled.span`
   align-items: center;
 `;
 
-export const UserComponent = styled.div`
+export const HomeComponent = styled.div`
   display: flex;
   align-items: center;
-  flex-grow: 1;
   justify-content: flex-start;
-`;
-
-export const FilterComponent = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-grow: 1;
-  width: 80%;
-  height: 30px;
-  margin-left: 20px;
-`;
-
-export const Filter = styled.div`
-  display: flex;
-  align-items: center;
   width: 50%;
-  height: 30px;
-  border-radius: 3px;
-  border: 1px solid rgba(157, 171, 181);
-  background-color: #f1f3f4;
-  color: rgba(57, 59, 60);
+  flex-grow: 1;
+`;
+
+export const CartContainer = styled.div`
+  width: 25%;
+  justify-content: flex-end;
+  display: flex;
+  align-items: center;
+`;
+
+export const UserComponent = styled.div`
+  width: 25%;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+`;
+
+export const ButtonsComponent = styled.div`
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 `;
