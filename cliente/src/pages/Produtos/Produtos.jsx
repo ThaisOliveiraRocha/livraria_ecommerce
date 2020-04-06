@@ -88,7 +88,7 @@ const Produtos = ({livros, getLivros, setTitulo}) => {
   return (
     <Layout>
       <Body>
-        <AppBar position="static">
+        <AppBar position="static" style={{zIndex: "0"}}>
           <Tabs
             variant="fullWidth"
             value={value}
@@ -120,7 +120,6 @@ const Produtos = ({livros, getLivros, setTitulo}) => {
             alignItems: "center",
             justifyContent: "center"
           }}
-          
         >
           <UpdateBook />
         </TabPanel>
