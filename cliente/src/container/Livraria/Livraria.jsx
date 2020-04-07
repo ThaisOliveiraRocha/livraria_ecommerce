@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Layout from "../../components/Layout";
@@ -23,6 +23,7 @@ import IconButton from "@material-ui/core/IconButton";
 import SearchIcon from "@material-ui/icons/Search";
 import Button from "../../components/Button";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
+import { replaceSpecialCharacter } from "../../utils";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "3px",
     backgroundColor: "white",
     marginTop: "30px",
-    marginBottom: "20px"
+    marginBottom: "20px",
   },
   input: {
     marginLeft: theme.spacing(1),
@@ -51,6 +52,21 @@ const useStyles = makeStyles((theme) => ({
 
 const Livraria = ({ livros, showModal, funcaoConfirma, cancel }) => {
   const classes = useStyles();
+  const [bookList, setBookList] = useState([]);
+
+  useEffect(() => {
+    setBookList(livros);
+  }, [livros]);
+
+  const filterOptions = (value) => {
+    console.log("value ", value);
+    let novosLivros = livros.filter(
+      (item) =>
+      replaceSpecialCharacter(item.titulo).indexOf(replaceSpecialCharacter(value)) === 0
+    );
+    setBookList(novosLivros);
+  };
+
   return (
     <Layout>
       {showModal && (
@@ -79,8 +95,8 @@ const Livraria = ({ livros, showModal, funcaoConfirma, cancel }) => {
               className={classes.input}
               placeholder="Pesquisar..."
               name="pesquisar"
-              autoFocus="true"
               inputProps={{ "aria-label": "search" }}
+              onChange={(e) => filterOptions(e.target.value)}
             />
             <IconButton
               type="submit"
@@ -92,7 +108,7 @@ const Livraria = ({ livros, showModal, funcaoConfirma, cancel }) => {
           </div>
 
           <CardContainer>
-            {livros.map((livro, index) => {
+            {bookList.map((livro, index) => {
               return <Card key={index} livro={livro} />;
             })}
           </CardContainer>
