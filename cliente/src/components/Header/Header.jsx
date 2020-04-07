@@ -18,13 +18,8 @@ import CartModal from "../CartModal";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
-import SearchIcon from "@material-ui/icons/Search";
-import InputBase from "@material-ui/core/InputBase";
-import IconButton from "@material-ui/core/IconButton";
-import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import ModalUser from "../ModalUser/ModalUser";
-
-import TextField from "@material-ui/core/TextField";
+import { getUserSession } from "../../api";
 
 const totalCart = (carrinho) => {
   const total = carrinho.reduce((aux, livro) => {
@@ -44,7 +39,7 @@ const Header = ({ carrinho, history, user }) => {
   ];
   const [showModal, setModalStatus] = useState(false);
   const [showModalUser, setModalUserStatus] = useState(false);
-  const [showFilter, setFilter] = useState(false);
+  const userLogado = JSON.parse(getUserSession());
 
   return (
     <Container>
@@ -55,7 +50,7 @@ const Header = ({ carrinho, history, user }) => {
         </Titulo>
       </HomeComponent>
       <ButtonsComponent>
-        {!user.nome ? (
+        {(userLogado === null) ? (
           <Button onClick={() => history.push("/login")}>
             <CartButtonComponent>
               <CartImage>
@@ -70,7 +65,7 @@ const Header = ({ carrinho, history, user }) => {
               <CartImage>
                 <AccountCircleIcon style={{ marginRight: "5px" }} />
               </CartImage>
-              <Texto color="white">Olá, {user.nome}!</Texto>
+              <Texto color="white">Olá, {userLogado.nome}!</Texto>
             </CartButtonComponent>
           </Button>
         )}
@@ -93,7 +88,7 @@ const Header = ({ carrinho, history, user }) => {
         <CartModal carrinho={carrinho} onClose={() => setModalStatus(false)} />
       )}
       {showModalUser && (
-        <ModalUser user={user} onClose={() => setModalUserStatus(false)} />
+        <ModalUser user={userLogado} onClose={() => setModalUserStatus(false)} />
       )}
     </Container>
   );
@@ -106,6 +101,12 @@ Header.propTypes = {
 const mapStateToProps = (state) => ({
   carrinho: state.livraria.carrinho,
   user: state.livraria.user,
+});
+
+const mapDispatchToProps = (dispatch, { history }) => ({
+  history: (path) => {
+    history.push(path);
+  }
 });
 
 export default withRouter(connect(mapStateToProps)(Header));
