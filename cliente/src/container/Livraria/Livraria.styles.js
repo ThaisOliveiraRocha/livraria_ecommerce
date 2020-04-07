@@ -16,7 +16,7 @@ export const SliderContainer = styled.div`
   width: 100%;
   margin-bottom: 40px;
   position: relative;
-  top: 100px;
+  margin-top: 50px;
 `;
 
 export const CardContainer = styled.div`
@@ -34,5 +34,4 @@ export const ProductsContainer = styled.div`
   flex-direction: column;
   width: 100%;
   height: 100%;
-  margin-top: 100px;
 `;
