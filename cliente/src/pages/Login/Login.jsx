@@ -9,7 +9,7 @@ import {
   LinkComponent,
   Row,
   ColText,
-  ColInput
+  ColInput,
 } from "./Login.styles";
 import Button from "../../components/Button";
 import Titulo from "../../components/Title";
@@ -17,17 +17,17 @@ import Texto from "../../components/Text";
 import Input from "../../components/Input";
 import { GlobalStyles } from "../../assets/styles/GlobalStyles";
 import { Link } from "react-router-dom";
-import { authenticateUser } from "../../api";
+import { authenticateUser, setUserSession } from "../../api";
 import { getLogin, isAdm } from "../../store/actions";
 
-const Login = props => {
+const Login = (props) => {
   return (
     <>
       <GlobalStyles />
       <Body>
         <Formik
           initialValues={{ email: "", senha: "" }}
-          validate={values => {
+          validate={(values) => {
             const errors = {};
             if (!values.email) {
               errors.email = "Required";
@@ -47,17 +47,23 @@ const Login = props => {
               console.log(infoUser);
 
               authenticateUser(infoUser)
-                .then(response => {
+                .then((response) => {
                   const data = response.data;
-                  console.log(data);
                   props.getLogin(data);
                   props.isAdm(data.isAdm);
+
+                  const session = {
+                    nome: data.nome,
+                    email: data.email,
+                    isAdm: data.isAdm
+                  };
+                  setUserSession(JSON.stringify(session));
 
                   data.isAdm === "1"
                     ? props.history("/gerenciarProdutos")
                     : props.history("/home");
                 })
-                .catch(e => console.log(e));
+                .catch((e) => console.log(e));
 
               setSubmitting(false);
             }, 400);
@@ -124,20 +130,20 @@ Login.defaultProps = {
   // bla: 'test',
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   //
 });
 
 const mapDispatchToProps = (dispatch, { history }) => ({
-  getLogin: user => {
+  getLogin: (user) => {
     dispatch(getLogin(user));
   },
-  history: path => {
+  history: (path) => {
     history.push(path);
   },
-  isAdm: adm => {
+  isAdm: (adm) => {
     dispatch(isAdm(adm));
-  }
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
