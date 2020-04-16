@@ -1,10 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { TextComponent } from './Text.styles';
+import React from "react";
+import PropTypes from "prop-types";
+import { TextComponent } from "./Text.styles";
 
-const Text = ({children, color}) => (
-  <TextComponent color={color}>{children}</TextComponent>
-);
+const Text = ({ font, children, color, bold }) => {
+  return (
+    <TextComponent font={font} color={color} bold={bold}>
+      {children}
+    </TextComponent>
+  );
+};
 
 Text.propTypes = {
   // bla: PropTypes.string,

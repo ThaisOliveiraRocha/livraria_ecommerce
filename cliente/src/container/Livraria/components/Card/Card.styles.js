@@ -4,27 +4,21 @@ export const CardContainer = styled.div`
   display: flex;
   margin: 15px;
   flex-direction: column;
-  width: 350px;
-  height: 330px;
+  width: 250px;
+  height: 350px;
 
   background-color: white;
-  border-radius: 15px;
-  border: 1px solid #043277;
+  border-radius: 5px;
+  border: 1px solid #79bac1;
 `;
 
 export const CardBody = styled.div`
   display: flex;
   align-items: center;
-  margin: 10px;
-  cursor: pointer;
-`;
-
-export const TopCard = styled.div`
-  display: flex;
-  align-items: center;
   justify-content: center;
   flex-direction: column;
   margin: 10px;
+  cursor: pointer;
 `;
 
 export const TopTitle = styled.div`
@@ -38,14 +32,7 @@ export const ImageCard = styled.img`
   width: auto;
   height: 160px;
   display: flex;
-  align-self: flex-start;
-`;
-
-export const InfoCard = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 10px;
+  align-self: center;
 `;
 
 export const CardButton = styled.div`
@@ -55,16 +42,16 @@ export const CardButton = styled.div`
   margin: 10px;
 `;
 
-export const Titulo = styled.span`
+export const Row = styled.div`
   display: flex;
-  text-align: center;
-  flex-grow: 1;
-  font-size: 18px;
-  font-weight: 700;
+  align-items: center;
+  width: 100%;
 `;
 
-export const Texto = styled.span`
-  flex-grow: 1;
-  font-size: 14px;
-  margin-top: 5px;
+export const Col = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10px;
 `;

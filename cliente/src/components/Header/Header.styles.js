@@ -3,60 +3,58 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   width: 100%;
-  height: 90px;
-  padding: 10px;
-
+  height: 70px;
+  padding: 20px 25px 20px 40px;
+  justify-content: center;
   align-items: center;
-  background-color: #003d99;
+  background-color: #2a7886;
+  position: fixed;
+  top: 0;
+  z-index: 2;
 `;
 
 export const Image = styled.img`
-  width: 50px;
+  width: 40px;
   height: auto;
   margin-right: 5px;
 `;
 
-export const Titulo = styled.span`
-  flex-grow: 1;
-  color: #ffffff;
-  font-size: 26px;
-  font-weight: 700;
-`;
-
-export const CartContainer = styled.div`
-  display: flex;
-  color: #ffffff;
-  align-items: center;
-
-  margin-right: 15px;
-  position: relative;
-`;
-
-export const CartImage = styled.img`
+export const CartImage = styled.div`
   width: 30px;
   height: auto;
-  margin-right: 10px;
+`;
+
+export const QuantidadeItens = styled.span`
+  border-radius: 50%;
+  background-color: #fe416d;
+  font-size: 12px;
+  width: 16px;
+  height: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 10px;
+  right: 115px;
+`;
+
+export const CartButtonComponent = styled.span`
+  display: flex;
+  align-items: center;
 `;
 
 export const HomeComponent = styled.div`
   display: flex;
   align-items: center;
+  justify-content: flex-start;
+  width: 50%;
   flex-grow: 1;
 `;
 
-export const QuantidadeItens = styled.span`
-  border-radius: 50%;
-  background-color: red;
-  font-weight: 300;
-  width: 20px;
-  height: 20px;
-
+export const ButtonsComponent = styled.div`
+  width: 50%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: 5px;
-  left: 45px;
-
-  margin-left: 10px;
+  justify-content: flex-end;
 `;

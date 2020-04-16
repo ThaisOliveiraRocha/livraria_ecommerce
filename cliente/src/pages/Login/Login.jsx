@@ -4,104 +4,123 @@ import { connect } from "react-redux";
 import { Formik } from "formik";
 import {
   Body,
-  Modal,
+  FormComponent,
   LabelComponent,
-  InputComponent,
-  LinkComponent
+  LinkComponent,
+  Row,
+  ColText,
+  ColInput,
 } from "./Login.styles";
 import Button from "../../components/Button";
 import Titulo from "../../components/Title";
 import Texto from "../../components/Text";
+import Input from "../../components/Input";
 import { GlobalStyles } from "../../assets/styles/GlobalStyles";
 import { Link } from "react-router-dom";
-import { authenticateUser } from "../../api";
+import { authenticateUser, setUserSession } from "../../api";
+import { getLogin, isAdm } from "../../store/actions";
 
-import { getLogin } from "../../store/actions";
+const Login = (props) => {
+  return (
+    <>
+      <GlobalStyles />
+      <Body>
+        <Formik
+          initialValues={{ email: "", senha: "" }}
+          validate={(values) => {
+            const errors = {};
+            if (!values.email) {
+              errors.email = "Required";
+            } else if (
+              !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+            ) {
+              errors.email = "Invalid email address";
+            }
+            return errors;
+          }}
+          onSubmit={(values, { setSubmitting }) => {
+            setTimeout(() => {
+              const infoUser = values;
 
-const Login = props => (
-  <>
-    <GlobalStyles />
-    <Body>
-      <Formik
-        initialValues={{ email: "", senha: "" }}
-        validate={values => {
-          const errors = {};
-          if (!values.email) {
-            errors.email = "Required";
-          } else if (
-            !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-          ) {
-            errors.email = "Invalid email address";
-          }
-          return errors;
-        }}
-        onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            const infoUser = values;
-            console.log(infoUser);
+              if (values.email === null || values.senha === null) return;
 
-            authenticateUser(infoUser)
-              .then(response => {
-                const data = response.data;
-                props.getLogin(data);
-                props.history();
-              })
-              .catch(e => console.log(e));
+              console.log(infoUser);
 
-            setSubmitting(false);
-          }, 400);
-        }}
-      >
-        {({
-          values,
-          handleChange,
-          handleSubmit,
-          isSubmitting
-          /* and other goodies */
-        }) => (
-          <form onSubmit={handleSubmit}>
-            <Modal>
-              <LabelComponent>
+              authenticateUser(infoUser)
+                .then((response) => {
+                  const data = response.data;
+                  props.getLogin(data);
+                  props.isAdm(data.isAdm);
+
+                  const session = {
+                    nome: data.nome,
+                    email: data.email,
+                    isAdm: data.isAdm
+                  };
+                  setUserSession(JSON.stringify(session));
+
+                  data.isAdm === "1"
+                    ? props.history("/gerenciarProdutos")
+                    : props.history("/home");
+                })
+                .catch((e) => console.log(e));
+
+              setSubmitting(false);
+            }, 400);
+          }}
+        >
+          {({ values, handleChange, handleSubmit, isSubmitting }) => (
+            <form onSubmit={handleSubmit}>
+              <FormComponent>
                 <Titulo font="22px">Bem-Vindo!</Titulo>
-              </LabelComponent>
-              <LabelComponent>
-                <Titulo>E-mail:</Titulo>
-                <InputComponent
-                  type="email"
-                  name="email"
-                  onChange={handleChange}
-                  value={values.email}
-                  placeholder="Digite o e-mail"
-                  required
-                />
-              </LabelComponent>
-              <LabelComponent>
-                <Titulo>Senha:</Titulo>
-                <InputComponent
-                  type="password"
-                  name="senha"
-                  onChange={handleChange}
-                  value={values.senha}
-                  placeholder="Digite a senha"
-                  required
-                />
-              </LabelComponent>
-              <LinkComponent>
-                <Link to="/cadastrar">Cadastrar</Link>
-                <Link to="/alterar">Esqueci a senha</Link>
-              </LinkComponent>
-              <LabelComponent>
-                <Button type="submit" disabled={isSubmitting}>
-                  <Texto color="white">Login</Texto>
-                </Button>
-              </LabelComponent>
-            </Modal>
-          </form>
-        )}
-      </Formik>
-    </Body>
-  </>
-);
+                <Row>
+                  <ColText>
+                    <Titulo>E-mail:</Titulo>
+                  </ColText>
+                  <ColInput>
+                    <Input
+                      type="email"
+                      name="email"
+                      onChange={handleChange}
+                      value={values.email}
+                      placeholder="Digite o e-mail"
+                      required
+                    />
+                  </ColInput>
+                </Row>
+
+                <Row>
+                  <ColText>
+                    <Titulo>Senha:</Titulo>
+                  </ColText>
+                  <ColInput>
+                    <Input
+                      type="password"
+                      name="senha"
+                      onChange={handleChange}
+                      value={values.senha}
+                      placeholder="Digite a senha"
+                      required
+                    />
+                  </ColInput>
+                </Row>
+                <LinkComponent>
+                  <Link to="/cadastrar">Cadastrar</Link>
+                  <Link to="/alterar">Esqueci a senha</Link>
+                </LinkComponent>
+                <LabelComponent>
+                  <Button type="submit" disabled={isSubmitting}>
+                    <Texto color="white">Login</Texto>
+                  </Button>
+                </LabelComponent>
+              </FormComponent>
+            </form>
+          )}
+        </Formik>
+      </Body>
+    </>
+  );
+};
 
 Login.propTypes = {
   // bla: PropTypes.string,
@@ -111,17 +130,20 @@ Login.defaultProps = {
   // bla: 'test',
 };
 
-const mapStateToProps = state => ({
-  // blabla: state.blabla,
+const mapStateToProps = (state) => ({
+  //
 });
 
 const mapDispatchToProps = (dispatch, { history }) => ({
-  getLogin: user => {
-    dispatch(getLogin(user))
+  getLogin: (user) => {
+    dispatch(getLogin(user));
   },
-  history: () => {
-    history.push("/home");
-  }
+  history: (path) => {
+    history.push(path);
+  },
+  isAdm: (adm) => {
+    dispatch(isAdm(adm));
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

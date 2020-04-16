@@ -90,11 +90,11 @@ export const Carrinho = ({
           <Text> R$ {somaCarrinho(carrinho)}</Text>
         </TotalContainer>
         <ButtonContainer>
-          <Button background="green" onClick={() => showCompra(true)} className="btnFinalizar">
-            Finalizar
+          <Button onClick={() => showCompra(true)} className="btnFinalizar">
+            <Text color="white">Finalizar Compra</Text>
           </Button>
-          <Button background="red" onClick={() => history.push("/")} className="btnCancelar">
-            Cancelar
+          <Button background="#818A96" onClick={() => history.push("/home")} className="btnCancelar">
+            <Text color="white">Cancelar</Text>
           </Button>
         </ButtonContainer>
       </BodyCart>

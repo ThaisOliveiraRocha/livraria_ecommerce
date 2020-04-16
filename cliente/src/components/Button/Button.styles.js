@@ -9,17 +9,20 @@ export const ButtonComponent = styled.button`
   align-items: center;
   justify-content: center;
   background-color: ${({ background }) =>
-    background ? background : "#003d99"};
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  color: white;
+    background ? background : "#2a7886"};
+  color: ${({ color }) => (color ? color : "white")};
   font-size: 14px;
-  font-weight: 600;
-  width: ${({ width }) => (width ? width : "170px")};
-  padding: 15px;
+  width: ${({ width }) => (width ? width : "150px")};
+  padding: 10px;
+  margin: 5px;
 
   border: none;
   border-radius: 3px;
   outline: none;
+
+  &:hover {
+    color: #fe416d;
+  }
 
   cursor: pointer;
   &:active {
