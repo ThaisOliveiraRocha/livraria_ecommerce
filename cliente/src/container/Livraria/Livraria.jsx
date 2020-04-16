@@ -62,7 +62,9 @@ const Livraria = ({ livros, showModal, funcaoConfirma, cancel }) => {
     console.log("value ", value);
     let novosLivros = livros.filter(
       (item) =>
-      replaceSpecialCharacter(item.titulo).indexOf(replaceSpecialCharacter(value)) === 0
+        replaceSpecialCharacter(item.titulo).indexOf(
+          replaceSpecialCharacter(value)
+        ) === 0
     );
     setBookList(novosLivros);
   };
@@ -85,7 +87,10 @@ const Livraria = ({ livros, showModal, funcaoConfirma, cancel }) => {
         <ProductsContainer>
           <Titulo font="22px">Conheça nossos produtos</Titulo>
           <div className={classes.root}>
-            <Button background="transparent" width="80px">
+            <Button
+              background="transparent"
+              width="80px"
+            >
               <Texto color="#2a7886">Filtrar</Texto>
               <Texto color="#2a7886">
                 <KeyboardArrowDownIcon />
@@ -93,7 +98,7 @@ const Livraria = ({ livros, showModal, funcaoConfirma, cancel }) => {
             </Button>
             <InputBase
               className={classes.input}
-              placeholder="Pesquisar..."
+              placeholder="Pesquisar títulos"
               name="pesquisar"
               inputProps={{ "aria-label": "search" }}
               onChange={(e) => filterOptions(e.target.value)}
@@ -106,7 +111,6 @@ const Livraria = ({ livros, showModal, funcaoConfirma, cancel }) => {
               <SearchIcon />
             </IconButton>
           </div>
-
           <CardContainer>
             {bookList.map((livro, index) => {
               return <Card key={index} livro={livro} />;
