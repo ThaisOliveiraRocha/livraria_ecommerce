@@ -31,7 +31,7 @@ const ModalUser = ({ user, onClose, history }) => {
           </Row>
           <Row>
             <Col>
-              <Texto>{user.email}</Texto>
+              <Texto color="black">{user.email}</Texto>
             </Col>
           </Row>
         </UserComponent>
@@ -64,7 +64,13 @@ const ModalUser = ({ user, onClose, history }) => {
         />
         <Row>
           <Col>
-            <Button background="white" onClick={() => {localStorage.removeItem("userSession"); history('/home')}}>
+            <Button
+              background="white"
+              onClick={() => {
+                localStorage.removeItem("userSession");
+                history("/home");
+              }}
+            >
               <Texto>Sair</Texto>
             </Button>
           </Col>
@@ -89,7 +95,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch, { history }) => ({
   history: (path) => {
     history.push(path);
-  }
+  },
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ModalUser));
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(ModalUser)
+);

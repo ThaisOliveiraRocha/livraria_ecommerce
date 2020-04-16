@@ -21,7 +21,7 @@ export const ModalBody = styled.div`
   position: absolute;
   top: 60px;
   width: 200px;
-  height: 150px;
+  height: auto;
   right: 150px;
   padding: 10px;
   border: 1px solid #79bac1;
@@ -35,7 +35,7 @@ export const ModalBody = styled.div`
 
 export const UserComponent = styled.div`
   width: 100%;
-  height: 80px;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -56,6 +56,7 @@ export const Col = styled.div`
   align-items: center;
   justify-content: center;
   height: 30px;
+  padding: 10px;
 `;
 
 export const Overlay = styled.div`
